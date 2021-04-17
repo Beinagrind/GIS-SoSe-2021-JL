@@ -19,8 +19,8 @@ html{
     background-image: url(../Aufgabe1.3/Dateien/bg.png);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-
 }
+
 body {
     background-color: white;
     width: 800px;
@@ -164,7 +164,7 @@ button:hover {
 }
 
 ul {
-    text-align: middle;
+    text-align: center;
     margin-left: auto;
 }
 
@@ -309,7 +309,7 @@ section > p {
     }
 
     .cssheader img {
-        padding-top: 10;
+        
         margin-right: 15%;
         height: 55px;
         margin-left: 0%;
