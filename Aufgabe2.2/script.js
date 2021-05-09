@@ -35,7 +35,7 @@ var Aufgabe_1;
 })(Aufgabe_1 || (Aufgabe_1 = {}));
 var Aufgabe_1_c_mitKlasse;
 (function (Aufgabe_1_c_mitKlasse) {
-    class Studenten {
+    class Student {
         constructor(_name, _alter, _matrikelnummer) {
             this.name = _name;
             this.alter = _alter;
@@ -45,11 +45,11 @@ var Aufgabe_1_c_mitKlasse;
             console.log(this.name, this.alter, this.matrikelnummer);
         }
     }
-    let person1 = new Studenten("Ludwig", 19, 266612);
+    let person1 = new Student("Ludwig", 19, 266612);
     person1.ausgabePerson();
-    let person2 = new Studenten("Walter", 22, 245687);
+    let person2 = new Student("Walter", 22, 245687);
     person2.ausgabePerson();
-    let person3 = new Studenten("Billhardt", 21, 267213);
+    let person3 = new Student("Billhardt", 21, 267213);
     person3.ausgabePerson();
 })(Aufgabe_1_c_mitKlasse || (Aufgabe_1_c_mitKlasse = {}));
 var Aufgabe_2;
