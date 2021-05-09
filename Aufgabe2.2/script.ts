@@ -72,7 +72,7 @@ namespace Aufgabe_1 {
 
 namespace Aufgabe_1_c_mitKlasse {
 
-    class Studenten {
+    class Student {
 
         name: string;
         alter: number;
@@ -92,13 +92,13 @@ namespace Aufgabe_1_c_mitKlasse {
 
     }
 
-    let person1: Studenten = new Studenten( "Ludwig", 19, 266612 ) ;
+    let person1: Student = new Student( "Ludwig", 19, 266612 ) ;
     person1.ausgabePerson();
 
-    let person2: Studenten = new Studenten( "Walter", 22, 245687 ) ;
+    let person2: Student = new Student( "Walter", 22, 245687 ) ;
     person2.ausgabePerson();
 
-    let person3: Studenten = new Studenten( "Billhardt", 21, 267213 ) ;
+    let person3: Student = new Student( "Billhardt", 21, 267213 ) ;
     person3.ausgabePerson();
 
 }
