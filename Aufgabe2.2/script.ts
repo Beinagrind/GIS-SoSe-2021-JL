@@ -240,14 +240,14 @@ namespace Aufgabe_3 {
 
     //Beispiel rechteck:
 
-    const recht1: rechteck = {
+   /* const recht1: rechteck = {
         width: 200,
         height: 300,
         positionX: 1000,
         positionY: 1000,
         color: "black",
         lineColor: "green"
-    };
+    }; */
 
 
     /* c) */
