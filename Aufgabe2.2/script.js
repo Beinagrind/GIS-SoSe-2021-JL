@@ -143,14 +143,14 @@ var Aufgabe_3;
     context.strokeStyle = "#ffffff";
     context.stroke();
     //Beispiel rechteck:
-    const recht1 = {
-        width: 200,
-        height: 300,
-        positionX: 1000,
-        positionY: 1000,
-        color: "black",
-        lineColor: "green"
-    };
+    /* const recht1: rechteck = {
+         width: 200,
+         height: 300,
+         positionX: 1000,
+         positionY: 1000,
+         color: "black",
+         lineColor: "green"
+     }; */
     /* c) */
     createRect();
     function createRect() {
