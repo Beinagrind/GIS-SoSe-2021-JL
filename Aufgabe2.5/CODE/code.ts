@@ -35,7 +35,7 @@ export interface Antrieb {
 
 async function getSpitze(): Promise<void> {
 
-    const response = await fetch("http://127.0.0.1:5500/Aufgabe2.5/JSON/spitze.json");
+    const response = await fetch("../JSON/spitze.json");
     const data: string = await response.json();
 
     console.log(data);
@@ -49,7 +49,7 @@ async function getSpitze(): Promise<void> {
 
 async function getKapsel(): Promise<void> {
 
-    const response = await fetch("http://127.0.0.1:5500/Aufgabe2.5/JSON/kapsel.json");
+    const response = await fetch("../JSON/kapsel.json");
     const data: string = await response.json();
 
     console.log(data);
@@ -63,7 +63,7 @@ async function getKapsel(): Promise<void> {
 
 async function getAntrieb(): Promise<void> {
 
-    const response = await fetch("http://127.0.0.1:5500/Aufgabe2.5/JSON/antrieb.json");
+    const response = await fetch("../JSON/antrieb.json");
     const data: string = await response.json();
 
     console.log(data);
@@ -344,5 +344,8 @@ interface Zusammen {
 }
 
 serverSend("https://gis-communication.herokuapp.com");
+
+// Mit ihrer Anfrage ist alles in Ordnung, aber der Server konnte diese derzeit nicht verarbeiten. Auch bekannt als Error 500 (Internal Server Error).
+// Ist was mir zurückgegeben wird.
 
 }
