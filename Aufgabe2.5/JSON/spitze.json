@@ -1,0 +1,5 @@
+[
+ {"name": "Spitze Spitze", "image": "../Raketenteile/spitze_1.png", "farbe": "rot", "länge": "20", "preis": "500"}, 
+ {"name": "Runde Spitze", "image": "../Raketenteile/spitze_2.png", "farbe": "grün", "länge": "5", "preis": "300"}, 
+ {"name": "Flache Spitze", "image": "../Raketenteile/spitze_3.png",  "farbe": "blau", "länge": "10", "preis": "350"} 
+]
