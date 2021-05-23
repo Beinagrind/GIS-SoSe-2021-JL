@@ -35,7 +35,7 @@ export interface Antrieb {
 
 async function getSpitze(): Promise<void> {
 
-    const response = await fetch("https://beinagrind.github.io/GIS-SoSe-2021-JL/Aufgabe2.5/JSON/spitze.json");
+    const response = await fetch("https://github.com/Beinagrind/GIS-SoSe-2021-JL/blob/main/Aufgabe2.5/JSON/spitze.json");
     const data: string = await response.json();
 
     console.log(data);
