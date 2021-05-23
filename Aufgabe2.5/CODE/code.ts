@@ -49,7 +49,7 @@ async function getSpitze(): Promise<void> {
 
 async function getKapsel(): Promise<void> {
 
-    const response = await fetch("https://beinagrind.github.io/GIS-SoSe-2021-JL/Aufgabe2.5/JSON/kapsel.json");
+    const response = await fetch("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Aufgabe2.5/JSON/spitze.json");
     const data: string = await response.json();
 
     console.log(data);
