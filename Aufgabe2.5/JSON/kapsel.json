@@ -1,0 +1,5 @@
+[
+ {"name": "Volle Kapsel", "image": "../Raketenteile/kapsel_1.png", "kapazitaet": "4", "farbe": "rot", "preis": "400"},
+ {"name": "Kapsel mit Fenstern", "image": "../Raketenteile/kapsel_2.png", "kapazitaet": "8", "farbe": "grün", "preis": "500"},
+ {"Sanduhr Kapsel": "kapsel3", "image": "../Raketenteile/kapsel_3.png", "kapazitaet": "2", "farbe": "blau", "preis": "250"} 
+]
