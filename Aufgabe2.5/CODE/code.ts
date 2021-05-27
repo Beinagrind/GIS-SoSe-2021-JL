@@ -303,7 +303,7 @@ function endergebnis(): void  {
 
 async function serverSend(_url: RequestInfo): Promise<void> {
 
-    let query: URLSearchParams = new URLSearchParams(<any>sessionStorage);
+    let query: URLSearchParams = new URLSearchParams(<any>localStorage);
     _url = _url + "?" + query.toString();
     console.log(query.toString());
 
