@@ -1,5 +1,0 @@
-[
- {"name": "Standard Antrieb", "image": "../Raketenteile/antrieb_1.png", "treibstoff": "10000", "farbe": "rot", "preis": "400"},
- {"name": "Antrieb mit extra Tank", "image": "../Raketenteile/antrieb_2.png", "treibstoff": "25000", "farbe": "grün", "preis": "800"},
- {"name": "Kleiner Antrieb", "image": "../Raketenteile/antrieb_3.png", "treibstoff": "6000", "farbe": "blau", "preis": "350"} 
-]
