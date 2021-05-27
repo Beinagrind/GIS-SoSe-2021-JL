@@ -3,19 +3,19 @@ var Aufgabe_2_5;
 (function (Aufgabe_2_5) {
     //Rakete mit 3 segmenten
     async function getSpitze() {
-        const response = await fetch("https://beinagrind.github.io/GIS-SoSe-2021-JL/Aufgabe2.5/JSON/antrieb.json");
+        const response = await fetch("https://beinagrind.github.io/GIS-SoSe-2021-JL/Aufgabe2.5/JSON/spitze.json");
         let spitze1 = await response.json();
         //let spitze1: Spitze[];
         //spitze1 = JSON.parse(JSON.stringify(data));
         anzeigeSpitze(spitze1);
     }
     async function getKapsel() {
-        const response = await fetch("http://127.0.0.1:5500/Aufgabe2.5/JSON/kapsel.json");
+        const response = await fetch("https://beinagrind.github.io/GIS-SoSe-2021-JL/Aufgabe2.5/JSON/kapsel.json");
         let kapsel1 = await response.json();
         kapselAuswahl(kapsel1);
     }
     async function getAntrieb() {
-        const response = await fetch("http://127.0.0.1:5500/Aufgabe2.5/JSON/antrieb.json"); //https://beinagrind.github.io/GIS-SoSe-2021-JL/Aufgabe2.5/JSON/antrieb.json
+        const response = await fetch("https://beinagrind.github.io/GIS-SoSe-2021-JL/Aufgabe2.5/JSON/antrieb.json"); //https://beinagrind.github.io/GIS-SoSe-2021-JL/Aufgabe2.5/JSON/antrieb.json ; http://127.0.0.1:5500/Aufgabe2.5/JSON/antrieb.json
         let antrieb1 = await response.json();
         antriebAuswahl(antrieb1);
     }
