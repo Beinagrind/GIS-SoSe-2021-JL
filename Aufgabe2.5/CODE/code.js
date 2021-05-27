@@ -168,7 +168,7 @@ var Aufgabe_2_5;
         }
     }
     async function serverSend(_url) {
-        let query = new URLSearchParams(sessionStorage);
+        let query = new URLSearchParams(localStorage);
         _url = _url + "?" + query.toString();
         console.log(query.toString());
         let antwort = await fetch(_url);
