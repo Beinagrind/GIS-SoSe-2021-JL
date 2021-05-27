@@ -35,10 +35,10 @@ export interface Antrieb {
 
 async function getSpitze(): Promise<void> {
 
-    const response = await fetch("http://127.0.0.1:5500/Aufgabe2.5/JSON/spitze.json");
+    const response = await fetch("https://marissa99.github.io/GIS-SoSe-2021/2.5Kommunikation/Source/data.json");
     const data: string = await response.json();
 
-    let spitze1, [] = data;
+    let spitze1: Spitze[] = await response.json();
 
     console.log(data);
 
