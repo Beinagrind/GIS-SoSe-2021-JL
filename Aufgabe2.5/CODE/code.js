@@ -19,7 +19,7 @@ var Aufgabe_2_5;
         kapselAuswahl(kapsel1);
     }
     async function getAntrieb() {
-        const response = await fetch("http://127.0.0.1:5500/Aufgabe2.5/JSON/antrieb.json");
+        const response = await fetch("http://127.0.0.1:5500/Aufgabe2.5/JSON/antrieb.json"); //https://beinagrind.github.io/GIS-SoSe-2021-JL/Aufgabe2.5/JSON/antrieb.json
         const data = await response.json();
         console.log(data);
         let antrieb1;
@@ -181,16 +181,18 @@ var Aufgabe_2_5;
         let antwort = await fetch(_url);
         console.log(antwort);
         let ausgabe = await antwort.json();
-        let rueckgabe = document.getElementById("anfrage");
+        let zurueck = document.getElementById("anfrage");
         if (ausgabe.error) {
-            rueckgabe.className = "Error";
-            rueckgabe.innerText = ausgabe.error;
+            zurueck.className = "Error";
+            zurueck.innerText = ausgabe.error;
         }
         else {
-            rueckgabe.className = "Message";
-            rueckgabe.innerText = ausgabe.Message;
+            zurueck.className = "Message";
+            zurueck.innerText = ausgabe.Message;
         }
     }
     serverSend("https://gis-communication.herokuapp.com");
+    // Mit ihrer Anfrage ist alles in Ordnung, aber der Server konnte diese derzeit nicht verarbeiten. Auch bekannt als Error 500 (Internal Server Error).
+    // Ist was mir zurückgegeben wird.
 })(Aufgabe_2_5 || (Aufgabe_2_5 = {}));
 //# sourceMappingURL=code.js.map
