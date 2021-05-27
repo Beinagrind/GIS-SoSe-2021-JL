@@ -1,7 +1,7 @@
 namespace Aufgabe_2_5 {
 
     //Rakete mit 3 segmenten
-    // habe alles vom Github link getestet, hat vollständig fuunktionier
+    //habe alles vom Github link getestet, hat vollständig fuunktionier
     //Verbesserung inbegriffen
 
 export interface Spitze {
@@ -324,7 +324,7 @@ async function serverSend(_url: RequestInfo): Promise<void> {
     else {
 
         zurueck.className = "Message";
-        zurueck.innerText  = ausgabe.Message;
+        zurueck.innerText  = ausgabe.message;
 
     }
 
@@ -336,7 +336,12 @@ interface Zusammen {
 
 }
 
-serverSend("https://gis-communication.herokuapp.com");
+if (window.location.href.includes("/endergebnis.html")) {
+
+    serverSend("https://gis-communication.herokuapp.com");
+
+}
+
 
 // Mit ihrer Anfrage ist alles in Ordnung, aber der Server konnte diese derzeit nicht verarbeiten. Auch bekannt als Error 500 (Internal Server Error)
 // Ist was mir zurückgegeben wird, die kommt aber erst nach dem aktualisiern der seite, ich verstehe die Nachicht, dass von meiner seite aus kein Fehler im Code ist
