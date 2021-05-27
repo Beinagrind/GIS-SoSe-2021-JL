@@ -2,6 +2,7 @@ namespace Aufgabe_2_5 {
 
     //Rakete mit 3 segmenten
     // habe alles vom Github link getestet, hat vollständig fuunktionier
+    //Verbesserung inbegriffen
 
 export interface Spitze {
 
