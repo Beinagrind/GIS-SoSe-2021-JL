@@ -3,6 +3,7 @@ var Aufgabe_2_5;
 (function (Aufgabe_2_5) {
     //Rakete mit 3 segmenten
     // habe alles vom Github link getestet, hat vollständig fuunktionier
+    //Verbesserung inbegriffen
     async function getSpitze() {
         const response = await fetch("https://beinagrind.github.io/GIS-SoSe-2021-JL/Aufgabe2.5/JSON/spitze.json");
         let spitze1 = await response.json();
