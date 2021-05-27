@@ -2,7 +2,7 @@
 var Aufgabe_2_5;
 (function (Aufgabe_2_5) {
     //Rakete mit 3 segmenten
-    // habe alles vom Github link getestet, hat vollständig fuunktionier
+    //habe alles vom Github link getestet, hat vollständig fuunktionier
     //Verbesserung inbegriffen
     async function getSpitze() {
         const response = await fetch("https://beinagrind.github.io/GIS-SoSe-2021-JL/Aufgabe2.5/JSON/spitze.json");
@@ -183,10 +183,12 @@ var Aufgabe_2_5;
         }
         else {
             zurueck.className = "Message";
-            zurueck.innerText = ausgabe.Message;
+            zurueck.innerText = ausgabe.message;
         }
     }
-    serverSend("https://gis-communication.herokuapp.com");
+    if (window.location.href.includes("/endergebnis.html")) {
+        serverSend("https://gis-communication.herokuapp.com");
+    }
     // Mit ihrer Anfrage ist alles in Ordnung, aber der Server konnte diese derzeit nicht verarbeiten. Auch bekannt als Error 500 (Internal Server Error)
     // Ist was mir zurückgegeben wird, die kommt aber erst nach dem aktualisiern der seite, ich verstehe die Nachicht, dass von meiner seite aus kein Fehler im Code ist
     // habe alles vom Github link getestet, hat vollständig fuunktionier
