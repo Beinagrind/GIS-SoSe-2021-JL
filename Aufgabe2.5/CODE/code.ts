@@ -33,6 +33,7 @@ export interface Antrieb {
 
 }
 
+
 async function getSpitze(): Promise<void> {
 
     const response = await fetch("https://beinagrind.github.io/GIS-SoSe-2021-JL/Aufgabe2.5/JSON/antrieb.json");
