@@ -1,0 +1,22 @@
+{
+  "name": "gis-sose-2021-jl",
+  "version": "1.0.0",
+  "description": "giwduL",
+  "main": "index.js",
+  "scripts": {
+    "start": "node Aufgabe3.1/code.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Beinagrind/GIS-SoSe-2021-JL.git"
+  },
+  "author": "jesse ludwig",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Beinagrind/GIS-SoSe-2021-JL/issues"
+  },
+  "homepage": "https://github.com/Beinagrind/GIS-SoSe-2021-JL#readme",
+  "devDependencies": {
+    "@types/node": "^15.6.1"
+  }
+}
