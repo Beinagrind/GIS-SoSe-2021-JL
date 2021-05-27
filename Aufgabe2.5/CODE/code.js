@@ -3,27 +3,26 @@ var Aufgabe_2_5;
 (function (Aufgabe_2_5) {
     //Rakete mit 3 segmenten
     async function getSpitze() {
-        const response = await fetch("http://127.0.0.1:5500/Aufgabe2.5/JSON/spitze.json");
+        const response = await fetch("https://beinagrind.github.io/GIS-SoSe-2021-JL/Aufgabe2.5/JSON/antrieb.json");
         const data = await response.json();
+        let spitze1 = await response.json();
         console.log(data);
-        let spitze1;
-        spitze1 = JSON.parse(JSON.stringify(data));
+        //let spitze1: Spitze[];
+        //spitze1 = JSON.parse(JSON.stringify(data));
         anzeigeSpitze(spitze1);
     }
     async function getKapsel() {
         const response = await fetch("http://127.0.0.1:5500/Aufgabe2.5/JSON/kapsel.json");
         const data = await response.json();
         console.log(data);
-        let kapsel1;
-        kapsel1 = JSON.parse(JSON.stringify(data));
+        let kapsel1, [] = data;
         kapselAuswahl(kapsel1);
     }
     async function getAntrieb() {
         const response = await fetch("http://127.0.0.1:5500/Aufgabe2.5/JSON/antrieb.json"); //https://beinagrind.github.io/GIS-SoSe-2021-JL/Aufgabe2.5/JSON/antrieb.json
         const data = await response.json();
         console.log(data);
-        let antrieb1;
-        antrieb1 = JSON.parse(JSON.stringify(data));
+        let antrieb1, [] = data;
         antriebAuswahl(antrieb1);
     }
     if (window.location.href.includes("/auswahl.html")) {
@@ -175,7 +174,7 @@ var Aufgabe_2_5;
         }
     }
     async function serverSend(_url) {
-        let query = new URLSearchParams(localStorage);
+        let query = new URLSearchParams(sessionStorage);
         _url = _url + "?" + query.toString();
         console.log(query.toString());
         let antwort = await fetch(_url);
