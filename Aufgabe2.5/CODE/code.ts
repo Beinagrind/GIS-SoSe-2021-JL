@@ -36,7 +36,7 @@ export interface Antrieb {
 
 async function getSpitze(): Promise<void> {
 
-    const response = await fetch("https://beinagrind.github.io/GIS-SoSe-2021-JL/Aufgabe2.5/JSON/antrieb.json");
+    const response = await fetch("https://beinagrind.github.io/GIS-SoSe-2021-JL/Aufgabe2.5/JSON/spitze.json");
 
     let spitze1: Spitze[] = await response.json();
 
@@ -49,7 +49,7 @@ async function getSpitze(): Promise<void> {
 
 async function getKapsel(): Promise<void> {
 
-    const response = await fetch("http://127.0.0.1:5500/Aufgabe2.5/JSON/kapsel.json");
+    const response = await fetch("https://beinagrind.github.io/GIS-SoSe-2021-JL/Aufgabe2.5/JSON/kapsel.json");
 
     let kapsel1: Kapsel[] = await response.json();
 
@@ -59,7 +59,7 @@ async function getKapsel(): Promise<void> {
 
 async function getAntrieb(): Promise<void> {
 
-    const response = await fetch("http://127.0.0.1:5500/Aufgabe2.5/JSON/antrieb.json"); //https://beinagrind.github.io/GIS-SoSe-2021-JL/Aufgabe2.5/JSON/antrieb.json
+    const response = await fetch("https://beinagrind.github.io/GIS-SoSe-2021-JL/Aufgabe2.5/JSON/antrieb.json"); //https://beinagrind.github.io/GIS-SoSe-2021-JL/Aufgabe2.5/JSON/antrieb.json ; http://127.0.0.1:5500/Aufgabe2.5/JSON/antrieb.json
 
     let antrieb1: Antrieb[] = await response.json();
 
