@@ -38,10 +38,12 @@ async function getSpitze(): Promise<void> {
     const response = await fetch("http://127.0.0.1:5500/Aufgabe2.5/JSON/spitze.json");
     const data: string = await response.json();
 
+    let spitze1, [] = data;
+
     console.log(data);
 
-    let spitze1: Spitze[];
-    spitze1 = JSON.parse(JSON.stringify(data));
+    //let spitze1: Spitze[];
+    //spitze1 = JSON.parse(JSON.stringify(data));
 
     anzeigeSpitze(spitze1);
     
@@ -54,8 +56,7 @@ async function getKapsel(): Promise<void> {
 
     console.log(data);
 
-    let kapsel1: Kapsel[];
-    kapsel1 = JSON.parse(JSON.stringify(data));
+    let kapsel1, [] = data;
 
     kapselAuswahl(kapsel1);
     
@@ -68,8 +69,7 @@ async function getAntrieb(): Promise<void> {
 
     console.log(data);
 
-    let antrieb1: Antrieb[];
-    antrieb1 = JSON.parse(JSON.stringify(data));
+    let antrieb1, [] = data;
 
     antriebAuswahl(antrieb1);
     
@@ -98,7 +98,6 @@ if (window.location.href.includes("/endergebnis.html")) {
     
     endergebnis();
     
-
 }
 
 
