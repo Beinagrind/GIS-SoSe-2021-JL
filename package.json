@@ -18,5 +18,8 @@
   "homepage": "https://github.com/Beinagrind/GIS-SoSe-2021-JL#readme",
   "devDependencies": {
     "@types/node": "^15.6.1"
+  },
+  "dependencies": {
+    "common.js": "^1.1.1"
   }
 }

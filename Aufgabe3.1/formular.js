@@ -5,7 +5,7 @@ var P_3_1Server;
     let submit = document.getElementById("get");
     submit.addEventListener("click", getButton);
     function getButton(_event) {
-        serverTest("https://gis-sose-2021-jl.herokuapp.com/");
+        serverTest("https://beinagrinddrekifurtwangen.herokuapp.com/");
     }
     async function serverTest(_url) {
         formData = new FormData(document.forms[0]);
@@ -14,6 +14,12 @@ var P_3_1Server;
         let response = await fetch(_url, { method: "get" });
         let responseString = await response.text();
         console.log(responseString);
+        let output = "\n";
+        for (let entry of query) {
+            output += "Name: " + entry[0] + "\nValue: " + entry[1] + "\n\n";
+            console.log(entry);
+        }
+        console.log(output);
     }
 })(P_3_1Server || (P_3_1Server = {}));
 //# sourceMappingURL=formular.js.map
