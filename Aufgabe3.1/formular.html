@@ -16,24 +16,26 @@
 
 <body>
 
-<form action="#" id="formData">
+    <form>  
+        
+        <h1>Kontaktdaten</h1>
+        <h2>Teilaufgabe 1</h2>
 
-    <button type="submit" id="get">Get Server</button>   
-    <hr>
-    <br>
-    <input type="text" name="first" id="nameInput" placeholder="Name">
-    <br>
-    <input type="password" name="second" id="passwordInput" placeholder="Passwort">
-    <br>
-    <button type="submit" id="login">Login</button>
-    <p id="erfolgreich"></p>
-    <br>
-    <hr>
-    <input type="text"  id="textInput" placeholder="Deine Nachicht">
-    <br>
-    <button type="submit" id="senden">Nachicht senden</button>
+        <label for="vorname">Vorname:</label> <br>
+        <input type="text" name="vorname" id="vorname"><br>
 
-</form>
+        <label for="nachname">Nachname:</label> <br>
+        <input type="text" name="nachname" id="nachname"><br>
+
+        <label for="adresse">Adresse:</label> <br>
+        <input type="text" name="adresse" id="adresse"><br>
+
+        <button type="button" id="button">Absenden</button>
+
+        <p> Ihre Eingaben</p>
+        <p id="serverausgabe"></p>
+
+    </form>
 
 </body>
 

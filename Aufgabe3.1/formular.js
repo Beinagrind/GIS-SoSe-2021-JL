@@ -1,25 +1,31 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var P_3_1Server;
 (function (P_3_1Server) {
-    function getButton(_event) {
+    /*function getButton(_event: Event): void {
+
         serverTest("https://beinagrinddrekifurtwangen.herokuapp.com/");
+
     }
-    async function serverTest(_url) {
-        let formData;
+
+    async function serverTest(_url: RequestInfo): Promise <void> {
+
+        let formData: FormData;
         formData = new FormData(document.forms[0]);
-        let query = new URLSearchParams(formData);
+
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
         _url = _url + "?" + query.toString();
-        let response = await fetch(_url, { method: "get" });
-        let responseString = await response.text();
+
+        let response: Response = await fetch(_url, {method: "get"});
+        let responseString: string = await response.text();
         console.log(responseString);
-        let output = "\n";
+
+        let output: string = "\n";
         for (let entry of query) {
             output += "Name: " + entry[0] + "\nValue: " + entry[1] + "\n\n";
             console.log(entry);
         }
         console.log(output);
-    }
+    }*/
     async function nameUPWSend() {
         let formData = new FormData(document.forms[0]);
         console.log(":" + formData.get("name")); //Konsolenausgabe
@@ -95,8 +101,8 @@ var P_3_1Server;
         rueckgabe.innerText = antwort;
         */
     let button = document.getElementById("login");
-    button.addEventListener("submit", nameUPWSend);
-    let submit = document.getElementById("get");
-    submit.addEventListener("click", getButton);
+    button.addEventListener("click", nameUPWSend);
+    //let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("get");
+    //submit.addEventListener("click", getButton);
 })(P_3_1Server || (P_3_1Server = {}));
 //# sourceMappingURL=formular.js.map

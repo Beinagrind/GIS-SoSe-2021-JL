@@ -1,8 +1,6 @@
-import { url } from "inspector";
-
 namespace P_3_1Server {
 
-    function getButton(_event: Event): void {
+    /*function getButton(_event: Event): void {
 
         serverTest("https://beinagrinddrekifurtwangen.herokuapp.com/");
 
@@ -26,7 +24,7 @@ namespace P_3_1Server {
             console.log(entry);
         }
         console.log(output);
-    }
+    }*/
 
     async function nameUPWSend(): Promise<void> { //async Funktion
         let formData: FormData = new FormData (document.forms[0]);
@@ -105,9 +103,9 @@ namespace P_3_1Server {
         */
 
     let button: HTMLButtonElement = <HTMLButtonElement> document.getElementById("login"); 
-    button.addEventListener("submit", nameUPWSend);
+    button.addEventListener("click", nameUPWSend);
 
-    let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("get");
-    submit.addEventListener("click", getButton);
+    //let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("get");
+    //submit.addEventListener("click", getButton);
 
 }
