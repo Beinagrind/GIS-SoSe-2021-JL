@@ -19,15 +19,15 @@ namespace P_3_1Server {
         let responseString: string = await response.text();
         console.log(responseString);
 
-        let ergebnis: HTMLElement = document.getElementById("erfolgreich");
-        ergebnis.innerHTML = "URL:\n" + _url + "\n\n";
-
         let output: string = "\n";
         for (let entry of query) {
-            output += "Name: " + entry[0] + "\nValue: " + entry[1] + "\n\n";
+            output +=  "\n Sent to server: " + entry[1] + "\n\n";
             console.log(entry);
         }
         console.log(output);
+
+        let auswahl: HTMLElement = document.getElementById("ausgewaehlt");
+        auswahl.innerHTML = output;
     }
 
     let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("login");

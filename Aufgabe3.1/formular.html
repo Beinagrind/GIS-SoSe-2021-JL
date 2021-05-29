@@ -16,24 +16,15 @@
 
 <body>
 
-<form>
-
-    <button type="submit" id="get">Get Server</button>   
-    <hr>
-    <br>
-    <input type="text" name="first" id="nameInput" placeholder="Name">
-    <br>
-    <input type="password" name="second" id="passwordInput" placeholder="Passwort">
-    <br>
-    <button type="submit" id="login">Login</button>
-    <p id="erfolgreich"></p>
-    <br>
-    <hr>
-    <input type="text"  id="textInput" placeholder="Deine Nachicht">
-    <br>
-    <button type="submit" id="senden">Nachicht senden</button>
-
-</form>
+    <form>
+        <input type="text" name="nameInput" placeholder="Name"  id="nameInput"><br>
+        <input type="password" name="passwordInput" placeholder="Passwort" id="passwordInput"><br>
+        <textarea name="Nachricht" cols="10" rows="10" placeholder="Deine Nachricht"></textarea>
+        <br>
+        <button type="button" id="login">Antworten senden</button>
+        <br>
+        <p id="ausgewaehlt"></p>
+    </form>
 
 </body>
 

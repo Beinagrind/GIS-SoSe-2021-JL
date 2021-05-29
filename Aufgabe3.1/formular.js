@@ -12,14 +12,14 @@ var P_3_1Server;
         let response = await fetch(_url, { method: "get" });
         let responseString = await response.text();
         console.log(responseString);
-        let ergebnis = document.getElementById("erfolgreich");
-        ergebnis.innerHTML = "URL:\n" + _url + "\n\n";
         let output = "\n";
         for (let entry of query) {
-            output += "Name: " + entry[0] + "\nValue: " + entry[1] + "\n\n";
+            output += "\n Sent to server: " + entry[1] + "\n\n";
             console.log(entry);
         }
         console.log(output);
+        let auswahl = document.getElementById("ausgewaehlt");
+        auswahl.innerHTML = output;
     }
     let submit = document.getElementById("login");
     submit.addEventListener("click", getButton);
