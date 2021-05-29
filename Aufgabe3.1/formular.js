@@ -14,7 +14,7 @@ var P_3_1Server;
         console.log(responseString);
         let output = "\n";
         for (let entry of query) {
-            output += "\n Sent to server: " + entry[1] + "\n\n";
+            output += "\n Sent to server: " + entry[1] + "\n";
             console.log(entry);
         }
         console.log(output);
