@@ -1,5 +1,7 @@
 namespace P_3_1Server {
 
+    let formData: FormData;
+
     function getButton(_event: Event): void {
 
         serverTest("https://beinagrinddrekifurtwangen.herokuapp.com/");
@@ -7,8 +9,7 @@ namespace P_3_1Server {
     }
 
     async function serverTest(_url: RequestInfo): Promise <void> {
-
-        let formData: FormData;
+       
         formData = new FormData(document.forms[0]);
 
         let query: URLSearchParams = new URLSearchParams(<any>formData);
@@ -18,6 +19,9 @@ namespace P_3_1Server {
         let responseString: string = await response.text();
         console.log(responseString);
 
+        let ergebnis: HTMLElement = document.getElementById("erfolgreich");
+        ergebnis.innerHTML = "URL:\n" + _url + "\n\n";
+
         let output: string = "\n";
         for (let entry of query) {
             output += "Name: " + entry[0] + "\nValue: " + entry[1] + "\n\n";
@@ -26,7 +30,7 @@ namespace P_3_1Server {
         console.log(output);
     }
 
-    let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("get");
+    let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("login");
     submit.addEventListener("click", getButton);
 
 }
