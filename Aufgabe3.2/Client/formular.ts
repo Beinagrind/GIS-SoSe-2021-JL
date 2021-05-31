@@ -18,6 +18,7 @@ namespace P_3_1Server {
         let response: Response = await fetch(_url, {method: "get"});
         let responseString: string = await response.text();
         console.log(responseString);
+        
 
         let output: string = "\n";
         for (let entry of query) {
