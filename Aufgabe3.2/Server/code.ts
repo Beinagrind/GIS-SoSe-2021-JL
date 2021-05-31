@@ -1,4 +1,5 @@
 import * as Http from "http";
+import * as Url from "url";
 
 export namespace P_3_1Server {
 
@@ -25,7 +26,19 @@ export namespace P_3_1Server {
         console.log("I hear voices!");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
+
+        let urlParse: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+        
+        for(let key in urlParse.query){
+
+            console.log(key +  ":"  +  urlParse.query[key]);
+
+        }
+
+        _response.write(urlParse);
+        console.log(urlParse);
         _response.write(_request.url);
+
         _response.end();
     }
 }
