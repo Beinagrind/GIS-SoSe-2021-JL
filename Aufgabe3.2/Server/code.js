@@ -27,10 +27,9 @@ var P_3_1Server;
         let urlParse = Url.parse(_request.url, true);
         for (let key in urlParse.query) {
             console.log(key + ":" + urlParse.query[key]);
+            _response.write(key + ":" + urlParse.query[key]);
         }
-        _response.write(urlParse);
-        console.log(urlParse);
-        _response.write(_request.url);
+        //_response.write(_request.url);
         _response.end();
     }
 })(P_3_1Server = exports.P_3_1Server || (exports.P_3_1Server = {}));

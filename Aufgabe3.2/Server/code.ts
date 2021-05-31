@@ -28,16 +28,15 @@ export namespace P_3_1Server {
         _response.setHeader("Access-Control-Allow-Origin", "*");
 
         let urlParse: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-        
-        for(let key in urlParse.query){
+
+        for (let key in urlParse.query) {
 
             console.log(key +  ":"  +  urlParse.query[key]);
+            _response.write(key +  ":"  +  urlParse.query[key]);
 
         }
 
-        _response.write(urlParse);
-        console.log(urlParse);
-        _response.write(_request.url);
+        //_response.write(_request.url);
 
         _response.end();
     }
