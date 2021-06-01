@@ -21,7 +21,17 @@ var P_3_1Server;
         let auswahl = document.getElementById("ausgewaehlt");
         auswahl.innerHTML = output;
     }
+    //let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("login");
+    //submit.addEventListener("click", getButton);
+    async function sendForm(_event) {
+        console.log("Sening to Server");
+        let formData = new FormData(document.forms[0]);
+        let query = new URLSearchParams(formData);
+        let response = await fetch("https://beinagrinddrekifurtwangen.herokuapp.com/" + query.toString());
+        let responseText = await response.text();
+        alert(responseText);
+    }
     let submit = document.getElementById("login");
-    submit.addEventListener("click", getButton);
+    submit.addEventListener("click", sendForm);
 })(P_3_1Server || (P_3_1Server = {}));
 //# sourceMappingURL=formular.js.map
