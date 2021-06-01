@@ -28,8 +28,14 @@ var P_3_1Server;
         let formData = new FormData(document.forms[0]);
         let query = new URLSearchParams(formData);
         let response = await fetch("https://beinagrinddrekifurtwangen.herokuapp.com/" + query.toString());
-        let responseText = await response.text();
-        alert(responseText);
+        //let responseText: string = await response.text();
+        let output = "\n";
+        for (let entry of query) {
+            output += "\n Sent to server: " + entry[1] + "\n";
+            console.log(entry);
+        }
+        let auswahl = document.getElementById("ausgewaehlt");
+        auswahl.innerHTML = output;
     }
     let submit = document.getElementById("login");
     submit.addEventListener("click", sendForm);

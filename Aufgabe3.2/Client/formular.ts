@@ -41,9 +41,16 @@ namespace P_3_1Server {
         let query: URLSearchParams = new URLSearchParams(<any>formData);
 
         let response: Response = await fetch("https://beinagrinddrekifurtwangen.herokuapp.com/" + query.toString());
-        let responseText: string = await response.text();
+        //let responseText: string = await response.text();
 
-        alert(responseText);
+        let output: string = "\n";
+        for (let entry of query) {
+            output +=  "\n Sent to server: " + entry[1] + "\n";
+            console.log(entry);
+        }
+
+        let auswahl: HTMLElement = document.getElementById("ausgewaehlt");
+        auswahl.innerHTML = output;
 
     }
 
