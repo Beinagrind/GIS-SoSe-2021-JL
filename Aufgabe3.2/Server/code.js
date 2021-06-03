@@ -22,11 +22,11 @@ var P_3_1Server;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         let urlParse = Url.parse(_request.url, true);
         for (let key in urlParse.query) {
-            console.log(key + ":" + urlParse.query[key]);
+            console.log(key + ": SEVER TEST" + urlParse.query[key]);
             _response.write(key + ":" + urlParse.query[key]);
         }
-        let jsonString = JSON.stringify(urlParse.query);
-        _response.write(jsonString);
+        //let jsonString: string = JSON.stringify(urlParse.query);
+        //_response.write(jsonString);
         //_response.write(_request.url);
         _response.end();
     }

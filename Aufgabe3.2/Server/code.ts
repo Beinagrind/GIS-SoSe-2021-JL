@@ -28,13 +28,13 @@ export namespace P_3_1Server {
 
         for (let key in urlParse.query) {
 
-            console.log(key +  ":"  +  urlParse.query[key]);
+            console.log(key +  ": SEVER TEST"  +  urlParse.query[key]);
             _response.write(key +  ":"  +  urlParse.query[key]);
 
         }
         
-        let jsonString: string = JSON.stringify(urlParse.query);
-        _response.write(jsonString);
+        //let jsonString: string = JSON.stringify(urlParse.query);
+        //_response.write(jsonString);
 
         //_response.write(_request.url);
 

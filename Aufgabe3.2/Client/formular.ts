@@ -43,11 +43,12 @@ namespace P_3_1Server {
         let response: Response = await fetch("https://beinagrinddrekifurtwangen.herokuapp.com/" + query.toString());
         //let responseText: string = await response.text();
 
-        let output: string = "\n";
-        for (let entry of query) {
-            output +=  "\n Sent to server: " + entry[1] + "\n";
-            console.log(entry);
-        }
+        let output: string = await response.text();
+
+        //for (let entry of query) {
+         //   output +=  "\n Sent to server: " + entry[1] + "\n";
+        //    console.log(entry);
+       // }
 
         let auswahl: HTMLElement = document.getElementById("ausgewaehlt");
         auswahl.innerHTML = output;
