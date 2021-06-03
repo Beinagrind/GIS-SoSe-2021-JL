@@ -56,8 +56,6 @@ namespace P_3_2Server {
 
     }
 
-    
-
     /*async function sendDataHTML(): Promise<void> { //async Funktion für html
         let rueckgabe: HTMLParagraphElement = <HTMLParagraphElement> document.getElementById("abc");
         let formData: FormData = new FormData (document.forms[0]); //generiert FormData Ohjekt aus <form> in das Dokument
@@ -70,7 +68,7 @@ namespace P_3_2Server {
         rueckgabe.innerText = responseText;
     }
     */
-   
+
     let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("login");
     submit.addEventListener("click", sendForm);
 
