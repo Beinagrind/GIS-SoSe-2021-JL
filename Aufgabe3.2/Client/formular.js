@@ -2,41 +2,83 @@
 var P_3_2Server;
 (function (P_3_2Server) {
     let formData;
-    function getButton(_event) {
-        serverTest("https://beinagrinddrekifurtwangen.herokuapp.com/");
-    }
-    async function serverTest(_url) {
-        formData = new FormData(document.forms[0]);
+    async function sendForm(_event) {
+        const serverResponse = document.getElementById("abc");
+        let url = "";
+        console.log("Sending HTML to Server");
+        let formData = new FormData(document.forms[0]);
         let query = new URLSearchParams(formData);
+        url = "https://beinagrinddrekifurtwangen.herokuapp.com/html" + "?" + query.toString();
+        const response = await fetch(url);
+        const respString = await response.text();
+        print(respString);
+        function print(_url) {
+            serverResponse.className = "response";
+            serverResponse.innerHTML = _url;
+        }
+    }
+    async function sendFormJson(_event) {
+        const serverResponse = document.getElementById("abc");
+        let url = "";
+        console.log("Sending JSON to Server");
+        let formData = new FormData(document.forms[0]);
+        let query = new URLSearchParams(formData);
+        url = "https://beinagrinddrekifurtwangen.herokuapp.com/json" + "?" + query.toString();
+        const response = await fetch(url);
+        const receivedObj = await response.json();
+        console.log(receivedObj);
+    }
+    let submit = document.getElementById("login");
+    submit.addEventListener("click", sendForm);
+    let submitjson = document.getElementById("loginjson");
+    submitjson.addEventListener("click", sendFormJson);
+})(P_3_2Server || (P_3_2Server = {}));
+// ONLY UNUSED TESTCODE //
+/*function getButton(_event: Event): void {
+
+        serverTest("https://beinagrinddrekifurtwangen.herokuapp.com/");
+
+    }
+
+    async function serverTest(_url: RequestInfo): Promise <void> {
+       
+        formData = new FormData(document.forms[0]);
+
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
         _url = _url + "?" + query.toString();
-        let response = await fetch(_url, { method: "get" });
-        let responseString = await response.text();
+
+        let response: Response = await fetch(_url, {method: "get"});
+        let responseString: string = await response.text();
         console.log(responseString);
-        let output = "\n";
+
+        let output: string = "\n";
         for (let entry of query) {
-            output += "\n Sent to server: " + entry[1] + "\n";
+            output +=  "\n Sent to server: " + entry[1] + "\n";
             console.log(entry);
         }
         console.log(output);
-        let auswahl = document.getElementById("ausgewaehlt");
+
+        let auswahl: HTMLElement = document.getElementById("ausgewaehlt");
         auswahl.innerHTML = output;
     }
+
     //let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("login");
     //submit.addEventListener("click", getButton);
-    async function sendForm(_event) {
-        console.log("Sening to Server");
-        let formData = new FormData(document.forms[0]);
-        let query = new URLSearchParams(formData);
-        let response = await fetch("https://beinagrinddrekifurtwangen.herokuapp.com/" + query.toString());
+
+        //let response: Response = await fetch("https://beinagrinddrekifurtwangen.herokuapp.com/" + query.toString());
+
         //let responseText: string = await response.text();
-        let output = await response.text();
+
+        //let output: string = await response.text();
+
         //for (let entry of query) {
         //   output +=  "\n Sent to server: " + entry[1] + "\n";
         //    console.log(entry);
         //}
-        let auswahl = document.getElementById("abc");
-        auswahl.innerHTML = output;
-    }
+
+        //let auswahl: HTMLElement = document.getElementById("abc");
+        //auswahl.innerHTML = output;
+
     /*async function sendDataHTML(): Promise<void> { //async Funktion für html
         let rueckgabe: HTMLParagraphElement = <HTMLParagraphElement> document.getElementById("abc");
         let formData: FormData = new FormData (document.forms[0]); //generiert FormData Ohjekt aus <form> in das Dokument
@@ -49,7 +91,4 @@ var P_3_2Server;
         rueckgabe.innerText = responseText;
     }
     */
-    let submit = document.getElementById("login");
-    submit.addEventListener("click", sendForm);
-})(P_3_2Server || (P_3_2Server = {}));
 //# sourceMappingURL=formular.js.map
