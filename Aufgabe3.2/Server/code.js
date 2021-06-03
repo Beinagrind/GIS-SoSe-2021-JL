@@ -20,15 +20,35 @@ var P_3_2Server;
         console.log("I hear voices!");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
-        let urlParse = Url.parse(_request.url, true);
-        console.log(urlParse);
-        for (let key in urlParse.query) {
-            console.log(key + ": TEST SERVER" + urlParse.query[key]);
-            _response.write(key + ":" + urlParse.query[key]);
+        if (_request.url) {
+            const address = _request.url;
+            const addressObj = Url.parse(address, true);
+            if (addressObj.pathname == "/json") {
+                _response.setHeader("content-type", "text/json; charset=utf-8");
+                _response.write(JSON.stringify(addressObj.query));
+            }
+            else {
+                for (let key in addressObj.query) {
+                    _response.write("<p>" + key + ": " + addressObj.query[key] + "</p>");
+                }
+            }
         }
+        /*let urlParse: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+
+        console.log(urlParse);
+
+        for (let key in urlParse.query) {
+
+            console.log(key +  ": TEST SERVER"  +  urlParse.query[key]);
+            _response.write(key +  ":"  +  urlParse.query[key]);
+
+        }
+        
         //let jsonString: string = JSON.stringify(urlParse.query);
         //_response.write(jsonString);
+
         //_response.write(_request.url);
+        */
         _response.end();
     }
 })(P_3_2Server = exports.P_3_2Server || (exports.P_3_2Server = {}));
