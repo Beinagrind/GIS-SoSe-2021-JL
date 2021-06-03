@@ -26,14 +26,13 @@ export namespace P_3_1Server {
 
         let urlParse: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
 
-        //for (let key in urlParse.query) {
+        for (let key in urlParse.query) {
 
-        //    console.log(key +  ":"  +  urlParse.query[key]);
-        //    _response.write(key +  ":"  +  urlParse.query[key]);
+            console.log(key +  ": TEST SERVER"  +  urlParse.query[key]);
+            _response.write(key +  ":"  +  urlParse.query[key]);
 
-        //}
-        _response.write("TESTINGSERVERUWU");
-        _response.write(urlParse);
+        }
+        
         //let jsonString: string = JSON.stringify(urlParse.query);
         //_response.write(jsonString);
 

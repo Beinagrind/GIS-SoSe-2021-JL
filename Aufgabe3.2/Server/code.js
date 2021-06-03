@@ -21,12 +21,10 @@ var P_3_1Server;
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         let urlParse = Url.parse(_request.url, true);
-        //for (let key in urlParse.query) {
-        //    console.log(key +  ":"  +  urlParse.query[key]);
-        //    _response.write(key +  ":"  +  urlParse.query[key]);
-        //}
-        _response.write("TESTINGSERVERUWU");
-        _response.write(urlParse);
+        for (let key in urlParse.query) {
+            console.log(key + ": TEST SERVER" + urlParse.query[key]);
+            _response.write(key + ":" + urlParse.query[key]);
+        }
         //let jsonString: string = JSON.stringify(urlParse.query);
         //_response.write(jsonString);
         //_response.write(_request.url);
