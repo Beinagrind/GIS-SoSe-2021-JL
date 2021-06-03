@@ -1,4 +1,4 @@
-namespace P_3_1Server {
+namespace P_3_2Server {
 
     let formData: FormData;
 
@@ -51,14 +51,15 @@ namespace P_3_1Server {
         //    console.log(entry);
         //}
 
-        let auswahl: HTMLElement = document.getElementById("ausgewaehlt");
+        let auswahl: HTMLElement = document.getElementById("abc");
         auswahl.innerHTML = output;
 
     }
 
-    let rueckgabe: HTMLParagraphElement = <HTMLParagraphElement> document.getElementById("ausgewaehlt");
+    
 
     async function sendDataHTML(): Promise<void> { //async Funktion für html
+        let rueckgabe: HTMLParagraphElement = <HTMLParagraphElement> document.getElementById("abc");
         let formData: FormData = new FormData (document.forms[0]); //generiert FormData Ohjekt aus <form> in das Dokument
         let url: RequestInfo = "https://beinagrinddrekifurtwangen.herokuapp.com/"; //Verknüpfung mit der herokuapp
         url += "/html";

@@ -1,6 +1,6 @@
 "use strict";
-var P_3_1Server;
-(function (P_3_1Server) {
+var P_3_2Server;
+(function (P_3_2Server) {
     let formData;
     function getButton(_event) {
         serverTest("https://beinagrinddrekifurtwangen.herokuapp.com/");
@@ -34,11 +34,11 @@ var P_3_1Server;
         //   output +=  "\n Sent to server: " + entry[1] + "\n";
         //    console.log(entry);
         //}
-        let auswahl = document.getElementById("ausgewaehlt");
+        let auswahl = document.getElementById("abc");
         auswahl.innerHTML = output;
     }
-    let rueckgabe = document.getElementById("ausgewaehlt");
     async function sendDataHTML() {
+        let rueckgabe = document.getElementById("abc");
         let formData = new FormData(document.forms[0]); //generiert FormData Ohjekt aus <form> in das Dokument
         let url = "https://beinagrinddrekifurtwangen.herokuapp.com/"; //Verknüpfung mit der herokuapp
         url += "/html";
@@ -50,5 +50,5 @@ var P_3_1Server;
     }
     let submit = document.getElementById("login");
     submit.addEventListener("click", sendDataHTML);
-})(P_3_1Server || (P_3_1Server = {}));
+})(P_3_2Server || (P_3_2Server = {}));
 //# sourceMappingURL=formular.js.map
