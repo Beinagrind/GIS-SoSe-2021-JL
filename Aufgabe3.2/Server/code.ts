@@ -24,9 +24,8 @@ export namespace P_3_2Server {
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
 
-        console.log(_request);
-
         let urlParse: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+        
         console.log(urlParse);
 
         for (let key in urlParse.query) {
