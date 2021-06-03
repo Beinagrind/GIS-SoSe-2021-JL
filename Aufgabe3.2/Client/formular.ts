@@ -46,9 +46,9 @@ namespace P_3_1Server {
         let output: string = await response.text();
 
         //for (let entry of query) {
-         //   output +=  "\n Sent to server: " + entry[1] + "\n";
+        //   output +=  "\n Sent to server: " + entry[1] + "\n";
         //    console.log(entry);
-       // }
+        //}
 
         let auswahl: HTMLElement = document.getElementById("ausgewaehlt");
         auswahl.innerHTML = output;

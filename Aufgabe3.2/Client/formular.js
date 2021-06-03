@@ -33,7 +33,7 @@ var P_3_1Server;
         //for (let entry of query) {
         //   output +=  "\n Sent to server: " + entry[1] + "\n";
         //    console.log(entry);
-        // }
+        //}
         let auswahl = document.getElementById("ausgewaehlt");
         auswahl.innerHTML = output;
     }
