@@ -41,6 +41,7 @@ namespace P_3_1Server {
         let query: URLSearchParams = new URLSearchParams(<any>formData);
 
         let response: Response = await fetch("https://beinagrinddrekifurtwangen.herokuapp.com/" + query.toString());
+
         //let responseText: string = await response.text();
 
         let output: string = await response.text();
@@ -55,7 +56,20 @@ namespace P_3_1Server {
 
     }
 
+    let rueckgabe: HTMLParagraphElement = <HTMLParagraphElement> document.getElementById("ausgewaehlt");
+
+    async function sendDataHTML(): Promise<void> { //async Funktion für html
+        let formData: FormData = new FormData (document.forms[0]); //generiert FormData Ohjekt aus <form> in das Dokument
+        let url: RequestInfo = "https://beinagrinddrekifurtwangen.herokuapp.com/"; //Verknüpfung mit der herokuapp
+        url += "/html";
+        let  query: URLSearchParams = new URLSearchParams(<any> formData);
+        url = url + "?" + query.toString(); //Url in String umwandeln
+        let response: Response = await fetch (url); // auf url warten
+        let responseText: string = await response.text(); //
+        rueckgabe.innerText = responseText;
+    }
+
     let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("login");
-    submit.addEventListener("click", sendForm);
+    submit.addEventListener("click", sendDataHTML);
 
 }
