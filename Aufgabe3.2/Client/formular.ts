@@ -58,7 +58,7 @@ namespace P_3_2Server {
 
     
 
-    async function sendDataHTML(): Promise<void> { //async Funktion für html
+    /*async function sendDataHTML(): Promise<void> { //async Funktion für html
         let rueckgabe: HTMLParagraphElement = <HTMLParagraphElement> document.getElementById("abc");
         let formData: FormData = new FormData (document.forms[0]); //generiert FormData Ohjekt aus <form> in das Dokument
         let url: RequestInfo = "https://beinagrinddrekifurtwangen.herokuapp.com/"; //Verknüpfung mit der herokuapp
@@ -69,8 +69,9 @@ namespace P_3_2Server {
         let responseText: string = await response.text(); //
         rueckgabe.innerText = responseText;
     }
-
+    */
+   
     let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("login");
-    submit.addEventListener("click", sendDataHTML);
+    submit.addEventListener("click", sendForm);
 
 }

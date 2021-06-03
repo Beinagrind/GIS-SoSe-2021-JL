@@ -37,18 +37,19 @@ var P_3_2Server;
         let auswahl = document.getElementById("abc");
         auswahl.innerHTML = output;
     }
-    async function sendDataHTML() {
-        let rueckgabe = document.getElementById("abc");
-        let formData = new FormData(document.forms[0]); //generiert FormData Ohjekt aus <form> in das Dokument
-        let url = "https://beinagrinddrekifurtwangen.herokuapp.com/"; //Verknüpfung mit der herokuapp
+    /*async function sendDataHTML(): Promise<void> { //async Funktion für html
+        let rueckgabe: HTMLParagraphElement = <HTMLParagraphElement> document.getElementById("abc");
+        let formData: FormData = new FormData (document.forms[0]); //generiert FormData Ohjekt aus <form> in das Dokument
+        let url: RequestInfo = "https://beinagrinddrekifurtwangen.herokuapp.com/"; //Verknüpfung mit der herokuapp
         url += "/html";
-        let query = new URLSearchParams(formData);
+        let  query: URLSearchParams = new URLSearchParams(<any> formData);
         url = url + "?" + query.toString(); //Url in String umwandeln
-        let response = await fetch(url); // auf url warten
-        let responseText = await response.text(); //
+        let response: Response = await fetch (url); // auf url warten
+        let responseText: string = await response.text(); //
         rueckgabe.innerText = responseText;
     }
+    */
     let submit = document.getElementById("login");
-    submit.addEventListener("click", sendDataHTML);
+    submit.addEventListener("click", sendForm);
 })(P_3_2Server || (P_3_2Server = {}));
 //# sourceMappingURL=formular.js.map
