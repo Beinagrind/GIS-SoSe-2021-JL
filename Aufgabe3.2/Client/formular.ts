@@ -1,8 +1,5 @@
 namespace P_3_2Server {
-
-    let formData: FormData;
-
-    
+ 
     async function sendForm(_event: Event): Promise<void>  {
 
         const serverResponse: HTMLElement = document.getElementById("abc");

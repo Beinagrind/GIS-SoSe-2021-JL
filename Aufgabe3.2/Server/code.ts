@@ -46,7 +46,9 @@ export namespace P_3_2Server {
                 _response.write("<p>" + " Ihre Eingaben, vom Server zurückgesendet: " + "</p>");
 
                 for (let key in urlSlash.query) {
+
                     _response.write("<p>" + key + ": " + urlSlash.query[key] + "</p>");
+                    
                 }
 
             }

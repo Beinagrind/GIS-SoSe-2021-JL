@@ -1,7 +1,6 @@
 "use strict";
 var P_3_2Server;
 (function (P_3_2Server) {
-    let formData;
     async function sendForm(_event) {
         const serverResponse = document.getElementById("abc");
         let url = "";
