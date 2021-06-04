@@ -22,9 +22,10 @@ namespace P_3_2Server {
         print(respString);
 
         function print(_url: string): void {
-            serverResponse.className = "response";
             serverResponse.innerHTML = _url;
         }
+
+        console.log("HTML Text Printet On Website");
 
     }
 
@@ -45,6 +46,8 @@ namespace P_3_2Server {
         const receivedObj: StringJson = await response.json();
 
         console.log(receivedObj);
+        
+        serverResponse.innerHTML = "JSON CONSOLE OUTPUT";
 
     }
 

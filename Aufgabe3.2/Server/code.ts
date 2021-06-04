@@ -15,53 +15,43 @@ export namespace P_3_2Server {
     server.listen(port);
 
     function handleListen(): void {
+
         console.log("Listening");
+
     }
 
     function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
 
+        console.log("\n");
+        console.log("\n");
         console.log("I hear voices!");
+
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
 
         if (_request.url) {
 
-            const address: string = _request.url;
-            const addressObj: Url.UrlWithParsedQuery = Url.parse(address, true);
+            const reqeustUrl: string = _request.url;
+            const urlSlash: Url.UrlWithParsedQuery = Url.parse(reqeustUrl, true);
 
-            if (addressObj.pathname == "/json") {
+            if (urlSlash.pathname == "/json") {
 
                 _response.setHeader("content-type", "text/json; charset=utf-8");
-                _response.write(JSON.stringify(addressObj.query));
+                _response.write(JSON.stringify(urlSlash.query));
 
             }
 
             else {
 
-                for (let key in addressObj.query) {
-                    _response.write("<p>" + key + ": " + addressObj.query[key] + "</p>");
+                _response.write("<p>" + " Ihre Eingaben, vom Server zurückgesendet: " + "</p>");
+
+                for (let key in urlSlash.query) {
+                    _response.write("<p>" + key + ": " + urlSlash.query[key] + "</p>");
                 }
 
             }
 
         }
-
-        /*let urlParse: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-
-        console.log(urlParse);
-
-        for (let key in urlParse.query) {
-
-            console.log(key +  ": TEST SERVER"  +  urlParse.query[key]);
-            _response.write(key +  ":"  +  urlParse.query[key]);
-
-        }
-        
-        //let jsonString: string = JSON.stringify(urlParse.query);
-        //_response.write(jsonString);
-
-        //_response.write(_request.url);
-        */
 
         _response.end();
         

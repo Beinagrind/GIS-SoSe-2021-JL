@@ -1,7 +1,5 @@
 namespace P_3_1Server {
 
-    let formData: FormData;
-
     function getButton(_event: Event): void {
 
         serverTest("https://beinagrinddrekifurtwangen.herokuapp.com/");
@@ -10,7 +8,7 @@ namespace P_3_1Server {
 
     async function serverTest(_url: RequestInfo): Promise <void> {
        
-        formData = new FormData(document.forms[0]);
+        let formData: FormData = new FormData(document.forms[0]);
 
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         _url = _url + "?" + query.toString();

@@ -13,9 +13,9 @@ var P_3_2Server;
         const respString = await response.text();
         print(respString);
         function print(_url) {
-            serverResponse.className = "response";
             serverResponse.innerHTML = _url;
         }
+        console.log("HTML Text Printet On Website");
     }
     async function sendFormJson(_event) {
         const serverResponse = document.getElementById("abc");
@@ -27,6 +27,7 @@ var P_3_2Server;
         const response = await fetch(url);
         const receivedObj = await response.json();
         console.log(receivedObj);
+        serverResponse.innerHTML = "JSON CONSOLE OUTPUT";
     }
     let submit = document.getElementById("login");
     submit.addEventListener("click", sendForm);
