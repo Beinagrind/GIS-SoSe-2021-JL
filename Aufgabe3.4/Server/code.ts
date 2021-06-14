@@ -36,11 +36,23 @@ export namespace P_3_4Server {
             const reqeustUrl: string = _request.url;
             const urlSlash: Url.UrlWithParsedQuery = Url.parse(reqeustUrl, true);
 
+            let mongoURL = "mongodb+srv://userLudwig:<userPassword>@gis-jl.4mqvc.mongodb.net/Test?retryWrites=true&w=majority";
+
+            let options: Mongo.MongoClientOptions = {useNewUrlParser:  true, useUnifiedTopology: true};
+            let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(mongoURL, options);
+            await mongoClient.connect();
+
+            let orders: Mongo.Collection = mongoClient.db("Test").collection("Students");
+
             if (urlSlash.pathname == "/json") {
 
                 _response.setHeader("content-type", "application/json");
                 _response.write(JSON.stringify(urlSlash.query));
 
+                let dataFiles = orders.find();
+                
+                _response.write(dataFiles);
+                
             }
             
             else {
@@ -50,21 +62,14 @@ export namespace P_3_4Server {
                 for (let key in urlSlash.query) {
 
                     _response.write("<p>" + key + ": " + urlSlash.query[key] + "</p>");
-                    
+
                 }
-
-                let mongoURL = "mongodb+srv://userLudwig:<userPassword>@gis-jl.4mqvc.mongodb.net/Test?retryWrites=true&w=majority";
-
-                let options: Mongo.MongoClientOptions = {useNewUrlParser:  true, useUnifiedTopology: true};
-                let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(mongoURL);
-                await mongoClient.connect();
-
-                let orders: Mongo.Collection = mongoClient.db("Test").collection("Students");
 
                 let jsonString: string = JSON.stringify(urlSlash.query);
                 _response.write(jsonString);
 
                 orders.insert(urlSlash.query);
+                orders.find();
                 
             }
 
