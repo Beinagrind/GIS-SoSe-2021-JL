@@ -36,11 +36,11 @@ export namespace P_3_2Server {
 
             if (urlSlash.pathname == "/json") {
 
-                _response.setHeader("content-type", "text/json; charset=utf-8");
+                _response.setHeader("content-type", "application/json");
                 _response.write(JSON.stringify(urlSlash.query));
 
             }
-
+            
             else {
 
                 _response.write("<p>" + " Ihre Eingaben, vom Server zurückgesendet: " + "</p>");

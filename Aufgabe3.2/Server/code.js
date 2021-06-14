@@ -26,7 +26,7 @@ var P_3_2Server;
             const reqeustUrl = _request.url;
             const urlSlash = Url.parse(reqeustUrl, true);
             if (urlSlash.pathname == "/json") {
-                _response.setHeader("content-type", "text/json; charset=utf-8");
+                _response.setHeader("content-type", "application/json");
                 _response.write(JSON.stringify(urlSlash.query));
             }
             else {

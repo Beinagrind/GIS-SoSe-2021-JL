@@ -4,7 +4,7 @@
   "description": "giwduL",
   "main": "index.js",
   "scripts": {
-    "start": "node Aufgabe3.2/Server/code.js"
+    "start": "node Aufgabe3.4/Server/code.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,8 @@
     "@types/node": "^15.6.1"
   },
   "dependencies": {
-    "common.js": "^1.1.1"
+    "@types/mongodb": "^3.6.18",
+    "common.js": "^1.1.1",
+    "mongodb": "^3.6.9"
   }
 }
