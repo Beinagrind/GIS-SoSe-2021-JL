@@ -37,7 +37,7 @@ var P_3_4Server;
                 }
                 let mongoURL = "mongodb+srv://userLudwig:<userPassword>@gis-jl.4mqvc.mongodb.net/Test?retryWrites=true&w=majority";
                 let options = { useNewUrlParser: true, useUnifiedTopology: true };
-                let mongoClient = new Mongo.MongoClient(mongoURL, options);
+                let mongoClient = new Mongo.MongoClient(mongoURL);
                 await mongoClient.connect();
                 let orders = mongoClient.db("Test").collection("Students");
                 let jsonString = JSON.stringify(urlSlash.query);

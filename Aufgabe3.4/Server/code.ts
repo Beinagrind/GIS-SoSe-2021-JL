@@ -56,7 +56,7 @@ export namespace P_3_4Server {
                 let mongoURL = "mongodb+srv://userLudwig:<userPassword>@gis-jl.4mqvc.mongodb.net/Test?retryWrites=true&w=majority";
 
                 let options: Mongo.MongoClientOptions = {useNewUrlParser:  true, useUnifiedTopology: true};
-                let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(mongoURL, options);
+                let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(mongoURL);
                 await mongoClient.connect();
 
                 let orders: Mongo.Collection = mongoClient.db("Test").collection("Students");
