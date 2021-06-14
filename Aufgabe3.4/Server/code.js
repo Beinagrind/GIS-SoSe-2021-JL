@@ -35,7 +35,7 @@ var P_3_4Server;
                 for (let key in urlSlash.query) {
                     _response.write("<p>" + key + ": " + urlSlash.query[key] + "</p>");
                 }
-                let mongoURL = "mongodb+srv://userLudwig:<userPassword>@gis-jl.4mqvc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+                let mongoURL = "mongodb+srv://userLudwig:<userPassword>@gis-jl.4mqvc.mongodb.net/Test?retryWrites=true&w=majority";
                 let options = { useNewUrlParser: true, useUnifiedTopology: true };
                 let mongoClient = new Mongo.MongoClient(mongoURL, options);
                 await mongoClient.connect();
