@@ -36,7 +36,7 @@ export namespace P_3_4Server {
             const reqeustUrl: string = _request.url;
             const urlSlash: Url.UrlWithParsedQuery = Url.parse(reqeustUrl, true);
 
-            let mongoURL = "mongodb+srv://userLudwig:<userPassword>@gis-jl.4mqvc.mongodb.net/Test?retryWrites=true&w=majority";
+            let mongoURL = "mongodb+srv://userLudwig:userPassword@gis-jl.4mqvc.mongodb.net/Test?retryWrites=true&w=majority";
 
             let options: Mongo.MongoClientOptions = {useNewUrlParser:  true, useUnifiedTopology: true};
             let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(mongoURL, options);
@@ -52,7 +52,7 @@ export namespace P_3_4Server {
                 let dataFiles = orders.find();
                 
                 _response.write(dataFiles);
-                
+
             }
             
             else {
