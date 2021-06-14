@@ -35,12 +35,14 @@ var P_3_4Server;
                 for (let key in urlSlash.query) {
                     _response.write("<p>" + key + ": " + urlSlash.query[key] + "</p>");
                 }
-                let mongoURL = "";
+                let mongoURL = "mongodb+srv://userLudwig:<userPassword>@gis-jl.4mqvc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
                 let options = { useNewUrlParser: true, useUnifiedTopology: true };
                 let mongoClient = new Mongo.MongoClient(mongoURL, options);
                 await mongoClient.connect();
                 let orders = mongoClient.db("Test").collection("Students");
-                orders.insert({ ... });
+                let jsonString = JSON.stringify(urlSlash.query);
+                _response.write(jsonString);
+                orders.insert(urlSlash.query);
             }
         }
         _response.end();

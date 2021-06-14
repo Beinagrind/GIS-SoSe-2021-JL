@@ -1,6 +1,7 @@
 import * as Http from "http";
 import * as Url from "url";
 import * as  Mongo from "mongodb";
+import { url } from "inspector";
 
 export namespace P_3_4Server {
 
@@ -52,15 +53,19 @@ export namespace P_3_4Server {
                     
                 }
 
-                let mongoURL = "";
+                let mongoURL = "mongodb+srv://userLudwig:<userPassword>@gis-jl.4mqvc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
                 let options: Mongo.MongoClientOptions = {useNewUrlParser:  true, useUnifiedTopology: true};
                 let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(mongoURL, options);
                 await mongoClient.connect();
 
                 let orders: Mongo.Collection = mongoClient.db("Test").collection("Students");
-                orders.insert({...});
-                
 
+                let jsonString: string = JSON.stringify(urlSlash.query);
+                _response.write(jsonString);
+
+                orders.insert(urlSlash.query);
+                
             }
 
         }
