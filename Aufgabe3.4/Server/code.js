@@ -35,8 +35,6 @@ var P_3_4Server;
                 let dataSearch = orders.find();
                 let dataFiles = await dataSearch.toArray();
                 console.log(dataFiles[2].Name);
-                _response.write("Database Antwort");
-                _response.write(dataFiles);
             }
             else {
                 _response.write("<p>" + " Ihre Eingaben, vom Server zurückgesendet: " + "</p>");

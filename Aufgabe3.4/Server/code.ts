@@ -50,11 +50,6 @@ export namespace P_3_4Server {
                 let dataFiles: Formular[] = await  dataSearch.toArray();
                 console.log(dataFiles[2].Name);
 
-                _response.write("Database Antwort");
-                _response.write(dataFiles);
-
-
-
             }
             
             else {
@@ -82,7 +77,7 @@ export namespace P_3_4Server {
         interface Formular {
             Name: string;
             Passwort: string;
-            Nachricht:  string;
+            Nachicht:  String;
         }   
     }
 
