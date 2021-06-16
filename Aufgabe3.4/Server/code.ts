@@ -44,18 +44,13 @@ export namespace P_3_4Server {
 
             let orders: Mongo.Collection = mongoClient.db("Test").collection("Students");
 
+
+
             if (urlSlash.pathname == "/readData") {
 
                 let dataSearch: Mongo.Cursor = orders.find();
                 let dataFiles: Formular[] = await dataSearch.toArray();
                 console.log(dataFiles);
-
-                for (let key in dataFiles) {
-
-                    _response.write("<p>" + key + ": " + dataFiles[key] + "</p>");
-                    
-                }
-
 
             }
 
