@@ -77,10 +77,10 @@ namespace P_3_4Server {
     submit.addEventListener("click", sendForm);
     
     let readData: HTMLButtonElement = <HTMLButtonElement>document.getElementById("loginjson");
-    submit.addEventListener("click", read);
+    readData.addEventListener("click", read);
 
-    let deleteData: HTMLButtonElement = <HTMLButtonElement>document.getElementById("loginjson");
-    submit.addEventListener("click", resetDatabase);
+    let deleteData: HTMLButtonElement = <HTMLButtonElement>document.getElementById("deleteData");
+    deleteData.addEventListener("click", resetDatabase);
 
     interface StringJson {
 

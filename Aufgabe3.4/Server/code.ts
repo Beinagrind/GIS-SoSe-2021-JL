@@ -52,6 +52,12 @@ export namespace P_3_4Server {
                 let dataFiles: Formular[] = await dataSearch.toArray();
                 console.log(dataFiles);
 
+                for (let key in dataFiles) {
+
+                    _response.write("<p>" + key + ": " + dataFiles[key] + "</p>");
+
+                }
+
             }
 
             if (urlSlash.pathname  == "/dataAdd") {

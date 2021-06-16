@@ -46,8 +46,8 @@ var P_3_4Server;
     let submit = document.getElementById("login");
     submit.addEventListener("click", sendForm);
     let readData = document.getElementById("loginjson");
-    submit.addEventListener("click", read);
-    let deleteData = document.getElementById("loginjson");
-    submit.addEventListener("click", resetDatabase);
+    readData.addEventListener("click", read);
+    let deleteData = document.getElementById("deleteData");
+    deleteData.addEventListener("click", resetDatabase);
 })(P_3_4Server || (P_3_4Server = {}));
 //# sourceMappingURL=formular.js.map
