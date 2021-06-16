@@ -56,7 +56,6 @@ export namespace P_3_4Server {
                     
                 }
 
-                _response.write(dataFiles);
 
             }
 
