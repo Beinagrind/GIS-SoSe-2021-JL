@@ -51,15 +51,11 @@ export namespace P_3_4Server {
                 let dataSearch: Mongo.Cursor = orders.find();
                 let dataFiles: Formular[] = await dataSearch.toArray();
                 console.log(dataFiles);
-
-                for (let key in dataFiles) {
-
-                    _response.write("<p>" + key + ": " + dataFiles[key] + "</p>");
-
-                }
+                
                 let jsonString: string = JSON.stringify(dataFiles);
                 _response.write(jsonString);
 
+                console.log(_response);
             }
 
             if (urlSlash.pathname  == "/dataAdd") {
