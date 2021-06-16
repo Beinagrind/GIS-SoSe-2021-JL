@@ -32,7 +32,7 @@ namespace P_3_4Server {
 
         let url: string = "";
 
-        console.log("Sending JSON to Server");
+        console.log("Server wird angefragt");
 
         let formData: FormData = new FormData(document.forms[0]);
         let query: URLSearchParams = new URLSearchParams(<any>formData);
