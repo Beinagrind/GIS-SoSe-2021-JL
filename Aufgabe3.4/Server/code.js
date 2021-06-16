@@ -32,10 +32,11 @@ var P_3_4Server;
             await mongoClient.connect();
             let orders = mongoClient.db("Test").collection("Students");
             if (urlSlash.pathname == "/readData") {
-                let dataFiles = orders.find();
+                let dataSearch = orders.find();
+                let dataFiles = await dataSearch.toArray();
+                console.log(dataFiles[2].Name);
                 _response.write("Database Antwort");
                 _response.write(dataFiles);
-                console.log(dataFiles);
             }
             else {
                 _response.write("<p>" + " Ihre Eingaben, vom Server zurückgesendet: " + "</p>");

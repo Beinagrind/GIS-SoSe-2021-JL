@@ -46,12 +46,14 @@ export namespace P_3_4Server {
 
             if (urlSlash.pathname == "/readData") {
 
-                let dataFiles = orders.find();
+                let dataSearch: Mongo.Cursor = orders.find();
+                let dataFiles: Formular[] = await  dataSearch.toArray();
+                console.log(dataFiles[2].Name);
 
                 _response.write("Database Antwort");
                 _response.write(dataFiles);
 
-                console.log(dataFiles);
+
 
             }
             
@@ -76,7 +78,12 @@ export namespace P_3_4Server {
         }
 
         _response.end();
-        
+
+        interface Formular {
+            Name: string;
+            Passwort: string;
+            Nachricht:  string;
+        }   
     }
 
 }  
