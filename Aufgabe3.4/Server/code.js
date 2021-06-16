@@ -38,7 +38,6 @@ var P_3_4Server;
                 for (let key in dataFiles) {
                     _response.write("<p>" + key + ": " + dataFiles[key] + "</p>");
                 }
-                _response.write(dataFiles);
             }
             if (urlSlash.pathname == "/dataAdd") {
                 _response.write("<p>" + " Ihre Eingaben, vom Server zurückgesendet: " + "</p>");
