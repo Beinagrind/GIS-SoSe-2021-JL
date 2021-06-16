@@ -44,18 +44,19 @@ export namespace P_3_4Server {
 
             let orders: Mongo.Collection = mongoClient.db("Test").collection("Students");
 
-
-
             if (urlSlash.pathname == "/readData") {
+
+                _response.setHeader("content-type", "text/html; charset=utf-8");
+                _response.setHeader("Access.Control-Allow-Origin", "*");
 
                 let dataSearch: Mongo.Cursor = orders.find();
                 let dataFiles: Formular[] = await dataSearch.toArray();
-                console.log(dataFiles);
                 
                 let jsonString: string = JSON.stringify(dataFiles);
                 _response.write(jsonString);
 
                 console.log(_response);
+
             }
 
             if (urlSlash.pathname  == "/dataAdd") {
