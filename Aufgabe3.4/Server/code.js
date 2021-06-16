@@ -32,9 +32,6 @@ var P_3_4Server;
             await mongoClient.connect();
             let orders = mongoClient.db("Test").collection("Students");
             if (urlSlash.pathname == "/readData") {
-                _response.setHeader("content-type", "application/json");
-                _response.write("Serverantwort JSON:");
-                _response.write(JSON.stringify(urlSlash.query));
                 let dataFiles = orders.find();
                 _response.write("Database Antwort");
                 _response.write(dataFiles);
