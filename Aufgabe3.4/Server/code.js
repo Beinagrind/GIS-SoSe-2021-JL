@@ -35,8 +35,9 @@ var P_3_4Server;
                 let dataSearch = orders.find();
                 let dataFiles = await dataSearch.toArray();
                 console.log(dataFiles);
+                _response.write(dataFiles);
             }
-            else {
+            if (urlSlash.pathname == "/dataAdd") {
                 _response.write("<p>" + " Ihre Eingaben, vom Server zurückgesendet: " + "</p>");
                 for (let key in urlSlash.query) {
                     _response.write("<p>" + key + ": " + urlSlash.query[key] + "</p>");
@@ -45,6 +46,10 @@ var P_3_4Server;
                 _response.write(jsonString);
                 orders.insert(urlSlash.query);
                 orders.find();
+            }
+            else {
+                orders.drop();
+                _response.write("Database Cleared");
             }
         }
         _response.end();

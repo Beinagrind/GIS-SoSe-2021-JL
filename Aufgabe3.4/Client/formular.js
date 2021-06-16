@@ -16,7 +16,7 @@ var P_3_4Server;
         }
         console.log("Text Printet On Website");
     }
-    async function sendFormJson(_event) {
+    async function read(_event) {
         const serverResponse = document.getElementById("abc");
         let url = "";
         console.log("Sending JSON to Server");
@@ -31,9 +31,23 @@ var P_3_4Server;
         }
         serverResponse.innerHTML = "Printed Database";
     }
+    async function resetDatabase(_event) {
+        const serverResponse = document.getElementById("abc");
+        let url = "";
+        url = "https://beinagrinddrekifurtwangen.herokuapp.com/resetDatabase";
+        const response = await fetch(url);
+        const receivedObj = await response.text();
+        print(receivedObj);
+        function print(_url) {
+            serverResponse.innerHTML = _url;
+        }
+        serverResponse.innerHTML = "Deleted Database";
+    }
     let submit = document.getElementById("login");
     submit.addEventListener("click", sendForm);
-    let submitjson = document.getElementById("loginjson");
-    submitjson.addEventListener("click", sendFormJson);
+    let readData = document.getElementById("loginjson");
+    submit.addEventListener("click", read);
+    let deleteData = document.getElementById("loginjson");
+    submit.addEventListener("click", resetDatabase);
 })(P_3_4Server || (P_3_4Server = {}));
 //# sourceMappingURL=formular.js.map

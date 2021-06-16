@@ -26,7 +26,7 @@ namespace P_3_4Server {
 
     }
 
-    async function sendFormJson(_event: Event): Promise<void> {
+    async function read(_event: Event): Promise<void> {
 
         const serverResponse: HTMLElement = document.getElementById("abc");
 
@@ -52,11 +52,35 @@ namespace P_3_4Server {
 
     }
 
+    async function resetDatabase(_event: Event): Promise<void> {
+
+        const serverResponse: HTMLElement = document.getElementById("abc");
+
+        let url: string = "";
+
+        url = "https://beinagrinddrekifurtwangen.herokuapp.com/resetDatabase";
+
+        const response: Response = await fetch(url);
+        const receivedObj: string = await response.text();
+
+        print(receivedObj);
+
+        function print(_url: string): void {
+            serverResponse.innerHTML = _url;
+        }
+        
+        serverResponse.innerHTML = "Deleted Database";
+
+    }
+
     let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("login");
     submit.addEventListener("click", sendForm);
     
-    let submitjson: HTMLButtonElement = <HTMLButtonElement>document.getElementById("loginjson");
-    submitjson.addEventListener("click", sendFormJson);
+    let readData: HTMLButtonElement = <HTMLButtonElement>document.getElementById("loginjson");
+    submit.addEventListener("click", read);
+
+    let deleteData: HTMLButtonElement = <HTMLButtonElement>document.getElementById("loginjson");
+    submit.addEventListener("click", resetDatabase);
 
     interface StringJson {
 

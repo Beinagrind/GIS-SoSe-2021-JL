@@ -50,10 +50,13 @@ export namespace P_3_4Server {
                 let dataFiles: Formular[] = await dataSearch.toArray();
                 console.log(dataFiles);
 
-            }
-            
-            else {
+                _response.write(dataFiles);
 
+            }
+
+            if (urlSlash.pathname  == "/dataAdd") {
+
+                
                 _response.write("<p>" + " Ihre Eingaben, vom Server zurückgesendet: " + "</p>");
 
                 for (let key in urlSlash.query) {
@@ -67,7 +70,15 @@ export namespace P_3_4Server {
 
                 orders.insert(urlSlash.query);
                 orders.find();
-                
+
+            }
+            
+            else {
+
+                orders.drop();
+
+                _response.write("Database Cleared");
+
             }
 
         }
@@ -75,9 +86,11 @@ export namespace P_3_4Server {
         _response.end();
 
         interface Formular {
+
             Name: string;
             Passwort: string;
             Nachicht:  String;
+
         }   
     }
 
