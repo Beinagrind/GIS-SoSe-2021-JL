@@ -40,6 +40,7 @@ var P_3_4Server;
                 let inhalt = orders.find();
                 _response.write("Database Antwort");
                 _response.write(inhalt);
+                console.log(inhalt);
             }
             else {
                 _response.write("<p>" + " Ihre Eingaben, vom Server zurückgesendet: " + "</p>");

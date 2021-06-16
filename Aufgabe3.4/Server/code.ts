@@ -60,6 +60,8 @@ export namespace P_3_4Server {
                 _response.write("Database Antwort");
                 _response.write(inhalt);
 
+                console.log(inhalt);
+
             }
             
             else {
