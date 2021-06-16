@@ -44,14 +44,21 @@ export namespace P_3_4Server {
 
             let orders: Mongo.Collection = mongoClient.db("Test").collection("Students");
 
-            if (urlSlash.pathname == "/json") {
+            if (urlSlash.pathname == "/readData") {
 
                 _response.setHeader("content-type", "application/json");
+
+                _response.write("Serverantwort JSON:")
                 _response.write(JSON.stringify(urlSlash.query));
 
                 let dataFiles = orders.find();
                 
                 _response.write(dataFiles);
+
+                let inhalt = orders.find();
+
+                _response.write("Database Antwort");
+                _response.write(inhalt);
 
             }
             

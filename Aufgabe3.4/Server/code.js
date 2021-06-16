@@ -31,11 +31,15 @@ var P_3_4Server;
             let mongoClient = new Mongo.MongoClient(mongoURL, options);
             await mongoClient.connect();
             let orders = mongoClient.db("Test").collection("Students");
-            if (urlSlash.pathname == "/json") {
+            if (urlSlash.pathname == "/readData") {
                 _response.setHeader("content-type", "application/json");
+                _response.write("Serverantwort JSON:");
                 _response.write(JSON.stringify(urlSlash.query));
                 let dataFiles = orders.find();
                 _response.write(dataFiles);
+                let inhalt = orders.find();
+                _response.write("Database Antwort");
+                _response.write(inhalt);
             }
             else {
                 _response.write("<p>" + " Ihre Eingaben, vom Server zurückgesendet: " + "</p>");

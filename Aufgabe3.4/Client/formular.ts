@@ -11,7 +11,7 @@ namespace P_3_4Server {
         let formData: FormData = new FormData(document.forms[0]);
         let query: URLSearchParams = new URLSearchParams(<any>formData);
 
-        url = "https://beinagrinddrekifurtwangen.herokuapp.com/html" + "?" + query.toString();
+        url = "https://beinagrinddrekifurtwangen.herokuapp.com/dataAdd" + "?" + query.toString();
 
         const response: Response = await fetch(url);
         const respString: string = await response.text();
@@ -37,7 +37,7 @@ namespace P_3_4Server {
         let formData: FormData = new FormData(document.forms[0]);
         let query: URLSearchParams = new URLSearchParams(<any>formData);
 
-        url = "https://beinagrinddrekifurtwangen.herokuapp.com/json" + "?" + query.toString();
+        url = "https://beinagrinddrekifurtwangen.herokuapp.com/readData" + "?" + query.toString();
 
         const response: Response = await fetch(url);
         const receivedObj: StringJson = await response.json();
