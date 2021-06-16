@@ -34,7 +34,7 @@ var P_3_4Server;
             if (urlSlash.pathname == "/readData") {
                 let dataSearch = orders.find();
                 let dataFiles = await dataSearch.toArray();
-                console.log(dataFiles[2].Name);
+                console.log(dataFiles);
             }
             else {
                 _response.write("<p>" + " Ihre Eingaben, vom Server zurückgesendet: " + "</p>");

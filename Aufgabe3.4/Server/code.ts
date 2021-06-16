@@ -47,8 +47,8 @@ export namespace P_3_4Server {
             if (urlSlash.pathname == "/readData") {
 
                 let dataSearch: Mongo.Cursor = orders.find();
-                let dataFiles: Formular[] = await  dataSearch.toArray();
-                console.log(dataFiles[2].Name);
+                let dataFiles: Formular[] = await dataSearch.toArray();
+                console.log(dataFiles);
 
             }
             
