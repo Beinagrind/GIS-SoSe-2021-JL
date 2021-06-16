@@ -51,9 +51,8 @@ export namespace P_3_4Server {
 
                 let dataSearch: Mongo.Cursor = orders.find();
                 let dataFiles: Formular[] = await dataSearch.toArray();
-                
-                let jsonString: string = JSON.stringify(dataFiles);
-                _response.write(jsonString);
+            
+                _response.write(dataFiles);
 
                 console.log(_response);
 
