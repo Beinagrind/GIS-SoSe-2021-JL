@@ -53,14 +53,12 @@ export namespace P_3_4Server {
 
                 let dataFiles = orders.find();
                 
-                _response.write(dataFiles);
-
-                let inhalt = orders.find();
+               
 
                 _response.write("Database Antwort");
-                _response.write(inhalt);
+                _response.write(dataFiles);
 
-                console.log(inhalt);
+                console.log(dataFiles);
 
             }
             

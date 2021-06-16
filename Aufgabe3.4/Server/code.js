@@ -36,11 +36,9 @@ var P_3_4Server;
                 _response.write("Serverantwort JSON:");
                 _response.write(JSON.stringify(urlSlash.query));
                 let dataFiles = orders.find();
-                _response.write(dataFiles);
-                let inhalt = orders.find();
                 _response.write("Database Antwort");
-                _response.write(inhalt);
-                console.log(inhalt);
+                _response.write(dataFiles);
+                console.log(dataFiles);
             }
             else {
                 _response.write("<p>" + " Ihre Eingaben, vom Server zurückgesendet: " + "</p>");
