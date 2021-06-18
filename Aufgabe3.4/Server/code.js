@@ -49,7 +49,7 @@ var P_3_4Server;
                 orders.insert(urlSlash.query);
                 orders.find();
             }
-            else {
+            if (urlSlash.pathname == "/resetDatabase") {
                 orders.drop();
                 _response.write("Database Cleared");
             }

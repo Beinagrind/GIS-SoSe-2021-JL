@@ -78,7 +78,7 @@ export namespace P_3_4Server {
 
             }
             
-            else {
+            if (urlSlash.pathname  == "/resetDatabase") {
 
                 orders.drop();
 

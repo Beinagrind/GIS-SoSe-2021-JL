@@ -30,6 +30,7 @@ var P_3_4Server;
             serverResponse.innerHTML = _url;
         }
         serverResponse.innerHTML = "Printed Database";
+        serverResponse.innerHTML = receivedObj;
     }
     async function resetDatabase(_event) {
         const serverResponse = document.getElementById("abc");
@@ -45,7 +46,7 @@ var P_3_4Server;
     }
     let submit = document.getElementById("login");
     submit.addEventListener("click", sendForm);
-    let readData = document.getElementById("loginjson");
+    let readData = document.getElementById("loginJson");
     readData.addEventListener("click", read);
     let deleteData = document.getElementById("deleteData");
     deleteData.addEventListener("click", resetDatabase);

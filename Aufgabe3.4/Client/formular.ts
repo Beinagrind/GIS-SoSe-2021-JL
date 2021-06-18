@@ -49,6 +49,7 @@ namespace P_3_4Server {
         }
         
         serverResponse.innerHTML = "Printed Database";
+        serverResponse.innerHTML = receivedObj;
 
     }
 
@@ -76,7 +77,7 @@ namespace P_3_4Server {
     let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("login");
     submit.addEventListener("click", sendForm);
     
-    let readData: HTMLButtonElement = <HTMLButtonElement>document.getElementById("loginjson");
+    let readData: HTMLButtonElement = <HTMLButtonElement>document.getElementById("loginJson");
     readData.addEventListener("click", read);
 
     let deleteData: HTMLButtonElement = <HTMLButtonElement>document.getElementById("deleteData");
