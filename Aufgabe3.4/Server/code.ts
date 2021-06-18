@@ -84,6 +84,15 @@ export namespace P_3_4Server {
 
             }
 
+            if  (urlSlash.pathname == "/del") {
+
+                let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+                let jsonString: string = JSON.stringify(urlSlash.query);
+                _response.write(jsonString);
+
+                await orders.deleteOne({"Name": url.query.Name, "Passwort": url.query.Passwort}); 
+            }
+
         }
 
         _response.end();

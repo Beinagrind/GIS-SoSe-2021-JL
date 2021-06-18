@@ -50,11 +50,28 @@ var P_3_4Server;
         }
         serverResponse.innerHTML = "Deleted Database";
     }
+    async function deleteFormularData() {
+        const serverResponse = document.getElementById("abc");
+        let url = "";
+        let formData = new FormData(document.forms[0]);
+        let query = new URLSearchParams(formData);
+        url = "https://beinagrinddrekifurtwangen.herokuapp.com/del" + "?" + query.toString();
+        const response = await fetch(url);
+        const receivedObj = await response.text();
+        print(receivedObj);
+        function print(_url) {
+            serverResponse.innerHTML = _url;
+        }
+        serverResponse.innerHTML = "Deleted: " + receivedObj;
+        clearForm();
+    }
     let submit = document.getElementById("login");
     submit.addEventListener("click", sendForm);
     let readData = document.getElementById("loginJson");
     readData.addEventListener("click", read);
     let deleteData = document.getElementById("deleteData");
     deleteData.addEventListener("click", resetDatabase);
+    let deleteOne = document.getElementById("deleteData");
+    deleteOne.addEventListener("click", deleteFormularData);
 })(P_3_4Server || (P_3_4Server = {}));
 //# sourceMappingURL=formular.js.map
