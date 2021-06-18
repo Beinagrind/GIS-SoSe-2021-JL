@@ -55,8 +55,6 @@ export namespace P_3_4Server {
             
                 _response.write(JSON.stringify(dataFiles));
 
-                console.log(_response);
-
             }
 
             if (urlSlash.pathname  == "/dataAdd") {

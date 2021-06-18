@@ -24,6 +24,17 @@ namespace P_3_4Server {
 
         console.log("Text Printet On Website");
 
+        clearForm();
+
+    }
+
+    function clearForm(): void {
+
+        document.getElementsByTagName("input")[0].value = "";
+        document.getElementsByTagName("input")[1].value = "";
+        document.getElementsByTagName("input")[2].value = "";
+        document.getElementsByTagName("input")[3].value = "";
+
     }
 
     async function read(_event: Event): Promise<void> {
@@ -47,7 +58,7 @@ namespace P_3_4Server {
         function print(_url: string): void {
             serverResponse.innerHTML = _url;
         }
-        
+
         serverResponse.innerHTML = "Printed Database";
         serverResponse.innerHTML = receivedObj;
 
@@ -83,10 +94,6 @@ namespace P_3_4Server {
     let deleteData: HTMLButtonElement = <HTMLButtonElement>document.getElementById("deleteData");
     deleteData.addEventListener("click", resetDatabase);
 
-    interface StringJson {
 
-        [key: string]: string;
-
-    }
 }
 

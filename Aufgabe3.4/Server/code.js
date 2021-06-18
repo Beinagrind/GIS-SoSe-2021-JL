@@ -37,7 +37,6 @@ var P_3_4Server;
                 let dataSearch = orders.find();
                 let dataFiles = await dataSearch.toArray();
                 _response.write(JSON.stringify(dataFiles));
-                console.log(_response);
             }
             if (urlSlash.pathname == "/dataAdd") {
                 _response.write("<p>" + " Ihre Eingaben, vom Server zurückgesendet: " + "</p>");
