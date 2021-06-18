@@ -108,7 +108,7 @@ namespace P_3_4Server {
         serverResponse.innerHTML = "Deleted: " + receivedObj;
 
         clearForm();
-        
+
     }
 
     let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("login");
@@ -120,7 +120,7 @@ namespace P_3_4Server {
     let deleteData: HTMLButtonElement = <HTMLButtonElement>document.getElementById("deleteData");
     deleteData.addEventListener("click", resetDatabase);
 
-    let deleteOne: HTMLButtonElement = <HTMLButtonElement>document.getElementById("deleteData");
+    let deleteOne: HTMLButtonElement = <HTMLButtonElement>document.getElementById("del");
     deleteOne.addEventListener("click", deleteFormularData);
 
 
