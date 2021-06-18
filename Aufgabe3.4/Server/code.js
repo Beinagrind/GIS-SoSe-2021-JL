@@ -36,7 +36,7 @@ var P_3_4Server;
                 _response.setHeader("Access.Control-Allow-Origin", "*");
                 let dataSearch = orders.find();
                 let dataFiles = await dataSearch.toArray();
-                _response.write(dataFiles);
+                _response.write(JSON.stringify(dataFiles));
                 console.log(_response);
             }
             if (urlSlash.pathname == "/dataAdd") {
