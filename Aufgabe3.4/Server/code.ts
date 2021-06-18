@@ -1,8 +1,6 @@
 import * as Http from "http";
 import * as Url from "url";
 import * as  Mongo from "mongodb";
-import { url } from "inspector";
-import { stringify } from "querystring";
 
 export namespace P_3_4Server {
 
@@ -37,7 +35,7 @@ export namespace P_3_4Server {
             const reqeustUrl: string = _request.url;
             const urlSlash: Url.UrlWithParsedQuery = Url.parse(reqeustUrl, true);
 
-            let mongoURL = "mongodb+srv://userLudwig:userPassword@gis-jl.4mqvc.mongodb.net/Test?retryWrites=true&w=majority";
+            let mongoURL: string = "mongodb+srv://userLudwig:userPassword@gis-jl.4mqvc.mongodb.net/Test?retryWrites=true&w=majority";
 
             let options: Mongo.MongoClientOptions = {useNewUrlParser:  true, useUnifiedTopology: true};
             let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(mongoURL, options);
