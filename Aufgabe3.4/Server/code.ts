@@ -2,6 +2,7 @@ import * as Http from "http";
 import * as Url from "url";
 import * as  Mongo from "mongodb";
 import { url } from "inspector";
+import { stringify } from "querystring";
 
 export namespace P_3_4Server {
 
@@ -52,7 +53,7 @@ export namespace P_3_4Server {
                 let dataSearch: Mongo.Cursor = orders.find();
                 let dataFiles: Formular[] = await dataSearch.toArray();
             
-                _response.write(dataFiles);
+                _response.write(JSON.stringify(dataFiles));
 
                 console.log(_response);
 
