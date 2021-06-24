@@ -112,10 +112,10 @@ namespace mememory {
             let antwort: Response = await fetch(_url);
             let cards = await antwort.json();
 
-            console.log(Object.keys(cards));
+            for (let i: number = 0; i < cards.length; i++) {
 
-            for (let i in cards) {
-
+                console.log(cards);
+                console.log(cards[i]);
                 let playspace = document.getElementById("playspace");
 
                 let cardDiv: HTMLDivElement = document.createElement("div");
@@ -123,14 +123,13 @@ namespace mememory {
                 let cardFront: HTMLImageElement = document.createElement("img");
                             
                 cardFront.src = "../Bilder/front.png";
-                cardBack.src =  cards[i].image;  
+                cardBack.src =  cards[i];  
+                console.log(cardBack);
                 cardDiv.appendChild(cardBack);
                 cardDiv.appendChild(cardFront);
                             
                 playspace.appendChild(cardDiv);
-
             }
-
         }   
     }
 
@@ -140,10 +139,5 @@ namespace mememory {
 
     }
 
-    interface Card {
-
-        image: string[];
-
-    }
 
 }
