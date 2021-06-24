@@ -64,16 +64,18 @@ var mememory;
         async function createPlayspace(_url) {
             let antwort = await fetch(_url);
             let cards = await antwort.json();
-            cards.forEach(element => {
+            console.log(Object.keys(cards));
+            for (let i in cards) {
                 let playspace = document.getElementById("playspace");
                 let cardDiv = document.createElement("div");
                 let cardBack = document.createElement("img");
                 let cardFront = document.createElement("img");
                 cardFront.src = "../Bilder/front.png";
+                cardBack.src = cards[i].image;
                 cardDiv.appendChild(cardBack);
                 cardDiv.appendChild(cardFront);
                 playspace.appendChild(cardDiv);
-            });
+            }
         }
     }
     async function ranglisteSeite() {

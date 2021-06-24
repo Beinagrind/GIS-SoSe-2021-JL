@@ -110,22 +110,27 @@ namespace mememory {
         async function createPlayspace(_url: RequestInfo): Promise<void> {
 
             let antwort: Response = await fetch(_url);
-            let cards: Card[] = await antwort.json();
+            let cards = await antwort.json();
 
-            cards.forEach(element => {
+            console.log(Object.keys(cards));
+
+            for (let i in cards) {
 
                 let playspace = document.getElementById("playspace");
 
                 let cardDiv: HTMLDivElement = document.createElement("div");
                 let cardBack: HTMLImageElement = document.createElement("img");
                 let cardFront: HTMLImageElement = document.createElement("img");
-        
+                            
                 cardFront.src = "../Bilder/front.png";
+                cardBack.src =  cards[i].image;  
                 cardDiv.appendChild(cardBack);
                 cardDiv.appendChild(cardFront);
-                
+                            
                 playspace.appendChild(cardDiv);
-            });
+
+            }
+
         }   
     }
 
