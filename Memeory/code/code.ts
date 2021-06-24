@@ -91,11 +91,53 @@ namespace mememory {
 
         console.log("Game Starting");
 
+        let cardSet: string = "";
+
+        if (formular == "oldschoolMemesCards")  {
+            cardSet = "set1data.json";
+        }
+
+        if (formular == "ahegaoCards")  {
+            cardSet = "set2data.json";
+        }
+
+        if (formular == "programmersArtCards")  {
+            cardSet = "set3data.json";
+        }
+
+        createPlayspace("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Memeory/data/" + cardSet); 
+
+        async function createPlayspace(_url: RequestInfo): Promise<void> {
+
+            let antwort: Response = await fetch(_url);
+            let cards: Card[] = await antwort.json();
+
+            cards.forEach(element => {
+
+                let playspace = document.getElementById("playspace");
+
+                let cardDiv: HTMLDivElement = document.createElement("div");
+                let cardBack: HTMLImageElement = document.createElement("img");
+                let cardFront: HTMLImageElement = document.createElement("img");
+        
+                cardFront.src = "../Bilder/front.png";
+                cardDiv.appendChild(cardBack);
+                cardDiv.appendChild(cardFront);
+                
+                playspace.appendChild(cardDiv);
+            });
+        }   
     }
 
     async function ranglisteSeite(): Promise<void> {
 
 
+
+    }
+
+    interface Card {
+
+        image: string[];
 
     }
 
