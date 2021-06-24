@@ -1,7 +1,4 @@
-
 namespace mememory {
-
-
 
     if (window.location.href.includes("/auswahl.html")) {
 
@@ -11,7 +8,7 @@ namespace mememory {
 
     if (window.location.href.includes("/spielfeld.html")) {
 
-        spielfeldSeite();
+        spielfeldSeite(localStorage.getItem("cardSet"));
     
     }
 
@@ -26,22 +23,77 @@ namespace mememory {
         let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("start");
         submit.addEventListener("click", sendAuswahl);
 
+        let highscore: HTMLButtonElement = <HTMLButtonElement>document.getElementById("highscore");
+        highscore.addEventListener("click", startHighscore);
+
         async function sendAuswahl(): Promise<void> {
 
-            window.open("../html/spielfeld.html");
+            let url: string = "https://beinagrinddrekifurtwangen.herokuapp.com/startGame";
+
+            //let formData: FormData = new FormData(document.forms[0]);
+            //let query: URLSearchParams = new URLSearchParams(<any>formData);
+
+            //const response: Response = await fetch(url);
+            //const responseString: string = await response.text();
+
+
+
+            localStorage.clear();
+            localStorage.setItem("spielerName", JSON.stringify(document.getElementsByTagName("input")[0].value));
+
             console.log("Starting Game");
+            
+            //window.location.assign("../html/spielfeld.html");
+            
+            let radio1: HTMLInputElement = <HTMLInputElement>document.getElementById("memesTemplate");
+            let radio2: HTMLInputElement = <HTMLInputElement>document.getElementById("ahegaoTemplate");
+            let radio3: HTMLInputElement = <HTMLInputElement>document.getElementById("programmersArtTemplate");
+
+            if (radio1.checked == true) {
+
+                localStorage.setItem("cardSet", "oldschoolMemesCards");
+
+            }
+
+            if (radio2.checked == true) {
+
+                localStorage.setItem("cardSet", "ahegaoCards");
+
+            }
+            
+            if (radio3.checked == true) {
+
+                localStorage.setItem("cardSet", "programmersArtCards");
+
+            }
+           
+            spielfeldSeite(localStorage.getItem("cardSet"));
+
+        }
+
+        function startHighscore(): void {
+
+            window.location.assign("../html/rangliste.html");
 
         }
 
     }
 
-    async function spielfeldSeite():  Promise<void>  {
+    async function spielfeldSeite(formular: string): Promise<void>  {
 
+        window.open("../html/spielfeld.html");
 
+        console.log(formular  + " :selected");
+        //umgedrehte karten zählen counter 1 hoch, spielende wenn counter auf 16
+
+        let spielerName: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("playerNameShown");
+        spielerName.innerHTML = localStorage.getItem("spielerName");
+
+        console.log("Game Starting");
 
     }
 
-    async function ranglisteSeite():  Promise<void>  {
+    async function ranglisteSeite(): Promise<void> {
 
 
 

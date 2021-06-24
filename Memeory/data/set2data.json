@@ -1,0 +1,31 @@
+{
+    "cards2": [
+    {
+        "image": "../Bilder/Ahegao/ahegao1.jpg", 
+        "origin": "Ahegao 1"
+    },
+    { 
+        "image": "../Bilder/Ahegao/ahegao1.jpg", 
+        "origin": "Ahegao 2"
+    },
+    { 
+        "image": "../Bilder/Ahegao/ahegao1.jpg", 
+        "origin": "Ahegao 3"
+    },
+    {   "image": "../Bilder/Ahegao/ahegao1.jpg", 
+        "origin": "Ahegao 4"
+    },
+    {   "image": "../Bilder/Ahegao/ahegao1.jpg", 
+        "origin": "Ahegao 5"
+    },
+    {   "image": "../Bilder/Ahegao/ahegao1.jpg", 
+        "origin": "Ahegao 6"
+    },
+    {   "image": "../Bilder/Ahegao/ahegao1.jpg", 
+        "origin": "Ahegao 7"
+    },
+    {   "image": "../Bilder/Ahegao/ahegao1.jpg", 
+        "origin": "Ahegao 8"
+    }
+   ]
+}

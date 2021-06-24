@@ -86,7 +86,7 @@ namespace P_3_4Server {
     }
 
 
-    async  function deleteFormularData(): Promise<void> {
+    async function deleteFormularData(): Promise<void> {
         const serverResponse: HTMLElement = document.getElementById("abc");
 
         let url: string = "";

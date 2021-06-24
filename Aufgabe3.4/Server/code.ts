@@ -1,6 +1,6 @@
 import * as Http from "http";
 import * as Url from "url";
-import * as  Mongo from "mongodb";
+import * as Mongo from "mongodb";
 
 export namespace P_3_4Server {
 
@@ -99,7 +99,7 @@ export namespace P_3_4Server {
 
             Name: string;
             Passwort: string;
-            Nachicht:  String;
+            Nachicht:  string;
 
         }   
     }

@@ -30,4 +30,10 @@ export namespace mememory {
 
     }
     
+    interface HighscoreData {
+
+        spielerName: string;
+        spielerZeit: number;
+
+    }
 }

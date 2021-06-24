@@ -1,0 +1,31 @@
+{
+    "cards1": [
+    {
+        "image": "../Bilder/OldschoolMemes/meme1.jpg", 
+        "origin": "Meme 1"
+    },
+    { 
+        "image": "../Bilder/OldschoolMemes/meme2.jpg", 
+        "origin": "Meme 2"
+    },
+    { 
+        "image": "../Bilder/OldschoolMemes/meme3.jpg", 
+        "origin": "Meme 3"
+    },
+    {   "image": "../Bilder/OldschoolMemes/meme4.jpg", 
+        "origin": "Meme 4"
+    },
+    {   "image": "../Bilder/OldschoolMemes/meme5.jpg", 
+        "origin": "Meme 5"
+    },
+    {   "image": "../Bilder/OldschoolMemes/meme6.jpg", 
+        "origin": "Meme 6"
+    },
+    {   "image": "../Bilder/OldschoolMemes/meme7.jpg", 
+        "origin": "Meme 7"
+    },
+    {   "image": "../Bilder/OldschoolMemes/meme8.jpg", 
+        "origin": "Meme 8"
+    }
+   ]
+}
