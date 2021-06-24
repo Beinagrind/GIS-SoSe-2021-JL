@@ -122,9 +122,8 @@ namespace mememory {
                 let cardDiv: HTMLDivElement = document.createElement("div");
                 let cardBack: HTMLImageElement = document.createElement("img");
                 let cardFront: HTMLImageElement = document.createElement("img");
-                                  
                 
-                let pathString: string = (JSON.stringify(cards.cards1[arrayI].image));
+                let pathString: string = (cards.cards1[arrayI].image);
                 console.log(pathString);
 
                 cardFront.src = "../Bilder/front.png";
@@ -140,7 +139,7 @@ namespace mememory {
             
         }   
         
-        createPlayspace("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Memeory/data/set1data.json");
+        createPlayspace("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Memeory/data/" + cardSet);
     }
 
     async function ranglisteSeite(): Promise<void> {

@@ -71,7 +71,7 @@ var mememory;
                 let cardDiv = document.createElement("div");
                 let cardBack = document.createElement("img");
                 let cardFront = document.createElement("img");
-                let pathString = (JSON.stringify(cards.cards1[arrayI].image));
+                let pathString = (cards.cards1[arrayI].image);
                 console.log(pathString);
                 cardFront.src = "../Bilder/front.png";
                 cardBack.src = pathString;
@@ -81,7 +81,7 @@ var mememory;
                 playspace.appendChild(cardDiv);
             }
         }
-        createPlayspace("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Memeory/data/set1data.json");
+        createPlayspace("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Memeory/data/" + cardSet);
     }
     async function ranglisteSeite() {
     }
