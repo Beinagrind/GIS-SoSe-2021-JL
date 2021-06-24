@@ -115,8 +115,6 @@ namespace mememory {
 
             for (let arrayI in cards.cards1) {
 
-                let imageTest = cards.cards1[arrayI].image;
-                console.log(imageTest);
                 let playspace = document.getElementById("playspace");
 
                 let cardDiv: HTMLDivElement = document.createElement("div");

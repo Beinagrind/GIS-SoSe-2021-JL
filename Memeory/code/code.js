@@ -65,8 +65,6 @@ var mememory;
             let cards = await antwort.json();
             console.log(cards);
             for (let arrayI in cards.cards1) {
-                let imageTest = cards.cards1[arrayI].image;
-                console.log(imageTest);
                 let playspace = document.getElementById("playspace");
                 let cardDiv = document.createElement("div");
                 let cardBack = document.createElement("img");
