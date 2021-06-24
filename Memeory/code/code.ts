@@ -87,6 +87,7 @@ namespace mememory {
         //umgedrehte karten zählen counter 1 hoch, spielende wenn counter auf 16
 
         let spielerName: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("playerNameShown");
+        
         spielerName.innerHTML = localStorage.getItem("spielerName");
 
         console.log("Game Starting");
@@ -105,8 +106,6 @@ namespace mememory {
             cardSet = "set3data.json";
         }
 
-        createPlayspace("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Memeory/data/" + cardSet); 
-
         async function createPlayspace(_url: RequestInfo): Promise<void> {
 
             let antwort: Response = await fetch(_url);
@@ -114,21 +113,34 @@ namespace mememory {
 
             console.log(cards);
 
-            let playspace = document.getElementById("playspace");
+            for (let arrayI in cards.cards1) {
 
-            let cardDiv: HTMLDivElement = document.createElement("div");
-            let cardBack: HTMLImageElement = document.createElement("img");
-            let cardFront: HTMLImageElement = document.createElement("img");
+                let imageTest = cards.cards1[arrayI].image;
+                console.log(imageTest);
+                let playspace = document.getElementById("playspace");
+
+                let cardDiv: HTMLDivElement = document.createElement("div");
+                let cardBack: HTMLImageElement = document.createElement("img");
+                let cardFront: HTMLImageElement = document.createElement("img");
+                                  
+                
+                let pathString: string = (JSON.stringify(cards.cards1[arrayI].image));
+                console.log(pathString);
+
+                cardFront.src = "../Bilder/front.png";
+                cardBack.src = pathString;  
+                console.log(cardBack);
+                cardDiv.appendChild(cardBack);
+                cardDiv.appendChild(cardFront);
+                                            
+                playspace.appendChild(cardDiv);
                         
-            cardFront.src = "../Bilder/front.png";
-            cardBack.src = "";  
-            console.log(cardBack);
-            cardDiv.appendChild(cardBack);
-            cardDiv.appendChild(cardFront);
-                            
-            playspace.appendChild(cardDiv);
-        
+            }
+
+            
         }   
+        
+        createPlayspace("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Memeory/data/set1data.json");
     }
 
     async function ranglisteSeite(): Promise<void> {

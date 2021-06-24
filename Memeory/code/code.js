@@ -60,22 +60,28 @@ var mememory;
         if (formular == "programmersArtCards") {
             cardSet = "set3data.json";
         }
-        createPlayspace("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Memeory/data/" + cardSet);
         async function createPlayspace(_url) {
             let antwort = await fetch(_url);
             let cards = await antwort.json();
             console.log(cards);
-            let playspace = document.getElementById("playspace");
-            let cardDiv = document.createElement("div");
-            let cardBack = document.createElement("img");
-            let cardFront = document.createElement("img");
-            cardFront.src = "../Bilder/front.png";
-            cardBack.src = "";
-            console.log(cardBack);
-            cardDiv.appendChild(cardBack);
-            cardDiv.appendChild(cardFront);
-            playspace.appendChild(cardDiv);
+            for (let arrayI in cards.cards1) {
+                let imageTest = cards.cards1[arrayI].image;
+                console.log(imageTest);
+                let playspace = document.getElementById("playspace");
+                let cardDiv = document.createElement("div");
+                let cardBack = document.createElement("img");
+                let cardFront = document.createElement("img");
+                let pathString = (JSON.stringify(cards.cards1[arrayI].image));
+                console.log(pathString);
+                cardFront.src = "../Bilder/front.png";
+                cardBack.src = pathString;
+                console.log(cardBack);
+                cardDiv.appendChild(cardBack);
+                cardDiv.appendChild(cardFront);
+                playspace.appendChild(cardDiv);
+            }
         }
+        createPlayspace("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Memeory/data/set1data.json");
     }
     async function ranglisteSeite() {
     }
