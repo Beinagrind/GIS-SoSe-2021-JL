@@ -1,13 +1,24 @@
- 
+{
+    "cards1": [
     {
-        "image1": "../Bilder/OldschoolMemes/meme1.jpg",
-        "image2": "../Bilder/OldschoolMemes/meme2.jpg",
-        "image3": "../Bilder/OldschoolMemes/meme3.jpg",
-        "image4": "../Bilder/OldschoolMemes/meme4.jpg",
-        "image5": "../Bilder/OldschoolMemes/meme5.jpg",
-        "image6": "../Bilder/OldschoolMemes/meme6.jpg",
-        "image7": "../Bilder/OldschoolMemes/meme7.jpg",
-        "image8": "../Bilder/OldschoolMemes/meme8.jpg"
+        "image": "../Bilder/OldschoolMemes/meme1.jpg" 
+    },
+    { 
+        "image": "../Bilder/OldschoolMemes/meme2.jpg"
+    },
+    { 
+        "image": "../Bilder/OldschoolMemes/meme3.jpg" 
+    },
+    {   "image": "../Bilder/OldschoolMemes/meme4.jpg" 
+    },
+    {   "image": "../Bilder/OldschoolMemes/meme5.jpg" 
+    },
+    {   "image": "../Bilder/OldschoolMemes/meme6.jpg" 
+    },
+    {   "image": "../Bilder/OldschoolMemes/meme7.jpg"
+
+    },
+    {   "image": "../Bilder/OldschoolMemes/meme8.jpg"
     }
-
-
+   ]
+}

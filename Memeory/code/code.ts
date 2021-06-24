@@ -112,24 +112,22 @@ namespace mememory {
             let antwort: Response = await fetch(_url);
             let cards = await antwort.json();
 
-            for (let i: number = 0; i < cards.length; i++) {
+            console.log(cards);
 
-                console.log(cards);
-                console.log(cards[i]);
-                let playspace = document.getElementById("playspace");
+            let playspace = document.getElementById("playspace");
 
-                let cardDiv: HTMLDivElement = document.createElement("div");
-                let cardBack: HTMLImageElement = document.createElement("img");
-                let cardFront: HTMLImageElement = document.createElement("img");
+            let cardDiv: HTMLDivElement = document.createElement("div");
+            let cardBack: HTMLImageElement = document.createElement("img");
+            let cardFront: HTMLImageElement = document.createElement("img");
+                        
+            cardFront.src = "../Bilder/front.png";
+            cardBack.src = "";  
+            console.log(cardBack);
+            cardDiv.appendChild(cardBack);
+            cardDiv.appendChild(cardFront);
                             
-                cardFront.src = "../Bilder/front.png";
-                cardBack.src =  cards[i];  
-                console.log(cardBack);
-                cardDiv.appendChild(cardBack);
-                cardDiv.appendChild(cardFront);
-                            
-                playspace.appendChild(cardDiv);
-            }
+            playspace.appendChild(cardDiv);
+        
         }   
     }
 
