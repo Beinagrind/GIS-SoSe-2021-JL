@@ -117,20 +117,27 @@ namespace mememory {
 
                 let playspace = document.getElementById("playspace");
 
-                let cardDiv: HTMLDivElement = document.createElement("div");
-                let cardBack: HTMLImageElement = document.createElement("img");
-                let cardFront: HTMLImageElement = document.createElement("img");
+                for (let i: number = 0; i < 3; i++) {
+                    
+                    let cardDiv: HTMLDivElement = document.createElement("div");
+                    let cardBack: HTMLImageElement = document.createElement("img");
+                    let cardFront: HTMLImageElement = document.createElement("img");
                 
-                let pathString: string = (cards.cards1[arrayI].image);
-                console.log(pathString);
+                    let pathString: string = (cards.cards1[arrayI].image);
+                    console.log(pathString);
 
-                cardFront.src = "../Bilder/front.png";
-                cardBack.src = pathString;  
-                console.log(cardBack);
-                cardDiv.appendChild(cardBack);
-                cardDiv.appendChild(cardFront);
+                    cardFront.src = "../Bilder/front.png";
+                    cardBack.src = pathString;  
+                    console.log(cardBack);
+                    cardDiv.appendChild(cardBack);
+                    cardDiv.appendChild(cardFront);
                                             
-                playspace.appendChild(cardDiv);
+                    playspace.appendChild(cardDiv);
+
+                    i++;
+                    
+                }
+                
                         
             }
 

@@ -66,17 +66,20 @@ var mememory;
             console.log(cards);
             for (let arrayI in cards.cards1) {
                 let playspace = document.getElementById("playspace");
-                let cardDiv = document.createElement("div");
-                let cardBack = document.createElement("img");
-                let cardFront = document.createElement("img");
-                let pathString = (cards.cards1[arrayI].image);
-                console.log(pathString);
-                cardFront.src = "../Bilder/front.png";
-                cardBack.src = pathString;
-                console.log(cardBack);
-                cardDiv.appendChild(cardBack);
-                cardDiv.appendChild(cardFront);
-                playspace.appendChild(cardDiv);
+                for (let i = 0; i < 3; i++) {
+                    let cardDiv = document.createElement("div");
+                    let cardBack = document.createElement("img");
+                    let cardFront = document.createElement("img");
+                    let pathString = (cards.cards1[arrayI].image);
+                    console.log(pathString);
+                    cardFront.src = "../Bilder/front.png";
+                    cardBack.src = pathString;
+                    console.log(cardBack);
+                    cardDiv.appendChild(cardBack);
+                    cardDiv.appendChild(cardFront);
+                    playspace.appendChild(cardDiv);
+                    i++;
+                }
             }
         }
         createPlayspace("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Memeory/data/" + cardSet);

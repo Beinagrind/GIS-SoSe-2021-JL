@@ -3,3 +3,19 @@ img  {
     max-width: 200px;
     
 }
+
+body {
+
+    height: 100vh;
+    background: darkorchid;
+
+}
+
+.memeory {
+
+    width: 640px;
+    height: 640px;
+    display: flex;
+    border: 5px, solid, black
+
+}
