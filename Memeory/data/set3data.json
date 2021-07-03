@@ -1,28 +1,28 @@
 {
     "cards1": [
     {
-        "image": "../Bilder/ProgrammersArt/art.jpg"
+        "image": "../Bilder/ProgrammersArt/art1.jpg"
     },
     { 
-        "image": "../Bilder/ProgrammersArt/art.jpg"
+        "image": "../Bilder/ProgrammersArt/art2.jpg"
     },
     { 
-        "image": "../Bilder/ProgrammersArts/art.jpg"
+        "image": "../Bilder/ProgrammersArts/art3.jpg"
     },
     {   
-        "image": "../Bilder/ProgrammersArt/art.jpg"
+        "image": "../Bilder/ProgrammersArt/art4.jpg"
     },
     {   
-        "image": "../Bilder/ProgrammersArt/art.jpg"
+        "image": "../Bilder/ProgrammersArt/art5.jpg"
     },
     {   
-        "image": "../Bilder/ProgrammersArt/art.jpg"
+        "image": "../Bilder/ProgrammersArt/art6.jpg"
     },
     {   
-        "image": "../Bilder/ProgrammersArt/art.jpg"
+        "image": "../Bilder/ProgrammersArt/art7.jpg"
     },
     {   
-        "image": "../Bilder/ProgrammersArt/art.jpg"
+        "image": "../Bilder/ProgrammersArt/art8.jpg"
     }
    ]
 }
