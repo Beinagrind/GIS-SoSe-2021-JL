@@ -92,6 +92,8 @@ namespace mememory {
 
         console.log("Game Starting");
 
+        let timerStart: any = new Date();
+
         let cardSet: string = "";
 
         if (formular == "oldschoolMemesCards")  {
@@ -136,7 +138,7 @@ namespace mememory {
                     console.log(pathString);
 
                     let value: any = Math.floor(Math.random() * 16);
-                    cardDiv.style.order = value;
+                    //cardDiv.style.order = value;
                     
 
                     cardFront.src = "../Bilder/front.png";
@@ -223,17 +225,21 @@ namespace mememory {
 
                     console.log("finished");
 
-                    
                 }
             }
 
             function gameFinished() {
 
+
+                let timerEnd: any = new Date();
+                let timePassed = timerEnd - timerStart;
+                let secondsPassed = timePassed / 1000;
+
                 let playspace = document.getElementById("playspace");
                 let finishText = document.getElementById("finishText");
                     
-                finishText.innerHTML = "Game finished in: ";
-                playspace.appendChild(finishText);
+                finishText.innerHTML = "Game finished in: " + secondsPassed + " seconds";
+                playspace.appendChild(finishText );
 
                 setTimeout(() => {
 
@@ -241,12 +247,10 @@ namespace mememory {
 
                 },         200);
 
-
             }
 
             allCards.forEach(card => card.addEventListener("click", cardFlip));
 
-            
         }   
         
         createPlayspace("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Memeory/data/" + cardSet);

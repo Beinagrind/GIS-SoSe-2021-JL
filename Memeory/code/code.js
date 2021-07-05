@@ -50,6 +50,7 @@ var mememory;
         let spielerName = document.getElementById("playerNameShown");
         spielerName.innerHTML = localStorage.getItem("spielerName");
         console.log("Game Starting");
+        let timerStart = new Date();
         let cardSet = "";
         if (formular == "oldschoolMemesCards") {
             cardSet = "set1data.json";
@@ -79,7 +80,7 @@ var mememory;
                     let pathString = (cards.cards1[arrayI].image);
                     console.log(pathString);
                     let value = Math.floor(Math.random() * 16);
-                    cardDiv.style.order = value;
+                    //cardDiv.style.order = value;
                     cardFront.src = "../Bilder/front.png";
                     cardBack.src = pathString;
                     console.log(cardBack);
@@ -133,9 +134,12 @@ var mememory;
                 }
             }
             function gameFinished() {
+                let timerEnd = new Date();
+                let timePassed = timerEnd - timerStart;
+                let secondsPassed = timePassed / 1000;
                 let playspace = document.getElementById("playspace");
                 let finishText = document.getElementById("finishText");
-                finishText.innerHTML = "Game finished in: ";
+                finishText.innerHTML = "Game finished in: " + secondsPassed + " seconds";
                 playspace.appendChild(finishText);
                 setTimeout(() => {
                     console.log("test");
