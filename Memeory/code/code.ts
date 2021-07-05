@@ -1,5 +1,3 @@
-import { stringify } from "querystring";
-
 namespace mememory {
 
     if (window.location.href.includes("/auswahl.html")) {
@@ -139,7 +137,7 @@ namespace mememory {
                     console.log(pathString);
 
                     let value: any = Math.floor(Math.random() * 16);
-                    //cardDiv.style.order = value;
+                    cardDiv.style.order = value;
                 
                     cardFront.src = "../Bilder/front.png";
                     cardBack.src = pathString;  
@@ -151,8 +149,6 @@ namespace mememory {
 
                     i++;
 
-                    
-                    
                 }     
                 
             }
@@ -233,23 +229,20 @@ namespace mememory {
                 //timer Beenden und Messen
                 let timerEnd: any = new Date();
                 let timePassed = timerEnd - timerStart;
-                let secondsPassed = timePassed / 1000;
+                let secondsPassed: any = timePassed / 1000;
 
                 let playspace = document.getElementById("playspace");
                 let finishText = document.getElementById("finishText");
-
-                let secondsString: string = (String(secondsPassed));
-
-                localStorage.setItem ("playertime", secondsString);
                     
                 finishText.innerHTML = "Game finished in: " + secondsPassed + " seconds";
                 playspace.appendChild(finishText);
 
+                localStorage.setItem("lastPlayTime", secondsPassed.toString());
                 sendDataToServer(timePassed);
 
                 setTimeout(() => {
 
-                     startHighscore();
+                    startHighscore();
 
                 },         3000);
 
@@ -270,7 +263,7 @@ namespace mememory {
                 url = "https://beinagrinddrekifurtwangen.herokuapp.com/" + "?" + query.toString();
         
                 const response: Response = await fetch(url);
-                //const respString: string = await response.text();
+                const respString: string = await response.text();
 
             }
 
@@ -284,13 +277,14 @@ namespace mememory {
     async function ranglisteSeite(): Promise<void> {
 
         let playerName = document.getElementById("playerNameShown");
-        let playerScore = document.getElementById("playerScore");
+        let playerScore = document.getElementById("playerScore"); 
 
-        let lastSecondsPasssed = Number(localStorage.getItem("playerTime")) / 1000;
-        let lastSecondsPasssedString = String(lastSecondsPasssed);
+        let lastSecondsPasssed = Number(localStorage.getItem("lastPlayTime"));
+
+        console.log("PlayerTime " + lastSecondsPasssed);
 
         playerName.innerHTML = localStorage.getItem("spielerName");
-        playerScore.innerHTML = lastSecondsPasssedString;
+        playerScore.innerHTML = "Last time was " + String(lastSecondsPasssed) + " seconds";
         
     }
 
@@ -301,4 +295,4 @@ namespace mememory {
 
     }
  
-}
+}       

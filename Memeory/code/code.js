@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var mememory;
 (function (mememory) {
     if (window.location.href.includes("/auswahl.html")) {
@@ -80,7 +79,7 @@ var mememory;
                     let pathString = (cards.cards1[arrayI].image);
                     console.log(pathString);
                     let value = Math.floor(Math.random() * 16);
-                    //cardDiv.style.order = value;
+                    cardDiv.style.order = value;
                     cardFront.src = "../Bilder/front.png";
                     cardBack.src = pathString;
                     console.log(cardBack);
@@ -140,10 +139,9 @@ var mememory;
                 let secondsPassed = timePassed / 1000;
                 let playspace = document.getElementById("playspace");
                 let finishText = document.getElementById("finishText");
-                let secondsString = (String(secondsPassed));
-                localStorage.setItem("playertime", secondsString);
                 finishText.innerHTML = "Game finished in: " + secondsPassed + " seconds";
                 playspace.appendChild(finishText);
+                localStorage.setItem("lastPlayTime", secondsPassed.toString());
                 sendDataToServer(timePassed);
                 setTimeout(() => {
                     startHighscore();
@@ -158,7 +156,7 @@ var mememory;
                 let query = new URLSearchParams(userDataJson);
                 url = "https://beinagrinddrekifurtwangen.herokuapp.com/" + "?" + query.toString();
                 const response = await fetch(url);
-                //const respString: string = await response.text();
+                const respString = await response.text();
             }
             allCards.forEach(card => card.addEventListener("click", cardFlip));
         }
@@ -167,10 +165,10 @@ var mememory;
     async function ranglisteSeite() {
         let playerName = document.getElementById("playerNameShown");
         let playerScore = document.getElementById("playerScore");
-        let lastSecondsPasssed = Number(localStorage.getItem("playerTime")) / 1000;
-        let lastSecondsPasssedString = String(lastSecondsPasssed);
+        let lastSecondsPasssed = Number(localStorage.getItem("lastPlayTime"));
+        console.log("PlayerTime " + lastSecondsPasssed);
         playerName.innerHTML = localStorage.getItem("spielerName");
-        playerScore.innerHTML = lastSecondsPasssedString;
+        playerScore.innerHTML = "Last time was " + String(lastSecondsPasssed) + " seconds";
     }
 })(mememory || (mememory = {}));
 //# sourceMappingURL=code.js.map
