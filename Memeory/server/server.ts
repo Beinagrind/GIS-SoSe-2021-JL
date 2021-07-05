@@ -33,14 +33,13 @@ export namespace mememory {
             const reqeustUrl: string = _request.url;
             const _url: Url.UrlWithParsedQuery = Url.parse(reqeustUrl, true);
 
-            let mongoURL: string = "mongodb+srv://userLudwig:userPassword@gis-jl.4mqvc.mongodb.net/Test?retryWrites=true&w=majority";
+            let mongoURL: string = "mongodb+srv://userLudwig:userPassword@gis-jl.4mqvc.mongodb.net/Memeory?retryWrites=true&w=majority";
 
-            let options: Mongo.MongoClientOptions = {useNewUrlParser:  true, useUnifiedTopology: true};
+            let options: Mongo.MongoClientOptions = {useNewUrlParser: true, useUnifiedTopology: true};
             let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(mongoURL, options);
             await mongoClient.connect();
 
-            let orders: Mongo.Collection = mongoClient.db("Test").collection("Students");
-
+            let orders: Mongo.Collection = mongoClient.db("Memeory").collection("memeoryCollection");
            
             if (_url.pathname == "/playerTime") {
 

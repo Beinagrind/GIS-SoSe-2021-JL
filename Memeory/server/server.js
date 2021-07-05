@@ -24,11 +24,11 @@ var mememory;
         if (_request.url) {
             const reqeustUrl = _request.url;
             const _url = Url.parse(reqeustUrl, true);
-            let mongoURL = "mongodb+srv://userLudwig:userPassword@gis-jl.4mqvc.mongodb.net/Test?retryWrites=true&w=majority";
+            let mongoURL = "mongodb+srv://userLudwig:userPassword@gis-jl.4mqvc.mongodb.net/Memeory?retryWrites=true&w=majority";
             let options = { useNewUrlParser: true, useUnifiedTopology: true };
             let mongoClient = new Mongo.MongoClient(mongoURL, options);
             await mongoClient.connect();
-            let orders = mongoClient.db("Test").collection("Students");
+            let orders = mongoClient.db("Memeory").collection("memeoryCollection");
             if (_url.pathname == "/playerTime") {
                 //send data to MongoDB
                 await mongoClient.connect();
