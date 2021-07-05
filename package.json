@@ -4,7 +4,7 @@
   "description": "giwduL",
   "main": "index.js",
   "scripts": {
-    "start": "node Aufgabe3.4/Server/code.js"
+    "start": "node Memeory/server/server.js"
   },
   "repository": {
     "type": "git",

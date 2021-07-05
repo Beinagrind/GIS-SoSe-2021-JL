@@ -144,6 +144,9 @@ var mememory;
                 setTimeout(() => {
                     console.log("test");
                 }, 200);
+                sendDataToServer();
+            }
+            function sendDataToServer() {
             }
             allCards.forEach(card => card.addEventListener("click", cardFlip));
         }
