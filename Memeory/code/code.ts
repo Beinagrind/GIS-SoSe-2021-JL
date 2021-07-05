@@ -135,6 +135,10 @@ namespace mememory {
 
                     console.log(pathString);
 
+                    let value: any = Math.floor(Math.random() * 16);
+                    cardDiv.style.order = value;
+                    
+
                     cardFront.src = "../Bilder/front.png";
                     cardBack.src = pathString;  
                     console.log(cardBack);
@@ -144,10 +148,10 @@ namespace mememory {
                     playspace.appendChild(cardDiv);
 
                     i++;
+
                     
-                }
-                
-                randomValues();      
+                    
+                }     
                 
             }
 
@@ -184,8 +188,6 @@ namespace mememory {
                             firstCard.removeEventListener("click", cardFlip);
                             secondCard.removeEventListener("click", cardFlip);
 
-                            finishGame();
-
                     }
 
                     else {
@@ -211,17 +213,6 @@ namespace mememory {
 
                 [hasFlippedCard, noMoreFlips] = [false, false];
                 [firstCard, secondCard] = [null, null];
-            }
-
-            function randomValues() {
-
-                allCards.forEach(card => {
-
-                    let value = Math.floor(Math.random() * 16);
-                    card.style.order = value;
-
-                });
-
             }
 
             allCards.forEach(card => card.addEventListener("click", cardFlip));
