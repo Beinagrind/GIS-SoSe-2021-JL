@@ -29,8 +29,9 @@ var mememory;
         let mongoClient = new Mongo.MongoClient(mongoURL, options);
         await mongoClient.connect();
         let orders = mongoClient.db("Memeory").collection("memeoryCollection");
-        let jsonString = JSON.stringify(_url.query);
-        _response.write(jsonString);
+        let userData = JSON.stringify(_url.query);
+        _response.write(userData);
+        console.log(userData);
         orders.insert(_url.query);
     }
 })(mememory = exports.mememory || (exports.mememory = {}));

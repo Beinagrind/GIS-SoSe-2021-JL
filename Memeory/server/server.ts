@@ -41,9 +41,11 @@ export namespace mememory {
         let orders: Mongo.Collection = mongoClient.db("Memeory").collection("memeoryCollection");
 
         
-        let jsonString: string = JSON.stringify(_url.query);
-        _response.write(jsonString);
+        let userData: string = JSON.stringify(_url.query);
+        _response.write(userData);
 
+        console.log(userData);
+        
         orders.insert(_url.query);
 
     }
@@ -54,5 +56,5 @@ export namespace mememory {
         spielerZeit: number;
 
     }
-    
+
 }
