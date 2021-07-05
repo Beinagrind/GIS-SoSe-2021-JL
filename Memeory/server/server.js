@@ -19,8 +19,6 @@ var mememory;
     }
     async function handleRequest(_request, _response) {
         console.log("This request will be executed");
-        _response.setHeader("content-type", "text/html; charset=utf-8");
-        _response.setHeader("Access-Control-Allow-Origin", "*");
         const reqeustUrl = _request.url;
         const _url = Url.parse(reqeustUrl, true);
         //MongoDB connect
@@ -29,6 +27,8 @@ var mememory;
         let mongoClient = new Mongo.MongoClient(mongoURL, options);
         let orders = mongoClient.db("Memeory").collection("memeoryCollection");
         if (_url.pathname == "/playerTime") {
+            _response.setHeader("content-type", "text/html; charset=utf-8");
+            _response.setHeader("Access-Control-Allow-Origin", "*");
             //send data to MongoDB
             await mongoClient.connect();
             let userData = JSON.stringify(_url.query);
@@ -36,6 +36,8 @@ var mememory;
             orders.insert(_url.query);
         }
         if (_url.pathname == "/getList") {
+            _response.setHeader("content-type", "text/html; charset=utf-8");
+            _response.setHeader("Access-Control-Allow-Origin", "*");
             //get data from MongoDB
             await mongoClient.connect();
             let dataSearch = orders.find();

@@ -288,8 +288,6 @@ namespace mememory {
         
         let url: string = "";
 
-        
-
         printHighscore();
 
         async function printHighscore() {

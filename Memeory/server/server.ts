@@ -25,9 +25,6 @@ export namespace mememory {
 
         console.log("This request will be executed");
 
-        _response.setHeader("content-type", "text/html; charset=utf-8");
-        _response.setHeader("Access-Control-Allow-Origin", "*");
-
         const reqeustUrl: string = _request.url;
         const _url: Url.UrlWithParsedQuery = Url.parse(reqeustUrl, true);
 
@@ -41,6 +38,9 @@ export namespace mememory {
 
         if (_url.pathname == "/playerTime") {
 
+            _response.setHeader("content-type", "text/html; charset=utf-8");
+            _response.setHeader("Access-Control-Allow-Origin", "*");
+
             //send data to MongoDB
             await mongoClient.connect();
             let userData: string = JSON.stringify(_url.query);
@@ -52,6 +52,9 @@ export namespace mememory {
 
         if (_url.pathname == "/getList") {
 
+            _response.setHeader("content-type", "text/html; charset=utf-8");
+            _response.setHeader("Access-Control-Allow-Origin", "*");
+            
             //get data from MongoDB
             await mongoClient.connect();
             let dataSearch: Mongo.Cursor = orders.find();
