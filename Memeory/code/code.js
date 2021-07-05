@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var mememory;
 (function (mememory) {
     if (window.location.href.includes("/auswahl.html")) {
@@ -39,14 +40,13 @@ var mememory;
             }
             spielfeldSeite(localStorage.getItem("cardSet"));
         }
-        function startHighscore() {
-            window.location.assign("../html/rangliste.html");
-        }
+    }
+    function startHighscore() {
+        window.location.assign("../html/rangliste.html");
     }
     async function spielfeldSeite(formular) {
         window.open("../html/spielfeld.html");
         console.log(formular + " :selected");
-        //umgedrehte karten zählen counter 1 hoch, spielende wenn counter auf 16
         let spielerName = document.getElementById("playerNameShown");
         spielerName.innerHTML = localStorage.getItem("spielerName");
         console.log("Game Starting");
@@ -134,17 +134,20 @@ var mememory;
                 }
             }
             function gameFinished() {
+                //timer Beenden und Messen
                 let timerEnd = new Date();
                 let timePassed = timerEnd - timerStart;
                 let secondsPassed = timePassed / 1000;
                 let playspace = document.getElementById("playspace");
                 let finishText = document.getElementById("finishText");
+                let secondsString = (String(secondsPassed));
+                localStorage.setItem("playertime", secondsString);
                 finishText.innerHTML = "Game finished in: " + secondsPassed + " seconds";
                 playspace.appendChild(finishText);
+                sendDataToServer(timePassed);
                 setTimeout(() => {
-                    console.log("test");
-                }, 200);
-                sendDataToServer(secondsPassed);
+                    startHighscore();
+                }, 3000);
             }
             async function sendDataToServer(spielerZeit) {
                 let url = "";
@@ -155,13 +158,19 @@ var mememory;
                 let query = new URLSearchParams(userDataJson);
                 url = "https://beinagrinddrekifurtwangen.herokuapp.com/" + "?" + query.toString();
                 const response = await fetch(url);
-                const respString = await response.text();
+                //const respString: string = await response.text();
             }
             allCards.forEach(card => card.addEventListener("click", cardFlip));
         }
         createPlayspace("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Memeory/data/" + cardSet);
     }
     async function ranglisteSeite() {
+        let playerName = document.getElementById("playerNameShown");
+        let playerScore = document.getElementById("playerScore");
+        let lastSecondsPasssed = Number(localStorage.getItem("playerTime")) / 1000;
+        let lastSecondsPasssedString = String(lastSecondsPasssed);
+        playerName.innerHTML = localStorage.getItem("spielerName");
+        playerScore.innerHTML = lastSecondsPasssedString;
     }
 })(mememory || (mememory = {}));
 //# sourceMappingURL=code.js.map

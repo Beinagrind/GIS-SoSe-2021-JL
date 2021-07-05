@@ -23,15 +23,15 @@ var mememory;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         const reqeustUrl = _request.url;
         const _url = Url.parse(reqeustUrl, true);
-        //Mongo connect
+        //MongoDB connect
         let mongoURL = "mongodb+srv://userLudwig:userPassword@gis-jl.4mqvc.mongodb.net/Memeory?retryWrites=true&w=majority";
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient = new Mongo.MongoClient(mongoURL, options);
         await mongoClient.connect();
         let orders = mongoClient.db("Memeory").collection("memeoryCollection");
+        //send data to MongoDB
         let userData = JSON.stringify(_url.query);
-        _response.write(userData);
-        console.log(userData);
+        console.log(userData + " in Milliseconds");
         orders.insert(_url.query);
     }
 })(mememory = exports.mememory || (exports.mememory = {}));

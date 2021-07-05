@@ -31,8 +31,7 @@ export namespace mememory {
         const reqeustUrl: string = _request.url;
         const _url: Url.UrlWithParsedQuery = Url.parse(reqeustUrl, true);
 
-        //Mongo connect
-        
+        //MongoDB connect
         let mongoURL: string = "mongodb+srv://userLudwig:userPassword@gis-jl.4mqvc.mongodb.net/Memeory?retryWrites=true&w=majority";
         let options: Mongo.MongoClientOptions = {useNewUrlParser:  true, useUnifiedTopology: true};
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(mongoURL, options);
@@ -40,20 +39,12 @@ export namespace mememory {
 
         let orders: Mongo.Collection = mongoClient.db("Memeory").collection("memeoryCollection");
 
-        
+        //send data to MongoDB
         let userData: string = JSON.stringify(_url.query);
-        _response.write(userData);
 
-        console.log(userData);
+        console.log(userData + " in Milliseconds");
         
         orders.insert(_url.query);
-
-    }
-    
-    interface HighscoreData {
-
-        spielerName: string;
-        spielerZeit: number;
 
     }
 

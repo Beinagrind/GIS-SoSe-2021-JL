@@ -1,3 +1,5 @@
+import { stringify } from "querystring";
+
 namespace mememory {
 
     if (window.location.href.includes("/auswahl.html")) {
@@ -71,11 +73,11 @@ namespace mememory {
 
         }
 
-        function startHighscore(): void {
+    }
 
-            window.location.assign("../html/rangliste.html");
+    function startHighscore(): void {
 
-        }
+        window.location.assign("../html/rangliste.html");
 
     }
 
@@ -84,7 +86,6 @@ namespace mememory {
         window.open("../html/spielfeld.html");
 
         console.log(formular  + " :selected");
-        //umgedrehte karten zählen counter 1 hoch, spielende wenn counter auf 16
 
         let spielerName: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("playerNameShown");
         
@@ -139,8 +140,7 @@ namespace mememory {
 
                     let value: any = Math.floor(Math.random() * 16);
                     //cardDiv.style.order = value;
-                    
-
+                
                     cardFront.src = "../Bilder/front.png";
                     cardBack.src = pathString;  
                     console.log(cardBack);
@@ -230,24 +230,28 @@ namespace mememory {
 
             function gameFinished() {
 
-
+                //timer Beenden und Messen
                 let timerEnd: any = new Date();
                 let timePassed = timerEnd - timerStart;
                 let secondsPassed = timePassed / 1000;
 
                 let playspace = document.getElementById("playspace");
                 let finishText = document.getElementById("finishText");
+
+                let secondsString: string = (String(secondsPassed));
+
+                localStorage.setItem ("playertime", secondsString);
                     
                 finishText.innerHTML = "Game finished in: " + secondsPassed + " seconds";
-                playspace.appendChild(finishText );
+                playspace.appendChild(finishText);
+
+                sendDataToServer(timePassed);
 
                 setTimeout(() => {
 
-                    console.log("test");
+                     startHighscore();
 
-                },         200);
-
-                sendDataToServer(secondsPassed);
+                },         3000);
 
             }
 
@@ -266,7 +270,7 @@ namespace mememory {
                 url = "https://beinagrinddrekifurtwangen.herokuapp.com/" + "?" + query.toString();
         
                 const response: Response = await fetch(url);
-                const respString: string = await response.text();
+                //const respString: string = await response.text();
 
             }
 
@@ -279,8 +283,15 @@ namespace mememory {
 
     async function ranglisteSeite(): Promise<void> {
 
+        let playerName = document.getElementById("playerNameShown");
+        let playerScore = document.getElementById("playerScore");
 
+        let lastSecondsPasssed = Number(localStorage.getItem("playerTime")) / 1000;
+        let lastSecondsPasssedString = String(lastSecondsPasssed);
 
+        playerName.innerHTML = localStorage.getItem("spielerName");
+        playerScore.innerHTML = lastSecondsPasssedString;
+        
     }
 
     interface HighscoreData {
@@ -289,6 +300,5 @@ namespace mememory {
         spielerZeit: number;
 
     }
-
-
+ 
 }
