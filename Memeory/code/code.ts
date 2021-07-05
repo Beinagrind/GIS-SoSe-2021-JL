@@ -290,8 +290,7 @@ namespace mememory {
 
         async function printHighscore() {
 
-            let query: string = "test";
-            url = "https://beinagrinddrekifurtwangen.herokuapp.com/getList" + "?" + query;
+            url = "https://beinagrinddrekifurtwangen.herokuapp.com/getList" + "?";
 
             const response: Response = await fetch(url);
             const respString: any = await response.text();
