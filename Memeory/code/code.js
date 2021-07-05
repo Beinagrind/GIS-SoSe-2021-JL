@@ -79,7 +79,7 @@ var mememory;
                     let pathString = (cards.cards1[arrayI].image);
                     console.log(pathString);
                     let value = Math.floor(Math.random() * 16);
-                    cardDiv.style.order = value;
+                    //cardDiv.style.order = value;
                     cardFront.src = "../Bilder/front.png";
                     cardBack.src = pathString;
                     console.log(cardBack);

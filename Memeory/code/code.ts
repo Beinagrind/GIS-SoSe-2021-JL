@@ -136,7 +136,7 @@ namespace mememory {
                     console.log(pathString);
 
                     let value: any = Math.floor(Math.random() * 16);
-                    cardDiv.style.order = value;
+                    //cardDiv.style.order = value;
                     
 
                     cardFront.src = "../Bilder/front.png";
