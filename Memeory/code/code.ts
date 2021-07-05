@@ -123,6 +123,10 @@ namespace mememory {
                     let cardBack: HTMLImageElement = document.createElement("img");
                     let cardFront: HTMLImageElement = document.createElement("img");
                 
+                    cardDiv.classList.add("gameCards");
+                    cardBack.classList.add("cardBack");
+                    cardFront.classList.add("cardFront");
+
                     let pathString: string = (cards.cards1[arrayI].image);
                     console.log(pathString);
 
@@ -140,6 +144,18 @@ namespace mememory {
                 
                         
             }
+
+            const allCards = document.querySelectorAll(".gameCards");
+
+            function cardFlip(this: any) {
+
+                console.log("card flipped");
+                console.log(this);
+                this.classList.toggle("flipped");
+
+            }
+
+            allCards.forEach(card => card.addEventListener("click", cardFlip));
 
             
         }   

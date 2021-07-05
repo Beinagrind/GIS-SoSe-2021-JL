@@ -70,6 +70,9 @@ var mememory;
                     let cardDiv = document.createElement("div");
                     let cardBack = document.createElement("img");
                     let cardFront = document.createElement("img");
+                    cardDiv.classList.add("gameCards");
+                    cardBack.classList.add("cardBack");
+                    cardFront.classList.add("cardFront");
                     let pathString = (cards.cards1[arrayI].image);
                     console.log(pathString);
                     cardFront.src = "../Bilder/front.png";
@@ -81,6 +84,13 @@ var mememory;
                     i++;
                 }
             }
+            const allCards = document.querySelectorAll(".gameCards");
+            function cardFlip() {
+                console.log("card flipped");
+                console.log(this);
+                this.classList.toggle("flipped");
+            }
+            allCards.forEach(card => card.addEventListener("click", cardFlip));
         }
         createPlayspace("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Memeory/data/" + cardSet);
     }
