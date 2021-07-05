@@ -149,7 +149,6 @@ var mememory;
             }
             async function sendDataToServer(spielerZeit) {
                 let url = "";
-                console.log("Sending HTML to Server");
                 let spielerName = localStorage.getItem("spielerName");
                 let userData = { spielerName, spielerZeit };
                 let userDataJson = JSON.stringify(userData);

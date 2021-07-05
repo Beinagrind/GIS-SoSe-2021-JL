@@ -252,8 +252,6 @@ namespace mememory {
 
                 let url: string = "";
         
-                console.log("Sending HTML to Server");
-        
                 let spielerName: string = localStorage.getItem("spielerName");
                 let userData: HighscoreData = {spielerName, spielerZeit};
                 let userDataJson = JSON.stringify(userData);

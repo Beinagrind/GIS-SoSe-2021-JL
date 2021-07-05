@@ -19,30 +19,32 @@ var mememory;
     }
     async function handleRequest(_request, _response) {
         console.log("This request will be executed");
-        const reqeustUrl = _request.url;
-        const _url = Url.parse(reqeustUrl, true);
-        //MongoDB connect
-        let mongoURL = "mongodb+srv://userLudwig:userPassword@gis-jl.4mqvc.mongodb.net/Memeory?retryWrites=true&w=majority";
-        let options = { useNewUrlParser: true, useUnifiedTopology: true };
-        let mongoClient = new Mongo.MongoClient(mongoURL, options);
-        let orders = mongoClient.db("Memeory").collection("memeoryCollection");
-        if (_url.pathname == "/playerTime") {
-            _response.setHeader("content-type", "text/html; charset=utf-8");
-            _response.setHeader("Access-Control-Allow-Origin", "*");
-            //send data to MongoDB
+        _response.setHeader("content-type", "text/html; charset=utf-8");
+        _response.setHeader("Access-Control-Allow-Origin", "*");
+        if (_request.url) {
+            const reqeustUrl = _request.url;
+            const _url = Url.parse(reqeustUrl, true);
+            let mongoURL = "mongodb+srv://userLudwig:userPassword@gis-jl.4mqvc.mongodb.net/Test?retryWrites=true&w=majority";
+            let options = { useNewUrlParser: true, useUnifiedTopology: true };
+            let mongoClient = new Mongo.MongoClient(mongoURL, options);
             await mongoClient.connect();
-            let userData = JSON.stringify(_url.query);
-            console.log(userData + " in Milliseconds");
-            orders.insert(_url.query);
-        }
-        if (_url.pathname == "/getList") {
-            _response.setHeader("content-type", "text/html; charset=utf-8");
-            _response.setHeader("Access-Control-Allow-Origin", "*");
-            //get data from MongoDB
-            await mongoClient.connect();
-            let dataSearch = orders.find();
-            let dataFiles = await dataSearch.toArray();
-            _response.write(JSON.stringify(dataFiles));
+            let orders = mongoClient.db("Test").collection("Students");
+            if (_url.pathname == "/playerTime") {
+                //send data to MongoDB
+                await mongoClient.connect();
+                let userData = JSON.stringify(_url.query);
+                console.log(userData + " in Milliseconds");
+                orders.insert(_url.query);
+            }
+            if (_url.pathname == "/getList") {
+                _response.setHeader("content-type", "text/html; charset=utf-8");
+                _response.setHeader("Access-Control-Allow-Origin", "*");
+                //get data from MongoDB
+                await mongoClient.connect();
+                let dataSearch = orders.find();
+                let dataFiles = await dataSearch.toArray();
+                _response.write(JSON.stringify(dataFiles));
+            }
         }
     }
 })(mememory = exports.mememory || (exports.mememory = {}));

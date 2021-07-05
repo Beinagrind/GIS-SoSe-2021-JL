@@ -25,52 +25,50 @@ export namespace mememory {
 
         console.log("This request will be executed");
 
-        const reqeustUrl: string = _request.url;
-        const _url: Url.UrlWithParsedQuery = Url.parse(reqeustUrl, true);
+        _response.setHeader("content-type", "text/html; charset=utf-8");
+        _response.setHeader("Access-Control-Allow-Origin", "*");
 
-        //MongoDB connect
-        let mongoURL: string = "mongodb+srv://userLudwig:userPassword@gis-jl.4mqvc.mongodb.net/Memeory?retryWrites=true&w=majority";
-        let options: Mongo.MongoClientOptions = {useNewUrlParser:  true, useUnifiedTopology: true};
-        let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(mongoURL, options);
-        
+        if (_request.url) {
 
-        let orders: Mongo.Collection = mongoClient.db("Memeory").collection("memeoryCollection");
+            const reqeustUrl: string = _request.url;
+            const _url: Url.UrlWithParsedQuery = Url.parse(reqeustUrl, true);
 
-        if (_url.pathname == "/playerTime") {
+            let mongoURL: string = "mongodb+srv://userLudwig:userPassword@gis-jl.4mqvc.mongodb.net/Test?retryWrites=true&w=majority";
 
-            _response.setHeader("content-type", "text/html; charset=utf-8");
-            _response.setHeader("Access-Control-Allow-Origin", "*");
-
-            //send data to MongoDB
+            let options: Mongo.MongoClientOptions = {useNewUrlParser:  true, useUnifiedTopology: true};
+            let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(mongoURL, options);
             await mongoClient.connect();
-            let userData: string = JSON.stringify(_url.query);
 
-            console.log(userData + " in Milliseconds");
+            let orders: Mongo.Collection = mongoClient.db("Test").collection("Students");
+
+           
+            if (_url.pathname == "/playerTime") {
+
+                //send data to MongoDB
+                await mongoClient.connect();
+                let userData: string = JSON.stringify(_url.query);
+
+                console.log(userData + " in Milliseconds");
+                
+                orders.insert(_url.query);
+
+            }
+
+            if (_url.pathname == "/getList") {
+
+                _response.setHeader("content-type", "text/html; charset=utf-8");
+                _response.setHeader("Access-Control-Allow-Origin", "*");
+
+                //get data from MongoDB
+                await mongoClient.connect();
+                let dataSearch: Mongo.Cursor = orders.find();
+                let dataFiles = await dataSearch.toArray();
             
-            orders.insert(_url.query);
-        }
+                _response.write(JSON.stringify(dataFiles));
 
-        if (_url.pathname == "/getList") {
-
-            _response.setHeader("content-type", "text/html; charset=utf-8");
-            _response.setHeader("Access-Control-Allow-Origin", "*");
-            
-            //get data from MongoDB
-            await mongoClient.connect();
-            let dataSearch: Mongo.Cursor = orders.find();
-            let dataFiles = await dataSearch.toArray();
-        
-            _response.write(JSON.stringify(dataFiles));
+            }
 
         }
-
-    }
-
-    interface HighscoreData {
-
-        spielerName: string;
-        spielerZeit: number;
-
     }
 
 }
