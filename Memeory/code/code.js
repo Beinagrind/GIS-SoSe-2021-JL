@@ -171,7 +171,8 @@ var mememory;
         let url = "";
         printHighscore();
         async function printHighscore() {
-            url = "https://beinagrinddrekifurtwangen.herokuapp.com/getList";
+            let query = "test";
+            url = "https://beinagrinddrekifurtwangen.herokuapp.com/getList" + "?" + query;
             const response = await fetch(url);
             const respString = await response.text();
             console.log(respString);
