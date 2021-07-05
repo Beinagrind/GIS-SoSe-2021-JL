@@ -170,11 +170,12 @@ var mememory;
         playerName.innerHTML = localStorage.getItem("spielerName");
         playerScore.innerHTML = "Last time was " + String(lastSecondsPasssed) + " seconds";
         let url = "";
-        url = "https://beinagrinddrekifurtwangen.herokuapp.com/getList";
         printHighscore();
         async function printHighscore() {
+            url = "https://beinagrinddrekifurtwangen.herokuapp.com/getList";
             const response = await fetch(url);
             const respString = await response.text();
+            console.log(respString);
             for (let arrayI in respString) {
                 let highscoreElement = document.getElementById("highscoreList");
                 let highscoreText = document.createElement("p");

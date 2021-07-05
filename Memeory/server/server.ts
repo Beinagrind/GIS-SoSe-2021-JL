@@ -35,12 +35,14 @@ export namespace mememory {
         let mongoURL: string = "mongodb+srv://userLudwig:userPassword@gis-jl.4mqvc.mongodb.net/Memeory?retryWrites=true&w=majority";
         let options: Mongo.MongoClientOptions = {useNewUrlParser:  true, useUnifiedTopology: true};
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(mongoURL, options);
-        await mongoClient.connect();
+        
 
         let orders: Mongo.Collection = mongoClient.db("Memeory").collection("memeoryCollection");
 
         if (_url.pathname == "/playerTime") {
+
             //send data to MongoDB
+            await mongoClient.connect();
             let userData: string = JSON.stringify(_url.query);
 
             console.log(userData + " in Milliseconds");
@@ -50,8 +52,10 @@ export namespace mememory {
 
         if (_url.pathname == "/getList") {
 
+            //get data from MongoDB
+            await mongoClient.connect();
             let dataSearch: Mongo.Cursor = orders.find();
-            let dataFiles: any  = await dataSearch.toArray();
+            let dataFiles = await dataSearch.toArray();
         
             _response.write(JSON.stringify(dataFiles));
 

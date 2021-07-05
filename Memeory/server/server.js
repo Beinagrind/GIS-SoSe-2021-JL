@@ -27,15 +27,17 @@ var mememory;
         let mongoURL = "mongodb+srv://userLudwig:userPassword@gis-jl.4mqvc.mongodb.net/Memeory?retryWrites=true&w=majority";
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient = new Mongo.MongoClient(mongoURL, options);
-        await mongoClient.connect();
         let orders = mongoClient.db("Memeory").collection("memeoryCollection");
         if (_url.pathname == "/playerTime") {
             //send data to MongoDB
+            await mongoClient.connect();
             let userData = JSON.stringify(_url.query);
             console.log(userData + " in Milliseconds");
             orders.insert(_url.query);
         }
         if (_url.pathname == "/getList") {
+            //get data from MongoDB
+            await mongoClient.connect();
             let dataSearch = orders.find();
             let dataFiles = await dataSearch.toArray();
             _response.write(JSON.stringify(dataFiles));

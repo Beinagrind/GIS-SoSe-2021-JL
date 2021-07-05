@@ -288,14 +288,18 @@ namespace mememory {
         
         let url: string = "";
 
-        url = "https://beinagrinddrekifurtwangen.herokuapp.com/getList";
+        
 
         printHighscore();
 
         async function printHighscore() {
 
+            url = "https://beinagrinddrekifurtwangen.herokuapp.com/getList";
+
             const response: Response = await fetch(url);
             const respString: any = await response.text();
+
+            console.log(respString);
 
             for (let arrayI in respString) {
 
