@@ -163,6 +163,8 @@ namespace mememory {
 
             let noMoreFlips: boolean = false;
 
+            localStorage.setItem("turnedCards", "0");
+
             function cardFlip(this: any) {
 
                 if (noMoreFlips) return;
@@ -188,6 +190,10 @@ namespace mememory {
                             firstCard.removeEventListener("click", cardFlip);
                             secondCard.removeEventListener("click", cardFlip);
 
+                            let numberOfTurned: any = localStorage.getItem("turnedCards");
+                            numberOfTurned = parseInt(numberOfTurned) + 2;
+                            localStorage.setItem("turnedCards", numberOfTurned);
+
                     }
 
                     else {
@@ -206,13 +212,36 @@ namespace mememory {
                     }
 
                 }
-            
+                
+                let turnedCards: any = localStorage.getItem("turnedCards");
+
+                console.log(turnedCards);
+
+                if (turnedCards == 16) {
+
+                    gameFinished();
+
+                    console.log("finished");
+
+                    
+                }
             }
 
-            function finishGame() {
+            function gameFinished() {
 
-                [hasFlippedCard, noMoreFlips] = [false, false];
-                [firstCard, secondCard] = [null, null];
+                let playspace = document.getElementById("playspace");
+                let finishText = document.getElementById("finishText");
+                    
+                finishText.innerHTML = "Game finished in: ";
+                playspace.appendChild(finishText);
+
+                setTimeout(() => {
+
+                    console.log("test");
+
+                },         200);
+
+
             }
 
             allCards.forEach(card => card.addEventListener("click", cardFlip));
