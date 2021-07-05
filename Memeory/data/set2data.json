@@ -1,23 +1,31 @@
 {
     "cards1": [
     {
-        "image": "../Bilder/Ahegao/ahegao1.jpg"
+        "image": "../Bilder/Ahegao/ahegao1.jpg",
+        "dataWhatCard": "card1"
     },
     { 
-        "image": "../Bilder/Ahegao/ahegao2.jpg" 
+        "image": "../Bilder/Ahegao/ahegao2.jpg",
+        "dataWhatCard": "card2" 
     },
     { 
-        "image": "../Bilder/Ahegao/ahegao3.jpg"
+        "image": "../Bilder/Ahegao/ahegao3.jpg",
+        "dataWhatCard": "card3"
     },
-    {   "image": "../Bilder/Ahegao/ahegao4.jpg"
+    {   "image": "../Bilder/Ahegao/ahegao4.jpg",
+        "dataWhatCard": "card4"
     },
-    {   "image": "../Bilder/Ahegao/ahegao5.jpg"
+    {   "image": "../Bilder/Ahegao/ahegao5.jpg",
+        "dataWhatCard": "card5"
     },
-    {   "image": "../Bilder/Ahegao/ahegao6.jpg"
+    {   "image": "../Bilder/Ahegao/ahegao6.jpg",
+        "dataWhatCard": "card6"
     },
-    {   "image": "../Bilder/Ahegao/ahegao7.jpg"
+    {   "image": "../Bilder/Ahegao/ahegao7.jpg",
+        "dataWhatCard": "card7"
     },
-    {   "image": "../Bilder/Ahegao/ahegao8.jpg"
+    {   "image": "../Bilder/Ahegao/ahegao8.jpg",
+        "dataWhatCard": "card8"
     }
    ]
 }

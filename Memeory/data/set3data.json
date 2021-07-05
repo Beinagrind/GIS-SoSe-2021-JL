@@ -1,28 +1,36 @@
 {
     "cards1": [
     {
-        "image": "../Bilder/ProgrammersArt/art1.jpg"
+        "image": "../Bilder/ProgrammersArt/art1.jpg",
+        "dataWhatCard": "card1"
     },
     { 
-        "image": "../Bilder/ProgrammersArt/art2.jpg"
+        "image": "../Bilder/ProgrammersArt/art2.jpg",
+        "dataWhatCard": "card2"
     },
     { 
-        "image": "../Bilder/ProgrammersArts/art3.jpg"
+        "image": "../Bilder/ProgrammersArts/art3.jpg",
+        "dataWhatCard": "card3"
     },
     {   
-        "image": "../Bilder/ProgrammersArt/art4.jpg"
+        "image": "../Bilder/ProgrammersArt/art4.jpg",
+        "dataWhatCard": "card4"
     },
     {   
-        "image": "../Bilder/ProgrammersArt/art5.jpg"
+        "image": "../Bilder/ProgrammersArt/art5.jpg",
+        "dataWhatCard": "card5"
     },
     {   
-        "image": "../Bilder/ProgrammersArt/art6.jpg"
+        "image": "../Bilder/ProgrammersArt/art6.jpg",
+        "dataWhatCard": "card6"
     },
     {   
-        "image": "../Bilder/ProgrammersArt/art7.jpg"
+        "image": "../Bilder/ProgrammersArt/art7.jpg",
+        "dataWhatCard": "card7"
     },
     {   
-        "image": "../Bilder/ProgrammersArt/art8.jpg"
+        "image": "../Bilder/ProgrammersArt/art8.jpg",
+        "dataWhatCard": "card8"
     }
    ]
 }

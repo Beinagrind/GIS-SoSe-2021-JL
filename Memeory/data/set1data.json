@@ -1,23 +1,31 @@
 {
     "cards1": [
     {
-        "image": "../Bilder/OldschoolMemes/meme1.jpg" 
+        "image": "../Bilder/OldschoolMemes/meme1.jpg",
+        "dataWhatCard": "card1" 
     },
     { 
-        "image": "../Bilder/OldschoolMemes/meme2.jpg"
+        "image": "../Bilder/OldschoolMemes/meme2.jpg",
+        "dataWhatCard": "card2"
     },
     { 
-        "image": "../Bilder/OldschoolMemes/meme3.jpg" 
+        "image": "../Bilder/OldschoolMemes/meme3.jpg",
+        "dataWhatCard": "card3"
     },
-    {   "image": "../Bilder/OldschoolMemes/meme4.jpg" 
+    {   "image": "../Bilder/OldschoolMemes/meme4.jpg",
+        "dataWhatCard": "card4" 
     },
-    {   "image": "../Bilder/OldschoolMemes/meme5.jpg" 
+    {   "image": "../Bilder/OldschoolMemes/meme5.jpg",
+        "dataWhatCard": "card5" 
     },
-    {   "image": "../Bilder/OldschoolMemes/meme6.jpg" 
+    {   "image": "../Bilder/OldschoolMemes/meme6.jpg",
+        "dataWhatCard": "card6" 
     },
-    {   "image": "../Bilder/OldschoolMemes/meme7.jpg"
+    {   "image": "../Bilder/OldschoolMemes/meme7.jpg",
+        "dataWhatCard": "card7"
     },
-    {   "image": "../Bilder/OldschoolMemes/meme8.jpg"
+    {   "image": "../Bilder/OldschoolMemes/meme8.jpg",
+        "dataWhatCard": "card8"
     }
    ]
 }

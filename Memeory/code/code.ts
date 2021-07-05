@@ -127,7 +127,12 @@ namespace mememory {
                     cardBack.classList.add("cardBack");
                     cardFront.classList.add("cardFront");
 
+                    cardDiv.dataset.whatCard = cards.cards1[arrayI].dataWhatCard;
+                    let whatCard: string = (cards.cards1[arrayI].dataWhatCard);
+                    console.log(whatCard);
+
                     let pathString: string = (cards.cards1[arrayI].image);
+
                     console.log(pathString);
 
                     cardFront.src = "../Bilder/front.png";
@@ -147,11 +152,29 @@ namespace mememory {
 
             const allCards = document.querySelectorAll(".gameCards");
 
+            let hasFlippedCard = false;
+            let firstCard;
+            let secondCard;
+
             function cardFlip(this: any) {
 
                 console.log("card flipped");
-                console.log(this);
                 this.classList.toggle("flipped");
+
+                if (!hasFlippedCard) {
+
+                    hasFlippedCard = true;
+                    firstCard = this;
+
+                }
+
+                else {
+
+                    hasFlippedCard = false;
+                    secondCard = this;
+
+                }
+            
 
             }
 
