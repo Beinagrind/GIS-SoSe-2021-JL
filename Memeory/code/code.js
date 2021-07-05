@@ -146,12 +146,13 @@ var mememory;
                 }, 200);
                 sendDataToServer(secondsPassed);
             }
-            async function sendDataToServer(seconds) {
-                const serverResponse = document.getElementById("abc");
+            async function sendDataToServer(spielerZeit) {
                 let url = "";
                 console.log("Sending HTML to Server");
-                let name = localStorage.getItem("spielerName");
-                let query = new URLSearchParams(name);
+                let spielerName = localStorage.getItem("spielerName");
+                let userData = { spielerName, spielerZeit };
+                let userDataJson = JSON.stringify(userData);
+                let query = new URLSearchParams(userDataJson);
                 url = "https://beinagrinddrekifurtwangen.herokuapp.com/" + "?" + query.toString();
                 const response = await fetch(url);
                 const respString = await response.text();

@@ -251,17 +251,18 @@ namespace mememory {
 
             }
 
-            async function sendDataToServer(seconds: number) {
-
-                const serverResponse: HTMLElement = document.getElementById("abc");
+            async function sendDataToServer(spielerZeit: number) {
 
                 let url: string = "";
         
                 console.log("Sending HTML to Server");
         
-                let name: string = localStorage.getItem("spielerName");
-                let query: URLSearchParams = new URLSearchParams(name);
-        
+                let spielerName: string = localStorage.getItem("spielerName");
+                let userData: HighscoreData = {spielerName, spielerZeit};
+                let userDataJson = JSON.stringify(userData);
+
+                let query: URLSearchParams = new URLSearchParams(userDataJson);
+
                 url = "https://beinagrinddrekifurtwangen.herokuapp.com/" + "?" + query.toString();
         
                 const response: Response = await fetch(url);
@@ -279,6 +280,13 @@ namespace mememory {
     async function ranglisteSeite(): Promise<void> {
 
 
+
+    }
+
+    interface HighscoreData {
+
+        spielerName: string;
+        spielerZeit: number;
 
     }
 

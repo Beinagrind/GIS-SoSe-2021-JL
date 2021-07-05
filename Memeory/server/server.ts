@@ -43,7 +43,7 @@ export namespace mememory {
         
         let jsonString: string = JSON.stringify(_url.query);
         _response.write(jsonString);
-        
+
         orders.insert(_url.query);
 
     }
@@ -54,4 +54,5 @@ export namespace mememory {
         spielerZeit: number;
 
     }
+    
 }
