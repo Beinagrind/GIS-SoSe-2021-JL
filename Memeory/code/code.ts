@@ -147,16 +147,22 @@ namespace mememory {
                     
                 }
                 
-                        
+                randomValues();      
+                
             }
 
             const allCards = document.querySelectorAll(".gameCards");
 
-            let hasFlippedCard = false;
+            let hasFlippedCard: boolean = false;
             let firstCard: any;
             let secondCard: any;
 
+            let noMoreFlips: boolean = false;
+
             function cardFlip(this: any) {
+
+                if (noMoreFlips) return;
+                if (this === firstCard) return;
 
                 console.log("card flipped");
                 this.classList.toggle("flipped");
@@ -178,9 +184,43 @@ namespace mememory {
                             firstCard.removeEventListener("click", cardFlip);
                             secondCard.removeEventListener("click", cardFlip);
 
+                            finishGame();
+
                     }
+
+                    else {
+                        
+                        noMoreFlips = true;
+
+                        setTimeout(() => {
+
+                            firstCard.classList.toggle("flipped");
+                            secondCard.classList.toggle("flipped");
+
+                            noMoreFlips = false;
+
+                        },         800);
+
+                    }
+
                 }
             
+            }
+
+            function finishGame() {
+
+                [hasFlippedCard, noMoreFlips] = [false, false];
+                [firstCard, secondCard] = [null, null];
+            }
+
+            function randomValues() {
+
+                allCards.forEach(card => {
+
+                    let value = Math.floor(Math.random() * 16);
+                    card.style.order = value;
+
+                });
 
             }
 

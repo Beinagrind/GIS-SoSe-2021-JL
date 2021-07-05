@@ -86,12 +86,18 @@ var mememory;
                     playspace.appendChild(cardDiv);
                     i++;
                 }
+                randomValues();
             }
             const allCards = document.querySelectorAll(".gameCards");
             let hasFlippedCard = false;
             let firstCard;
             let secondCard;
+            let noMoreFlips = false;
             function cardFlip() {
+                if (noMoreFlips)
+                    return;
+                if (this === firstCard)
+                    return;
                 console.log("card flipped");
                 this.classList.toggle("flipped");
                 if (!hasFlippedCard) {
@@ -104,8 +110,27 @@ var mememory;
                     if (firstCard.dataset.whatCard === secondCard.dataset.whatCard) {
                         firstCard.removeEventListener("click", cardFlip);
                         secondCard.removeEventListener("click", cardFlip);
+                        finishGame();
+                    }
+                    else {
+                        noMoreFlips = true;
+                        setTimeout(() => {
+                            firstCard.classList.toggle("flipped");
+                            secondCard.classList.toggle("flipped");
+                            noMoreFlips = false;
+                        }, 800);
                     }
                 }
+            }
+            function finishGame() {
+                [hasFlippedCard, noMoreFlips] = [false, false];
+                [firstCard, secondCard] = [null, null];
+            }
+            function randomValues() {
+                allCards.forEach(card => {
+                    let value = Math.floor(Math.random() * 16);
+                    card.style.order = value;
+                });
             }
             allCards.forEach(card => card.addEventListener("click", cardFlip));
         }
