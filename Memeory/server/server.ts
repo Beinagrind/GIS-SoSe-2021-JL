@@ -39,12 +39,30 @@ export namespace mememory {
 
         let orders: Mongo.Collection = mongoClient.db("Memeory").collection("memeoryCollection");
 
-        //send data to MongoDB
-        let userData: string = JSON.stringify(_url.query);
+        if (_url.pathname == "/playerTime") {
+            //send data to MongoDB
+            let userData: string = JSON.stringify(_url.query);
 
-        console.log(userData + " in Milliseconds");
+            console.log(userData + " in Milliseconds");
+            
+            orders.insert(_url.query);
+        }
+
+        if (_url.pathname == "/getList") {
+
+            let dataSearch: Mongo.Cursor = orders.find();
+            let dataFiles: any  = await dataSearch.toArray();
         
-        orders.insert(_url.query);
+            _response.write(JSON.stringify(dataFiles));
+
+        }
+
+    }
+
+    interface HighscoreData {
+
+        spielerName: string;
+        spielerZeit: number;
 
     }
 

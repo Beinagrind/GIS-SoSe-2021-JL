@@ -137,7 +137,7 @@ namespace mememory {
                     console.log(pathString);
 
                     let value: any = Math.floor(Math.random() * 16);
-                    cardDiv.style.order = value;
+                    //cardDiv.style.order = value;
                 
                     cardFront.src = "../Bilder/front.png";
                     cardBack.src = pathString;  
@@ -260,7 +260,7 @@ namespace mememory {
 
                 let query: URLSearchParams = new URLSearchParams(userDataJson);
 
-                url = "https://beinagrinddrekifurtwangen.herokuapp.com/" + "?" + query.toString();
+                url = "https://beinagrinddrekifurtwangen.herokuapp.com/playerTime" + "?" + query.toString();
         
                 const response: Response = await fetch(url);
                 const respString: string = await response.text();
@@ -286,6 +286,31 @@ namespace mememory {
         playerName.innerHTML = localStorage.getItem("spielerName");
         playerScore.innerHTML = "Last time was " + String(lastSecondsPasssed) + " seconds";
         
+        let url: string = "";
+
+        url = "https://beinagrinddrekifurtwangen.herokuapp.com/getList";
+
+        printHighscore();
+
+        async function printHighscore() {
+
+            const response: Response = await fetch(url);
+            const respString: any = await response.text();
+
+            for (let arrayI in respString) {
+
+                let highscoreElement = document.getElementById("highscoreList");
+
+                let highscoreText: HTMLParagraphElement = document.createElement("p");
+
+                highscoreText.innerHTML = respString.arrayI.spielerName + " " +  respString.arrayI.spielerZeit ;
+                              
+                highscoreElement.appendChild(highscoreText);
+
+            }
+            
+        }
+
     }
 
     interface HighscoreData {

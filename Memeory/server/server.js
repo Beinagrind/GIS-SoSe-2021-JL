@@ -29,10 +29,17 @@ var mememory;
         let mongoClient = new Mongo.MongoClient(mongoURL, options);
         await mongoClient.connect();
         let orders = mongoClient.db("Memeory").collection("memeoryCollection");
-        //send data to MongoDB
-        let userData = JSON.stringify(_url.query);
-        console.log(userData + " in Milliseconds");
-        orders.insert(_url.query);
+        if (_url.pathname == "/playerTime") {
+            //send data to MongoDB
+            let userData = JSON.stringify(_url.query);
+            console.log(userData + " in Milliseconds");
+            orders.insert(_url.query);
+        }
+        if (_url.pathname == "/getList") {
+            let dataSearch = orders.find();
+            let dataFiles = await dataSearch.toArray();
+            _response.write(JSON.stringify(dataFiles));
+        }
     }
 })(mememory = exports.mememory || (exports.mememory = {}));
 //# sourceMappingURL=server.js.map

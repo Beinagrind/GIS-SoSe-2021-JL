@@ -79,7 +79,7 @@ var mememory;
                     let pathString = (cards.cards1[arrayI].image);
                     console.log(pathString);
                     let value = Math.floor(Math.random() * 16);
-                    cardDiv.style.order = value;
+                    //cardDiv.style.order = value;
                     cardFront.src = "../Bilder/front.png";
                     cardBack.src = pathString;
                     console.log(cardBack);
@@ -154,7 +154,7 @@ var mememory;
                 let userData = { spielerName, spielerZeit };
                 let userDataJson = JSON.stringify(userData);
                 let query = new URLSearchParams(userDataJson);
-                url = "https://beinagrinddrekifurtwangen.herokuapp.com/" + "?" + query.toString();
+                url = "https://beinagrinddrekifurtwangen.herokuapp.com/playerTime" + "?" + query.toString();
                 const response = await fetch(url);
                 const respString = await response.text();
             }
@@ -169,6 +169,19 @@ var mememory;
         console.log("PlayerTime " + lastSecondsPasssed);
         playerName.innerHTML = localStorage.getItem("spielerName");
         playerScore.innerHTML = "Last time was " + String(lastSecondsPasssed) + " seconds";
+        let url = "";
+        url = "https://beinagrinddrekifurtwangen.herokuapp.com/getList";
+        printHighscore();
+        async function printHighscore() {
+            const response = await fetch(url);
+            const respString = await response.text();
+            for (let arrayI in respString) {
+                let highscoreElement = document.getElementById("highscoreList");
+                let highscoreText = document.createElement("p");
+                highscoreText.innerHTML = respString.arrayI.spielerName + " " + respString.arrayI.spielerZeit;
+                highscoreElement.appendChild(highscoreText);
+            }
+        }
     }
 })(mememory || (mememory = {}));
 //# sourceMappingURL=code.js.map
