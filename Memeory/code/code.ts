@@ -153,8 +153,8 @@ namespace mememory {
             const allCards = document.querySelectorAll(".gameCards");
 
             let hasFlippedCard = false;
-            let firstCard;
-            let secondCard;
+            let firstCard: any;
+            let secondCard: any;
 
             function cardFlip(this: any) {
 
@@ -173,6 +173,12 @@ namespace mememory {
                     hasFlippedCard = false;
                     secondCard = this;
 
+                    if (firstCard.dataset.whatCard === secondCard.dataset.whatCard) {
+
+                            firstCard.removeEventListener("click", cardFlip);
+                            secondCard.removeEventListener("click", cardFlip);
+
+                    }
                 }
             
 

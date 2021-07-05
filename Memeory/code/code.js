@@ -101,6 +101,10 @@ var mememory;
                 else {
                     hasFlippedCard = false;
                     secondCard = this;
+                    if (firstCard.dataset.whatCard === secondCard.dataset.whatCard) {
+                        firstCard.removeEventListener("click", cardFlip);
+                        secondCard.removeEventListener("click", cardFlip);
+                    }
                 }
             }
             allCards.forEach(card => card.addEventListener("click", cardFlip));
