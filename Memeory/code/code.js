@@ -144,9 +144,17 @@ var mememory;
                 setTimeout(() => {
                     console.log("test");
                 }, 200);
-                sendDataToServer();
+                sendDataToServer(secondsPassed);
             }
-            function sendDataToServer() {
+            async function sendDataToServer(seconds) {
+                const serverResponse = document.getElementById("abc");
+                let url = "";
+                console.log("Sending HTML to Server");
+                let name = localStorage.getItem("spielerName");
+                let query = new URLSearchParams(name);
+                url = "https://beinagrinddrekifurtwangen.herokuapp.com/" + "?" + query.toString();
+                const response = await fetch(url);
+                const respString = await response.text();
             }
             allCards.forEach(card => card.addEventListener("click", cardFlip));
         }

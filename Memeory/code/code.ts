@@ -247,13 +247,25 @@ namespace mememory {
 
                 },         200);
 
-                sendDataToServer();
+                sendDataToServer(secondsPassed);
 
             }
 
-            function sendDataToServer() {
+            async function sendDataToServer(seconds: number) {
 
-                
+                const serverResponse: HTMLElement = document.getElementById("abc");
+
+                let url: string = "";
+        
+                console.log("Sending HTML to Server");
+        
+                let name: string = localStorage.getItem("spielerName");
+                let query: URLSearchParams = new URLSearchParams(name);
+        
+                url = "https://beinagrinddrekifurtwangen.herokuapp.com/" + "?" + query.toString();
+        
+                const response: Response = await fetch(url);
+                const respString: string = await response.text();
 
             }
 

@@ -28,6 +28,24 @@ export namespace mememory {
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
 
+        const reqeustUrl: string = _request.url;
+        const _url: Url.UrlWithParsedQuery = Url.parse(reqeustUrl, true);
+
+        //Mongo connect
+        
+        let mongoURL: string = "mongodb+srv://userLudwig:userPassword@gis-jl.4mqvc.mongodb.net/Memeory?retryWrites=true&w=majority";
+        let options: Mongo.MongoClientOptions = {useNewUrlParser:  true, useUnifiedTopology: true};
+        let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(mongoURL, options);
+        await mongoClient.connect();
+
+        let orders: Mongo.Collection = mongoClient.db("Memeory").collection("memeoryCollection");
+
+        
+        let jsonString: string = JSON.stringify(_url.query);
+        _response.write(jsonString);
+        
+        orders.insert(_url.query);
+
     }
     
     interface HighscoreData {
