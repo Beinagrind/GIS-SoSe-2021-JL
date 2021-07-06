@@ -283,34 +283,26 @@ namespace mememory {
 
         playerName.innerHTML = localStorage.getItem("spielerName");
         playerScore.innerHTML = "Last time was " + String(lastSecondsPasssed) + " seconds";
-        
-        let url: string = "";
 
-        printHighscore();
+        let url: string = "https://beinagrinddrekifurtwangen.herokuapp.com/getList";
 
-        async function printHighscore() {
+        const response: Response = await fetch(url);
+        const respString: any = await response.text();
 
-            url = "https://beinagrinddrekifurtwangen.herokuapp.com/getList" + "?";
+        console.log(respString);
 
-            const response: Response = await fetch(url);
-            const respString: any = await response.text();
+        /*for (let arrayI in respString) {
 
-            console.log(respString);
+            let highscoreElement = document.getElementById("highscoreList");
 
-            for (let arrayI in respString) {
+            let highscoreText: HTMLParagraphElement = document.createElement("p");
 
-                let highscoreElement = document.getElementById("highscoreList");
-
-                let highscoreText: HTMLParagraphElement = document.createElement("p");
-
-                highscoreText.innerHTML = respString.arrayI.spielerName + " " +  respString.arrayI.spielerZeit ;
+            highscoreText.innerHTML = respString.arrayI.spielerName + " " +  respString.arrayI.spielerZeit ;
                               
-                highscoreElement.appendChild(highscoreText);
+            highscoreElement.appendChild(highscoreText);
 
-            }
-            
         }
-
+        */
     }
 
     interface HighscoreData {

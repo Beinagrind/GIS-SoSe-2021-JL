@@ -44,7 +44,7 @@ export namespace mememory {
             if (_url.pathname == "/playerTime") {
 
                 //send data to MongoDB
-                await mongoClient.connect();
+                
                 let userData: string = JSON.stringify(_url.query);
 
                 console.log(userData + " in Milliseconds");
@@ -59,7 +59,7 @@ export namespace mememory {
                 _response.setHeader("Access-Control-Allow-Origin", "*");
 
                 //get data from MongoDB
-                await mongoClient.connect();
+            
                 let dataSearch: Mongo.Cursor = orders.find();
                 let dataFiles = await dataSearch.toArray();
             

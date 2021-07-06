@@ -168,20 +168,22 @@ var mememory;
         console.log("PlayerTime " + lastSecondsPasssed);
         playerName.innerHTML = localStorage.getItem("spielerName");
         playerScore.innerHTML = "Last time was " + String(lastSecondsPasssed) + " seconds";
-        let url = "";
-        printHighscore();
-        async function printHighscore() {
-            url = "https://beinagrinddrekifurtwangen.herokuapp.com/getList" + "?";
-            const response = await fetch(url);
-            const respString = await response.text();
-            console.log(respString);
-            for (let arrayI in respString) {
-                let highscoreElement = document.getElementById("highscoreList");
-                let highscoreText = document.createElement("p");
-                highscoreText.innerHTML = respString.arrayI.spielerName + " " + respString.arrayI.spielerZeit;
-                highscoreElement.appendChild(highscoreText);
-            }
+        let url = "https://beinagrinddrekifurtwangen.herokuapp.com/getList";
+        const response = await fetch(url);
+        const respString = await response.text();
+        console.log(respString);
+        /*for (let arrayI in respString) {
+
+            let highscoreElement = document.getElementById("highscoreList");
+
+            let highscoreText: HTMLParagraphElement = document.createElement("p");
+
+            highscoreText.innerHTML = respString.arrayI.spielerName + " " +  respString.arrayI.spielerZeit ;
+                              
+            highscoreElement.appendChild(highscoreText);
+
         }
+        */
     }
 })(mememory || (mememory = {}));
 //# sourceMappingURL=code.js.map
