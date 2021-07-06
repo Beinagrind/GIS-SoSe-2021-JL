@@ -1,6 +1,6 @@
 import * as Http from "http";
 import * as Url from "url";
-import * as  Mongo from "mongodb";
+import * as Mongo from "mongodb";
 
 export namespace mememory {
 
@@ -40,7 +40,8 @@ export namespace mememory {
             await mongoClient.connect();
 
             let orders: Mongo.Collection = mongoClient.db("Memeory").collection("memeoryCollection");
-           
+
+         
             if (_url.pathname == "/playerTime") {
 
                 //send data to MongoDB
@@ -49,24 +50,10 @@ export namespace mememory {
 
                 console.log(userData + " in Milliseconds");
                 
-                orders.insert(_url.query);
+                orders.insertOne(_url.query);
 
             }
-
-            if (_url.pathname == "/getList") {
-
-                _response.setHeader("content-type", "text/html; charset=utf-8");
-                _response.setHeader("Access-Control-Allow-Origin", "*");
-
-                //get data from MongoDB
             
-                let dataSearch: Mongo.Cursor = orders.find();
-                let dataFiles = await dataSearch.toArray();
-            
-                _response.write(JSON.stringify(dataFiles));
-
-            }
-
         }
     }
 

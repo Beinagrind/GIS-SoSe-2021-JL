@@ -33,15 +33,7 @@ var mememory;
                 //send data to MongoDB
                 let userData = JSON.stringify(_url.query);
                 console.log(userData + " in Milliseconds");
-                orders.insert(_url.query);
-            }
-            if (_url.pathname == "/getList") {
-                _response.setHeader("content-type", "text/html; charset=utf-8");
-                _response.setHeader("Access-Control-Allow-Origin", "*");
-                //get data from MongoDB
-                let dataSearch = orders.find();
-                let dataFiles = await dataSearch.toArray();
-                _response.write(JSON.stringify(dataFiles));
+                orders.insertOne(_url.query);
             }
         }
     }
