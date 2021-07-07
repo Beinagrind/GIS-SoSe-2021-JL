@@ -82,6 +82,8 @@ export namespace mememory {
 
 
             }
+            
+            _response.end();
 
             interface HighscoreData {
 

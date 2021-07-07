@@ -51,6 +51,7 @@ var mememory;
             }
             if (_url.pathname == "/costum") {
             }
+            _response.end();
         }
     }
 })(mememory = exports.mememory || (exports.mememory = {}));
