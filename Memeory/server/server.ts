@@ -40,7 +40,7 @@ export namespace mememory {
             await mongoClient.connect();
 
             let orders: Mongo.Collection = mongoClient.db("Memeory").collection("memeoryCollection");
-
+            let ordersCostum: Mongo.Collection = mongoClient.db("Memeory").collection("costum");
          
             if (_url.pathname == "/playerTime") {
 
@@ -71,6 +71,13 @@ export namespace mememory {
                 let dataFiles: HighscoreData[] = await dataSearch.toArray();
             
                 _response.write(JSON.stringify(dataFiles));
+
+            }
+
+            if (_url.pathname == "/costum") {
+
+                _response.setHeader("content-type", "text/html; charset=utf-8");
+                _response.setHeader("Access.Control-Allow-Origin", "*");
 
             }
 

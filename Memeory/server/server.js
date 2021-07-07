@@ -29,6 +29,7 @@ var mememory;
             let mongoClient = new Mongo.MongoClient(mongoURL, options);
             await mongoClient.connect();
             let orders = mongoClient.db("Memeory").collection("memeoryCollection");
+            let ordersCostum = mongoClient.db("Memeory").collection("costum");
             if (_url.pathname == "/playerTime") {
                 //send data to MongoDB
                 let userData = JSON.stringify(_url.query);
@@ -45,6 +46,10 @@ var mememory;
                 let dataSearch = orders.find();
                 let dataFiles = await dataSearch.toArray();
                 _response.write(JSON.stringify(dataFiles));
+            }
+            if (_url.pathname == "/costum") {
+                _response.setHeader("content-type", "text/html; charset=utf-8");
+                _response.setHeader("Access.Control-Allow-Origin", "*");
             }
         }
     }
