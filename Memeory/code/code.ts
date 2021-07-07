@@ -307,7 +307,7 @@ namespace mememory {
         let formData: FormData = new FormData(document.forms[0]);
         let query: URLSearchParams = new URLSearchParams(<any>formData);
 
-        url = "https://beinagrinddrekifurtwangen.herokuapp.com/getList" + "?" + query.toString();
+        url = "https://beinagrinddrekifurtwangen.herokuapp.com/readData" + "?" + query.toString();
 
         const response: Response = await fetch(url);
         const receivedObj: string = await response.text();

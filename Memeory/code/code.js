@@ -180,7 +180,7 @@ var mememory;
         console.log("Server wird angefragt");
         let formData = new FormData(document.forms[0]);
         let query = new URLSearchParams(formData);
-        url = "https://beinagrinddrekifurtwangen.herokuapp.com/getList" + "?" + query.toString();
+        url = "https://beinagrinddrekifurtwangen.herokuapp.com/readData" + "?" + query.toString();
         const response = await fetch(url);
         const receivedObj = await response.text();
         print(receivedObj);
