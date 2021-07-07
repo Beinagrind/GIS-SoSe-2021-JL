@@ -322,37 +322,7 @@ namespace mememory {
         serverResponse.innerHTML = receivedObj;
 
         console.log("at least i tried");
-
-        /*
-        let playerName = document.getElementById("playerNameShown");
-        let playerScore = document.getElementById("playerScore"); 
-
-        let lastSecondsPasssed = Number(localStorage.getItem("lastPlayTime"));
-
-        console.log("PlayerTime " + lastSecondsPasssed);
-
-        playerName.innerHTML = localStorage.getItem("spielerName");
-        playerScore.innerHTML = "Last time was " + String(lastSecondsPasssed) + " seconds";
-
-        let url: string = "https://beinagrinddrekifurtwangen.herokuapp.com/getList";
-
-        const response: Response = await fetch(url);
-        const respString: any = await response.text();
-
-        console.log(respString);
-
-        for (let arrayI in respString) {
-
-            let highscoreElement = document.getElementById("highscoreList");
-
-            let highscoreText: HTMLParagraphElement = document.createElement("p");
-
-            highscoreText.innerHTML = respString.arrayI.spielerName + " " +  respString.arrayI.spielerZeit ;
-                              
-            highscoreElement.appendChild(highscoreText);
-
-        }
-        */
+        
     }
 
     interface HighscoreData {

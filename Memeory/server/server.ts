@@ -48,8 +48,12 @@ export namespace mememory {
                 
                 let userData: string = JSON.stringify(_url.query);
 
-                console.log(userData + " in Milliseconds");
-                
+                let spielerName = _url.query[0];
+                let spielerZeit = _url.query[1];
+
+                console.log(spielerName);
+                console.log(spielerZeit);
+
                 orders.insertOne(_url.query);
 
             }
@@ -71,10 +75,9 @@ export namespace mememory {
                 let dataFiles = await dataSearch.toArray();
             
                 _response.write(JSON.stringify(dataFiles));
-                console.log("WhoopWhoop");
 
-                console.log(dataFiles);
- 
+                console.log("data recieved");
+
             }
 
             if (_url.pathname == "/costum") {
@@ -82,7 +85,7 @@ export namespace mememory {
 
 
             }
-            
+
             _response.end();
 
             interface HighscoreData {

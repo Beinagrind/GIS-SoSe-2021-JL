@@ -33,7 +33,10 @@ var mememory;
             if (_url.pathname == "/playerTime") {
                 //send data to MongoDB
                 let userData = JSON.stringify(_url.query);
-                console.log(userData + " in Milliseconds");
+                let spielerName = _url.query[0];
+                let spielerZeit = _url.query[1];
+                console.log(spielerName);
+                console.log(spielerZeit);
                 orders.insertOne(_url.query);
             }
             if (_url.pathname == "/deleteHighscores") {
@@ -46,8 +49,7 @@ var mememory;
                 let dataSearch = orders.find();
                 let dataFiles = await dataSearch.toArray();
                 _response.write(JSON.stringify(dataFiles));
-                console.log("WhoopWhoop");
-                console.log(dataFiles);
+                console.log("data recieved");
             }
             if (_url.pathname == "/costum") {
             }

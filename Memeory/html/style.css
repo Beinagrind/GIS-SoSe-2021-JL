@@ -9,7 +9,7 @@
 body {
 
     height: 100vh;
-    background: rgb(15, 15, 15);
+    background: rgb(15, 15, 15); 
 
 }
   
@@ -137,4 +137,10 @@ label {
     border-radius: 25pt;
     border: none;
     
+}
+
+div {
+
+    color: white;
+
 }
