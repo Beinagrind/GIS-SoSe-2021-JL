@@ -47,6 +47,7 @@ var mememory;
                 let dataFiles = await dataSearch.toArray();
                 _response.write(JSON.stringify(dataFiles));
                 console.log("WhoopWhoop");
+                console.log(dataFiles);
             }
             if (_url.pathname == "/costum") {
             }

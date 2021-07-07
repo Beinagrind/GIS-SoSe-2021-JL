@@ -68,11 +68,12 @@ export namespace mememory {
                 _response.setHeader("Access-Control-Allow-Origin", "*");
 
                 let dataSearch: Mongo.Cursor = orders.find();
-                let dataFiles: HighscoreData[] = await dataSearch.toArray();
+                let dataFiles = await dataSearch.toArray();
             
                 _response.write(JSON.stringify(dataFiles));
                 console.log("WhoopWhoop");
 
+                console.log(dataFiles);
  
             }
 
