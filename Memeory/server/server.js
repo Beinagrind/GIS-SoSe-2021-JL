@@ -35,6 +35,10 @@ var mememory;
                 console.log(userData + " in Milliseconds");
                 orders.insertOne(_url.query);
             }
+            if (_url.pathname == "/deleteHighscores") {
+                orders.drop();
+                _response.write("Database Cleared");
+            }
         }
     }
 })(mememory = exports.mememory || (exports.mememory = {}));

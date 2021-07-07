@@ -18,6 +18,12 @@ namespace mememory {
     
     }
 
+    if (window.location.href.includes("/admin.html")) {
+
+        adminSeite();
+    
+    }
+
     async function auswahlSeite():  Promise<void>  {
 
         let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("start");
@@ -25,6 +31,9 @@ namespace mememory {
 
         let highscore: HTMLButtonElement = <HTMLButtonElement>document.getElementById("highscore");
         highscore.addEventListener("click", startHighscore);
+
+        let admin: HTMLButtonElement = <HTMLButtonElement>document.getElementById("adminPage");
+        admin.addEventListener("click", adminPage);
 
         async function sendAuswahl(): Promise<void> {
 
@@ -66,7 +75,9 @@ namespace mememory {
                 localStorage.setItem("cardSet", "programmersArtCards");
 
             }
-           
+            
+            //option 4 zieht json von der datenbank, die links dort werden auf der admin seite festgelegt
+
             spielfeldSeite(localStorage.getItem("cardSet"));
 
         }
@@ -76,6 +87,25 @@ namespace mememory {
     function startHighscore(): void {
 
         window.location.assign("../html/rangliste.html");
+
+    }
+
+    function adminPage(): void {
+
+        if (document.getElementsByTagName("input")[4].value == "password") {
+        
+            document.getElementsByTagName("input")[4].value = "";
+            window.location.assign("../html/admin.html");
+
+        }
+
+        else {
+
+            let wrongPW: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("passwordOutput");
+            wrongPW.innerHTML = "Wrong Password";
+
+        }
+
 
     }
 
@@ -309,6 +339,28 @@ namespace mememory {
 
         spielerName: string;
         spielerZeit: number;
+
+    }
+
+    async function adminSeite(): Promise<void> {
+
+        let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("deleteHighscores");
+        submit.addEventListener("click", deleteHighscores);
+
+        async function deleteHighscores(): Promise<void> {
+
+            const serverResponse: HTMLElement = document.getElementById("serverResponse");
+
+            let url: string = "";
+    
+            url = "https://beinagrinddrekifurtwangen.herokuapp.com/deleteHighscores";
+    
+            const response: Response = await fetch(url);
+            const receivedObj: string = await response.text();
+            
+            serverResponse.innerHTML = "Deleted Database";
+
+        }
 
     }
  

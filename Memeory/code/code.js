@@ -10,11 +10,16 @@ var mememory;
     if (window.location.href.includes("/rangliste.html")) {
         ranglisteSeite();
     }
+    if (window.location.href.includes("/admin.html")) {
+        adminSeite();
+    }
     async function auswahlSeite() {
         let submit = document.getElementById("start");
         submit.addEventListener("click", sendAuswahl);
         let highscore = document.getElementById("highscore");
         highscore.addEventListener("click", startHighscore);
+        let admin = document.getElementById("adminPage");
+        admin.addEventListener("click", adminPage);
         async function sendAuswahl() {
             let url = "https://beinagrinddrekifurtwangen.herokuapp.com/startGame";
             //let formData: FormData = new FormData(document.forms[0]);
@@ -37,11 +42,22 @@ var mememory;
             if (radio3.checked == true) {
                 localStorage.setItem("cardSet", "programmersArtCards");
             }
+            //option 4 zieht json von der datenbank, die links dort werden auf der admin seite festgelegt
             spielfeldSeite(localStorage.getItem("cardSet"));
         }
     }
     function startHighscore() {
         window.location.assign("../html/rangliste.html");
+    }
+    function adminPage() {
+        if (document.getElementsByTagName("input")[4].value == "password") {
+            document.getElementsByTagName("input")[4].value = "";
+            window.location.assign("../html/admin.html");
+        }
+        else {
+            let wrongPW = document.getElementById("passwordOutput");
+            wrongPW.innerHTML = "Wrong Password";
+        }
     }
     async function spielfeldSeite(formular) {
         window.open("../html/spielfeld.html");
@@ -184,6 +200,18 @@ var mememory;
 
         }
         */
+    }
+    async function adminSeite() {
+        let submit = document.getElementById("deleteHighscores");
+        submit.addEventListener("click", deleteHighscores);
+        async function deleteHighscores() {
+            const serverResponse = document.getElementById("serverResponse");
+            let url = "";
+            url = "https://beinagrinddrekifurtwangen.herokuapp.com/deleteHighscores";
+            const response = await fetch(url);
+            const receivedObj = await response.text();
+            serverResponse.innerHTML = "Deleted Database";
+        }
     }
 })(mememory || (mememory = {}));
 //# sourceMappingURL=code.js.map

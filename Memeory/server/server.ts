@@ -53,6 +53,14 @@ export namespace mememory {
                 orders.insertOne(_url.query);
 
             }
+
+            if (_url.pathname  == "/deleteHighscores") {
+
+                orders.drop();
+
+                _response.write("Database Cleared");
+
+            }
             
         }
     }
