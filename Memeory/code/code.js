@@ -153,15 +153,12 @@ var mememory;
                 let timerEnd = new Date();
                 let timePassed = timerEnd - timerStart;
                 let secondsPassed = timePassed / 1000;
-                let playspace = document.getElementById("playspace");
-                let finishText = document.getElementById("finishText");
-                finishText.innerHTML = "Game finished in: " + secondsPassed + " seconds";
-                playspace.appendChild(finishText);
+                ;
                 localStorage.setItem("lastPlayTime", secondsPassed.toString());
                 sendDataToServer(timePassed);
                 setTimeout(() => {
                     startHighscore();
-                }, 3000);
+                }, 1000);
             }
             async function sendDataToServer(spielerZeit) {
                 let url = "";
@@ -178,17 +175,40 @@ var mememory;
         createPlayspace("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Memeory/data/" + cardSet);
     }
     async function ranglisteSeite() {
+        const serverResponse = document.getElementById("highscoreList");
+        let url = "";
+        console.log("Server wird angefragt");
+        let formData = new FormData(document.forms[0]);
+        let query = new URLSearchParams(formData);
+        url = "https://beinagrinddrekifurtwangen.herokuapp.com/getList" + "?" + query.toString();
+        const response = await fetch(url);
+        const receivedObj = await response.text();
+        print(receivedObj);
+        function print(_url) {
+            serverResponse.innerHTML = _url;
+        }
+        serverResponse.innerHTML = "Printed Database";
+        serverResponse.innerHTML = receivedObj;
+        console.log("at least i tried");
+        /*
         let playerName = document.getElementById("playerNameShown");
         let playerScore = document.getElementById("playerScore");
+
         let lastSecondsPasssed = Number(localStorage.getItem("lastPlayTime"));
+
         console.log("PlayerTime " + lastSecondsPasssed);
+
         playerName.innerHTML = localStorage.getItem("spielerName");
         playerScore.innerHTML = "Last time was " + String(lastSecondsPasssed) + " seconds";
-        let url = "https://beinagrinddrekifurtwangen.herokuapp.com/getList";
-        const response = await fetch(url);
-        const respString = await response.text();
+
+        let url: string = "https://beinagrinddrekifurtwangen.herokuapp.com/getList";
+
+        const response: Response = await fetch(url);
+        const respString: any = await response.text();
+
         console.log(respString);
-        /*for (let arrayI in respString) {
+
+        for (let arrayI in respString) {
 
             let highscoreElement = document.getElementById("highscoreList");
 
@@ -202,16 +222,17 @@ var mememory;
         */
     }
     async function adminSeite() {
-        let submit = document.getElementById("deleteHighscores");
-        submit.addEventListener("click", deleteHighscores);
         async function deleteHighscores() {
-            const serverResponse = document.getElementById("serverResponse");
+            console.log("deleted");
+            let deleted = document.getElementById("deleted");
+            deleted.innerHTML = "Deleted HighscoreList";
             let url = "";
             url = "https://beinagrinddrekifurtwangen.herokuapp.com/deleteHighscores";
             const response = await fetch(url);
             const receivedObj = await response.text();
-            serverResponse.innerHTML = "Deleted Database";
         }
+        let submit = document.getElementById("deleteHighscores");
+        submit.addEventListener("click", deleteHighscores);
     }
 })(mememory || (mememory = {}));
 //# sourceMappingURL=code.js.map

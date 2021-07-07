@@ -259,13 +259,7 @@ namespace mememory {
                 //timer Beenden und Messen
                 let timerEnd: any = new Date();
                 let timePassed = timerEnd - timerStart;
-                let secondsPassed: any = timePassed / 1000;
-
-                let playspace = document.getElementById("playspace");
-                let finishText = document.getElementById("finishText");
-                    
-                finishText.innerHTML = "Game finished in: " + secondsPassed + " seconds";
-                playspace.appendChild(finishText);
+                let secondsPassed: any = timePassed / 1000;;
 
                 localStorage.setItem("lastPlayTime", secondsPassed.toString());
                 sendDataToServer(timePassed);
@@ -274,7 +268,7 @@ namespace mememory {
 
                     startHighscore();
 
-                },         3000);
+                },         1000);
 
             }
 
@@ -303,7 +297,33 @@ namespace mememory {
     }
 
     async function ranglisteSeite(): Promise<void> {
+        
+        const serverResponse: HTMLElement = document.getElementById("highscoreList");
 
+        let url: string = "";
+
+        console.log("Server wird angefragt");
+
+        let formData: FormData = new FormData(document.forms[0]);
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
+
+        url = "https://beinagrinddrekifurtwangen.herokuapp.com/getList" + "?" + query.toString();
+
+        const response: Response = await fetch(url);
+        const receivedObj: string = await response.text();
+
+        print(receivedObj);
+
+        function print(_url: string): void {
+            serverResponse.innerHTML = _url;
+        }
+
+        serverResponse.innerHTML = "Printed Database";
+        serverResponse.innerHTML = receivedObj;
+
+        console.log("at least i tried");
+
+        /*
         let playerName = document.getElementById("playerNameShown");
         let playerScore = document.getElementById("playerScore"); 
 
@@ -321,7 +341,7 @@ namespace mememory {
 
         console.log(respString);
 
-        /*for (let arrayI in respString) {
+        for (let arrayI in respString) {
 
             let highscoreElement = document.getElementById("highscoreList");
 
@@ -344,23 +364,23 @@ namespace mememory {
 
     async function adminSeite(): Promise<void> {
 
-        let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("deleteHighscores");
-        submit.addEventListener("click", deleteHighscores);
-
         async function deleteHighscores(): Promise<void> {
 
-            const serverResponse: HTMLElement = document.getElementById("serverResponse");
-
+            console.log("deleted");
+            let deleted: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("deleted");
+            deleted.innerHTML = "Deleted HighscoreList";
+        
             let url: string = "";
     
             url = "https://beinagrinddrekifurtwangen.herokuapp.com/deleteHighscores";
     
             const response: Response = await fetch(url);
-            const receivedObj: string = await response.text();
-            
-            serverResponse.innerHTML = "Deleted Database";
+            const receivedObj: string = await response.text();       
 
         }
+
+        let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("deleteHighscores");
+        submit.addEventListener("click", deleteHighscores);
 
     }
  

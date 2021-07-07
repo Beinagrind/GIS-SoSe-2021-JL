@@ -39,6 +39,13 @@ var mememory;
                 orders.drop();
                 _response.write("Database Cleared");
             }
+            if (_url.pathname == "/readData") {
+                _response.setHeader("content-type", "text/html; charset=utf-8");
+                _response.setHeader("Access.Control-Allow-Origin", "*");
+                let dataSearch = orders.find();
+                let dataFiles = await dataSearch.toArray();
+                _response.write(JSON.stringify(dataFiles));
+            }
         }
     }
 })(mememory = exports.mememory || (exports.mememory = {}));
