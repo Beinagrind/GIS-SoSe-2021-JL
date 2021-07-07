@@ -33,10 +33,12 @@ var mememory;
             if (_url.pathname == "/playerTime") {
                 //send data to MongoDB
                 let userData = JSON.stringify(_url.query);
-                let spielerName = _url.query[0];
-                let spielerZeit = _url.query[1];
-                console.log(spielerName);
-                console.log(spielerZeit);
+                for (let key in _url.query) {
+                    let spielerName = "spielerName" + _url.query[key];
+                    let spielerZeit = "spielerZeit" + _url.query[key];
+                }
+                //console.log(spielerName);
+                //console.log(spielerZeit);
                 orders.insertOne(_url.query);
             }
             if (_url.pathname == "/deleteHighscores") {

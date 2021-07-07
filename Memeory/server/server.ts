@@ -48,11 +48,16 @@ export namespace mememory {
                 
                 let userData: string = JSON.stringify(_url.query);
 
-                let spielerName = _url.query[0];
-                let spielerZeit = _url.query[1];
+                for (let key in _url.query) {
 
-                console.log(spielerName);
-                console.log(spielerZeit);
+                    let spielerName = "spielerName" + _url.query[key];
+                    let spielerZeit = "spielerZeit" + _url.query[key];
+                    
+                }
+
+
+                //console.log(spielerName);
+                //console.log(spielerZeit);
 
                 orders.insertOne(_url.query);
 
