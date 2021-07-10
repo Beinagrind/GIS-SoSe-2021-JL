@@ -326,18 +326,6 @@ namespace mememory {
 
         }
 
-        /*for (let key in receivedObj) {
-
-            let spielerName = receivedObj;
-
-            console.log(spielerName);
-
-            let responseString: string = JSON.stringify(spielerName);
-            serverResponse.innerHTML = responseString;
-            
-        }*/
-       
-        
     }
 
     interface HighscoreData {
@@ -365,8 +353,57 @@ namespace mememory {
 
         }
 
+        async function newCards(): Promise<void> {
+
+            let query: URLSearchParams = new URLSearchParams();
+
+            let value1 = document.getElementsByTagName("input")[0].value;
+            query.append("image", value1);
+            query.append("dataWhatCard", "card1");
+
+            let value2 = document.getElementsByTagName("input")[1].value;
+            query.append("image", value1);
+            query.append("dataWhatCard", "card2");
+
+            let value3 = document.getElementsByTagName("input")[2].value;
+            query.append("image", value1);
+            query.append("dataWhatCard", "card3");
+            
+            let value4 = document.getElementsByTagName("input")[3].value;
+            query.append("image", value1);
+            query.append("dataWhatCard", "card4");
+
+            let value5 = document.getElementsByTagName("input")[4].value;
+            query.append("image", value1);
+            query.append("dataWhatCard", "card5");
+
+            let value6 = document.getElementsByTagName("input")[5].value;
+            query.append("image", value1);
+            query.append("dataWhatCard", "card6");
+
+            let value7 = document.getElementsByTagName("input")[6].value;
+            query.append("image", value1);
+            query.append("dataWhatCard", "card7");
+
+            let value8 = document.getElementsByTagName("input")[7].value;
+            query.append("image", value1);
+            query.append("dataWhatCard", "card8");
+
+            let url: string = "";
+
+            url = "https://beinagrinddrekifurtwangen.herokuapp.com/costum" + "?" + query.toString();
+        
+            const response: Response = await fetch(url);
+            const respString: string = await response.text();
+
+            console.log("CardSetEdited");
+        }
+
         let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("deleteHighscores");
         submit.addEventListener("click", deleteHighscores);
+
+        let submitNewCards: HTMLButtonElement = <HTMLButtonElement>document.getElementById("addCards");
+        submitNewCards.addEventListener("click", newCards);
 
     }
  

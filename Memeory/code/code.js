@@ -190,16 +190,6 @@ var mememory;
             highscoreP.innerHTML = "User: " + item.playerName + " had the time " + item.playerTime / 1000 + " seconds";
             highscoreDiv.append(highscoreP);
         }
-        /*for (let key in receivedObj) {
-
-            let spielerName = receivedObj;
-
-            console.log(spielerName);
-
-            let responseString: string = JSON.stringify(spielerName);
-            serverResponse.innerHTML = responseString;
-            
-        }*/
     }
     async function adminSeite() {
         async function deleteHighscores() {
@@ -211,8 +201,42 @@ var mememory;
             const response = await fetch(url);
             const receivedObj = await response.text();
         }
+        async function newCards() {
+            let query = new URLSearchParams();
+            let value1 = document.getElementsByTagName("input")[0].value;
+            query.append("image", value1);
+            query.append("dataWhatCard", "card1");
+            let value2 = document.getElementsByTagName("input")[1].value;
+            query.append("image", value1);
+            query.append("dataWhatCard", "card2");
+            let value3 = document.getElementsByTagName("input")[2].value;
+            query.append("image", value1);
+            query.append("dataWhatCard", "card3");
+            let value4 = document.getElementsByTagName("input")[3].value;
+            query.append("image", value1);
+            query.append("dataWhatCard", "card4");
+            let value5 = document.getElementsByTagName("input")[4].value;
+            query.append("image", value1);
+            query.append("dataWhatCard", "card5");
+            let value6 = document.getElementsByTagName("input")[5].value;
+            query.append("image", value1);
+            query.append("dataWhatCard", "card6");
+            let value7 = document.getElementsByTagName("input")[6].value;
+            query.append("image", value1);
+            query.append("dataWhatCard", "card7");
+            let value8 = document.getElementsByTagName("input")[7].value;
+            query.append("image", value1);
+            query.append("dataWhatCard", "card8");
+            let url = "";
+            url = "https://beinagrinddrekifurtwangen.herokuapp.com/costum" + "?" + query.toString();
+            const response = await fetch(url);
+            const respString = await response.text();
+            console.log("CardSetEdited");
+        }
         let submit = document.getElementById("deleteHighscores");
         submit.addEventListener("click", deleteHighscores);
+        let submitNewCards = document.getElementById("addCards");
+        submitNewCards.addEventListener("click", newCards);
     }
 })(mememory || (mememory = {}));
 //# sourceMappingURL=code.js.map

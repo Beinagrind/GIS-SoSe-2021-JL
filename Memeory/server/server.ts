@@ -51,7 +51,7 @@ export namespace mememory {
                 orders.insertOne(_url.query);
 
                 console.log(_url.query.body);
-                
+
             }
 
             if (_url.pathname  == "/deleteHighscores") {
@@ -78,18 +78,19 @@ export namespace mememory {
 
             if (_url.pathname == "/costum") {
 
+                ordersCostum.drop();
+                
+                let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
 
+                console.log("Cards inserted");
+
+                ordersCostum.insertOne(_url.query);
+
+                console.log(_url.query.body);
 
             }
 
             _response.end();
-
-            interface HighscoreData {
-
-                spielerName: string;
-                spielerZeit: number;
-        
-            }
             
         }
     }
