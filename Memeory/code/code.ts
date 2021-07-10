@@ -277,13 +277,13 @@ namespace mememory {
                 let url: string = "";
         
                 let spielerName: string = localStorage.getItem("spielerName");
-                let userData: HighscoreData = {spielerName, spielerZeit};
+                let userData = {spielerName, spielerZeit};
                 let userDataJson = JSON.stringify(userData);
 
-                let query: URLSearchParams = new URLSearchParams(userDataJson);
+                let query: URLSearchParams = new URLSearchParams();
 
                 query.append("playerName", spielerName);
-                //query.append("playerTime", (spielerZeit));
+                query.append("playerTime", spielerZeit.toString());
 
                 url = "https://beinagrinddrekifurtwangen.herokuapp.com/playerTime" + "?" + query.toString();
         
@@ -313,31 +313,36 @@ namespace mememory {
         url = "https://beinagrinddrekifurtwangen.herokuapp.com/readData" + "?" + query.toString();
 
         const response: Response = await fetch(url);
-        const receivedObj: JSON[] = await response.json();
-        
-        console.log(receivedObj);
+        const receivedObj = await response.json();
 
-        for (let key in receivedObj) {
+        for (let item of receivedObj) {
 
-            for (let i: number = 0; i < 11; i++) {
+            let highscoreP: HTMLParagraphElement = document.createElement("p");
+            let highscoreDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("highscoreList");
 
-                let spielerName = receivedObj[key];
-                let spielerZeit = receivedObj[key];
-        
-                console.log(spielerName);
-                console.log(spielerZeit);
+            highscoreP.innerHTML = "User: " + item.playerName + " had the time " + item.playerTime / 1000 + " seconds";
 
-                serverResponse.innerHTML = JSON.stringify(spielerName + " " + spielerZeit);
+            highscoreDiv.append(highscoreP);
 
-            }
-            
         }
+
+        /*for (let key in receivedObj) {
+
+            let spielerName = receivedObj;
+
+            console.log(spielerName);
+
+            let responseString: string = JSON.stringify(spielerName);
+            serverResponse.innerHTML = responseString;
+            
+        }*/
        
         
     }
 
     interface HighscoreData {
 
+        spielerID: string;
         spielerName: string;
         spielerZeit: number;
 

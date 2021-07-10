@@ -164,9 +164,9 @@ var mememory;
                 let spielerName = localStorage.getItem("spielerName");
                 let userData = { spielerName, spielerZeit };
                 let userDataJson = JSON.stringify(userData);
-                let query = new URLSearchParams(userDataJson);
+                let query = new URLSearchParams();
                 query.append("playerName", spielerName);
-                //query.append("playerTime", (spielerZeit));
+                query.append("playerTime", spielerZeit.toString());
                 url = "https://beinagrinddrekifurtwangen.herokuapp.com/playerTime" + "?" + query.toString();
                 const response = await fetch(url);
                 const respString = await response.text();
@@ -184,16 +184,22 @@ var mememory;
         url = "https://beinagrinddrekifurtwangen.herokuapp.com/readData" + "?" + query.toString();
         const response = await fetch(url);
         const receivedObj = await response.json();
-        console.log(receivedObj);
-        for (let key in receivedObj) {
-            for (let i = 0; i < 11; i++) {
-                let spielerName = receivedObj[key];
-                let spielerZeit = receivedObj[key];
-                console.log(spielerName);
-                console.log(spielerZeit);
-                serverResponse.innerHTML = JSON.stringify(spielerName + " " + spielerZeit);
-            }
+        for (let item of receivedObj) {
+            let highscoreP = document.createElement("p");
+            let highscoreDiv = document.getElementById("highscoreList");
+            highscoreP.innerHTML = "User: " + item.playerName + " had the time " + item.playerTime / 1000 + " seconds";
+            highscoreDiv.append(highscoreP);
         }
+        /*for (let key in receivedObj) {
+
+            let spielerName = receivedObj;
+
+            console.log(spielerName);
+
+            let responseString: string = JSON.stringify(spielerName);
+            serverResponse.innerHTML = responseString;
+            
+        }*/
     }
     async function adminSeite() {
         async function deleteHighscores() {
