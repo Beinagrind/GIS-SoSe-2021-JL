@@ -139,48 +139,97 @@ namespace mememory {
 
         async function createPlayspace(_url: RequestInfo): Promise<void> {
 
-            let antwort: Response = await fetch(_url);
-            let cards = await antwort.json();
+            if (_url == "set3data.json") {
 
-            console.log(cards);
+                let url: string = "https://beinagrinddrekifurtwangen.herokuapp.com/readCardSet";
 
-            for (let arrayI in cards.cards1) {
+                const response: Response = await fetch(url);
+                const cards = await response.json();
 
-                let playspace = document.getElementById("playspace");
+                for (let arrayI in cards) {
 
-                for (let i: number = 0; i < 3; i++) {
+                    let playspace = document.getElementById("playspace");
+    
+                    for (let i: number = 0; i < 3; i++) {
+                        
+                        let cardDiv: HTMLDivElement = document.createElement("div");
+                        let cardBack: HTMLImageElement = document.createElement("img");
+                        let cardFront: HTMLImageElement = document.createElement("img");
                     
-                    let cardDiv: HTMLDivElement = document.createElement("div");
-                    let cardBack: HTMLImageElement = document.createElement("img");
-                    let cardFront: HTMLImageElement = document.createElement("img");
+                        cardDiv.classList.add("gameCards");
+                        cardBack.classList.add("cardBack");
+                        cardFront.classList.add("cardFront");
+    
+                        cardDiv.dataset.whatCard = cards[arrayI].dataWhatCard;
+                        let whatCard: string = (cards[arrayI].dataWhatCard);
+                        console.log(whatCard);
+    
+                        let pathString: string = (cards[arrayI].image);
+    
+                        console.log(pathString);
+    
+                        let value: any = Math.floor(Math.random() * 16);
+                        //cardDiv.style.order = value;
+                    
+                        cardFront.src = "../Bilder/front.png";
+                        cardBack.src = pathString;  
+                        console.log(cardBack);
+                        cardDiv.appendChild(cardBack);
+                        cardDiv.appendChild(cardFront);
+                                                
+                        playspace.appendChild(cardDiv);
+    
+                        i++;
+    
+                    }     
+                    
+                } 
+            }
+            else {
                 
-                    cardDiv.classList.add("gameCards");
-                    cardBack.classList.add("cardBack");
-                    cardFront.classList.add("cardFront");
+                let antwort: Response = await fetch(_url);
+                let cards = await antwort.json();
 
-                    cardDiv.dataset.whatCard = cards.cards1[arrayI].dataWhatCard;
-                    let whatCard: string = (cards.cards1[arrayI].dataWhatCard);
-                    console.log(whatCard);
+                console.log(cards);
 
-                    let pathString: string = (cards.cards1[arrayI].image);
+                for (let arrayI in cards.cards1) {
 
-                    console.log(pathString);
+                    let playspace = document.getElementById("playspace");
 
-                    let value: any = Math.floor(Math.random() * 16);
-                    //cardDiv.style.order = value;
-                
-                    cardFront.src = "../Bilder/front.png";
-                    cardBack.src = pathString;  
-                    console.log(cardBack);
-                    cardDiv.appendChild(cardBack);
-                    cardDiv.appendChild(cardFront);
-                                            
-                    playspace.appendChild(cardDiv);
+                    for (let i: number = 0; i < 3; i++) {
+                        
+                        let cardDiv: HTMLDivElement = document.createElement("div");
+                        let cardBack: HTMLImageElement = document.createElement("img");
+                        let cardFront: HTMLImageElement = document.createElement("img");
+                    
+                        cardDiv.classList.add("gameCards");
+                        cardBack.classList.add("cardBack");
+                        cardFront.classList.add("cardFront");
 
-                    i++;
+                        cardDiv.dataset.whatCard = cards.cards1[arrayI].dataWhatCard;
+                        let whatCard: string = (cards.cards1[arrayI].dataWhatCard);
+                        console.log(whatCard);
 
-                }     
-                
+                        let pathString: string = (cards.cards1[arrayI].image);
+
+                        console.log(pathString);
+
+                        let value: any = Math.floor(Math.random() * 16);
+                        //cardDiv.style.order = value;
+                    
+                        cardFront.src = "../Bilder/front.png";
+                        cardBack.src = pathString;  
+                        console.log(cardBack);
+                        cardDiv.appendChild(cardBack);
+                        cardDiv.appendChild(cardFront);
+                                                
+                        playspace.appendChild(cardDiv);
+
+                        i++;
+
+                    }     
+                    
+                }
             }
 
             const allCards = document.querySelectorAll(".gameCards");
@@ -355,47 +404,23 @@ namespace mememory {
 
         async function newCards(): Promise<void> {
 
-            let query: URLSearchParams = new URLSearchParams();
-            let url: string = "";
-
-            console.log("test");
-
             for (let i: number = 0; i < 8; i++) {
 
+                let query: URLSearchParams = new URLSearchParams();
+                let url: string = "";
                 let value1 = document.getElementsByTagName("input")[i].value;
-                query.append("playerName", value1);
-                query.append("dataWhatCard", "card" + i);
+                let cardCounter: number = i + 1;
+
+                query.append("image", value1);
+                query.append("dataWhatCard", "card" + cardCounter);
 
                 url = "https://beinagrinddrekifurtwangen.herokuapp.com/costum" + "?" + query.toString();
 
                 const response: Response = await fetch(url); 
-                const respString: string = await response.text();
 
                 console.log(value1);
+                console.log(cardCounter);
             }
-            
-            /*
-            let value2 = document.getElementsByTagName("input")[1].value;
-            query.append("playerName", value2);
-
-            let value3 = document.getElementsByTagName("input")[2].value;
-            query.append("playerName", value3);
-
-            let value4 = document.getElementsByTagName("input")[3].value;
-            query.append("playerName", value4);
-
-            let value5 = document.getElementsByTagName("input")[4].value;
-            query.append("playerName", value5);
-
-            let value6 = document.getElementsByTagName("input")[5].value;
-            query.append("playerName", value6);
-
-            let value7 = document.getElementsByTagName("input")[6].value;
-            query.append("playerName", value7);
-
-            let value8 = document.getElementsByTagName("input")[7].value;
-            query.append("playerName", value8);
-            */
 
         }
 
