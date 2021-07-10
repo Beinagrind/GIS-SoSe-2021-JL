@@ -134,102 +134,71 @@ namespace mememory {
         }
 
         if (formular == "programmersArtCards")  {
+
+            let url: string = "https://beinagrinddrekifurtwangen.herokuapp.com/readCardSet";
+
+            const response: Response = await fetch(url);
+            const receivedObj = await response.json();
+
+            /*for (let item of receivedObj) {
+
+                let highscoreP: HTMLParagraphElement = document.createElement("p");
+                let highscoreDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("highscoreList");
+    
+                highscoreP.innerHTML = "User: " + item.playerName + " had the time " + item.playerTime / 1000 + " seconds";
+    
+                highscoreDiv.append(highscoreP);
+    
+          }
+         */ 
+            
             cardSet = "set3data.json";
         }
 
         async function createPlayspace(_url: RequestInfo): Promise<void> {
+            
+            let antwort: Response = await fetch(_url);
+            let cards = await antwort.json();
 
-            if (_url == "set3data.json") {
+            console.log(cards);
 
-                let url: string = "https://beinagrinddrekifurtwangen.herokuapp.com/readCardSet";
+            for (let arrayI in cards.cards1) {
 
-                const response: Response = await fetch(url);
-                const cards = await response.json();
+                let playspace = document.getElementById("playspace");
 
-                for (let arrayI in cards) {
-
-                    let playspace = document.getElementById("playspace");
-    
-                    for (let i: number = 0; i < 3; i++) {
-                        
-                        let cardDiv: HTMLDivElement = document.createElement("div");
-                        let cardBack: HTMLImageElement = document.createElement("img");
-                        let cardFront: HTMLImageElement = document.createElement("img");
+                for (let i: number = 0; i < 3; i++) {
                     
-                        cardDiv.classList.add("gameCards");
-                        cardBack.classList.add("cardBack");
-                        cardFront.classList.add("cardFront");
-    
-                        cardDiv.dataset.whatCard = cards[arrayI].dataWhatCard;
-                        let whatCard: string = (cards[arrayI].dataWhatCard);
-                        console.log(whatCard);
-    
-                        let pathString: string = (cards[arrayI].image);
-    
-                        console.log(pathString);
-    
-                        let value: any = Math.floor(Math.random() * 16);
-                        //cardDiv.style.order = value;
-                    
-                        cardFront.src = "../Bilder/front.png";
-                        cardBack.src = pathString;  
-                        console.log(cardBack);
-                        cardDiv.appendChild(cardBack);
-                        cardDiv.appendChild(cardFront);
-                                                
-                        playspace.appendChild(cardDiv);
-    
-                        i++;
-    
-                    }     
-                    
-                } 
-            }
-            else {
+                    let cardDiv: HTMLDivElement = document.createElement("div");
+                    let cardBack: HTMLImageElement = document.createElement("img");
+                    let cardFront: HTMLImageElement = document.createElement("img");
                 
-                let antwort: Response = await fetch(_url);
-                let cards = await antwort.json();
+                    cardDiv.classList.add("gameCards");
+                    cardBack.classList.add("cardBack");
+                    cardFront.classList.add("cardFront");
 
-                console.log(cards);
+                    cardDiv.dataset.whatCard = cards.cards1[arrayI].dataWhatCard;
+                    let whatCard: string = (cards.cards1[arrayI].dataWhatCard);
+                    console.log(whatCard);
 
-                for (let arrayI in cards.cards1) {
+                    let pathString: string = (cards.cards1[arrayI].image);
 
-                    let playspace = document.getElementById("playspace");
+                    console.log(pathString);
 
-                    for (let i: number = 0; i < 3; i++) {
-                        
-                        let cardDiv: HTMLDivElement = document.createElement("div");
-                        let cardBack: HTMLImageElement = document.createElement("img");
-                        let cardFront: HTMLImageElement = document.createElement("img");
-                    
-                        cardDiv.classList.add("gameCards");
-                        cardBack.classList.add("cardBack");
-                        cardFront.classList.add("cardFront");
+                    let value: any = Math.floor(Math.random() * 16);
+                    //cardDiv.style.order = value;
+                
+                    cardFront.src = "../Bilder/front.png";
+                    cardBack.src = pathString;  
+                    console.log(cardBack);
+                    cardDiv.appendChild(cardBack);
+                    cardDiv.appendChild(cardFront);
+                                            
+                    playspace.appendChild(cardDiv);
 
-                        cardDiv.dataset.whatCard = cards.cards1[arrayI].dataWhatCard;
-                        let whatCard: string = (cards.cards1[arrayI].dataWhatCard);
-                        console.log(whatCard);
+                    i++;
 
-                        let pathString: string = (cards.cards1[arrayI].image);
-
-                        console.log(pathString);
-
-                        let value: any = Math.floor(Math.random() * 16);
-                        //cardDiv.style.order = value;
-                    
-                        cardFront.src = "../Bilder/front.png";
-                        cardBack.src = pathString;  
-                        console.log(cardBack);
-                        cardDiv.appendChild(cardBack);
-                        cardDiv.appendChild(cardFront);
-                                                
-                        playspace.appendChild(cardDiv);
-
-                        i++;
-
-                    }     
-                    
-                }
+                }     
+                
             }
 
             const allCards = document.querySelectorAll(".gameCards");

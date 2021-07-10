@@ -74,67 +74,49 @@ var mememory;
             cardSet = "set2data.json";
         }
         if (formular == "programmersArtCards") {
+            let url = "https://beinagrinddrekifurtwangen.herokuapp.com/readCardSet";
+            const response = await fetch(url);
+            const receivedObj = await response.json();
+            /*for (let item of receivedObj) {
+
+                let highscoreP: HTMLParagraphElement = document.createElement("p");
+                let highscoreDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("highscoreList");
+    
+                highscoreP.innerHTML = "User: " + item.playerName + " had the time " + item.playerTime / 1000 + " seconds";
+    
+                highscoreDiv.append(highscoreP);
+    
+          }
+         */
             cardSet = "set3data.json";
         }
         async function createPlayspace(_url) {
-            if (_url == "set3data.json") {
-                let url = "https://beinagrinddrekifurtwangen.herokuapp.com/readCardSet";
-                const response = await fetch(url);
-                const cards = await response.json();
-                for (let arrayI in cards) {
-                    let playspace = document.getElementById("playspace");
-                    for (let i = 0; i < 3; i++) {
-                        let cardDiv = document.createElement("div");
-                        let cardBack = document.createElement("img");
-                        let cardFront = document.createElement("img");
-                        cardDiv.classList.add("gameCards");
-                        cardBack.classList.add("cardBack");
-                        cardFront.classList.add("cardFront");
-                        cardDiv.dataset.whatCard = cards[arrayI].dataWhatCard;
-                        let whatCard = (cards[arrayI].dataWhatCard);
-                        console.log(whatCard);
-                        let pathString = (cards[arrayI].image);
-                        console.log(pathString);
-                        let value = Math.floor(Math.random() * 16);
-                        //cardDiv.style.order = value;
-                        cardFront.src = "../Bilder/front.png";
-                        cardBack.src = pathString;
-                        console.log(cardBack);
-                        cardDiv.appendChild(cardBack);
-                        cardDiv.appendChild(cardFront);
-                        playspace.appendChild(cardDiv);
-                        i++;
-                    }
-                }
-            }
-            else {
-                let antwort = await fetch(_url);
-                let cards = await antwort.json();
-                console.log(cards);
-                for (let arrayI in cards.cards1) {
-                    let playspace = document.getElementById("playspace");
-                    for (let i = 0; i < 3; i++) {
-                        let cardDiv = document.createElement("div");
-                        let cardBack = document.createElement("img");
-                        let cardFront = document.createElement("img");
-                        cardDiv.classList.add("gameCards");
-                        cardBack.classList.add("cardBack");
-                        cardFront.classList.add("cardFront");
-                        cardDiv.dataset.whatCard = cards.cards1[arrayI].dataWhatCard;
-                        let whatCard = (cards.cards1[arrayI].dataWhatCard);
-                        console.log(whatCard);
-                        let pathString = (cards.cards1[arrayI].image);
-                        console.log(pathString);
-                        let value = Math.floor(Math.random() * 16);
-                        //cardDiv.style.order = value;
-                        cardFront.src = "../Bilder/front.png";
-                        cardBack.src = pathString;
-                        console.log(cardBack);
-                        cardDiv.appendChild(cardBack);
-                        cardDiv.appendChild(cardFront);
-                        playspace.appendChild(cardDiv);
-                        i++;
-                    }
+            let antwort = await fetch(_url);
+            let cards = await antwort.json();
+            console.log(cards);
+            for (let arrayI in cards.cards1) {
+                let playspace = document.getElementById("playspace");
+                for (let i = 0; i < 3; i++) {
+                    let cardDiv = document.createElement("div");
+                    let cardBack = document.createElement("img");
+                    let cardFront = document.createElement("img");
+                    cardDiv.classList.add("gameCards");
+                    cardBack.classList.add("cardBack");
+                    cardFront.classList.add("cardFront");
+                    cardDiv.dataset.whatCard = cards.cards1[arrayI].dataWhatCard;
+                    let whatCard = (cards.cards1[arrayI].dataWhatCard);
+                    console.log(whatCard);
+                    let pathString = (cards.cards1[arrayI].image);
+                    console.log(pathString);
+                    let value = Math.floor(Math.random() * 16);
+                    //cardDiv.style.order = value;
+                    cardFront.src = "../Bilder/front.png";
+                    cardBack.src = pathString;
+                    console.log(cardBack);
+                    cardDiv.appendChild(cardBack);
+                    cardDiv.appendChild(cardFront);
+                    playspace.appendChild(cardDiv);
+                    i++;
                 }
             }
             const allCards = document.querySelectorAll(".gameCards");
