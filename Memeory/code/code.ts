@@ -310,9 +310,20 @@ namespace mememory {
         url = "https://beinagrinddrekifurtwangen.herokuapp.com/readData" + "?" + query.toString();
 
         const response: Response = await fetch(url);
-        const receivedObj: string = await response.text();
+        const receivedObj: JSON = await response.json();
         
-        serverResponse.innerHTML = receivedObj;
+        console.log(receivedObj);
+
+        for (let key in receivedObj) {
+
+            //let spielerName = receivedObj[key];
+            //let spielerZeit = _url.query[key];
+        
+            //console.log(spielerName);
+            //console.log(spielerZeit);
+
+        }
+        //serverResponse.innerHTML = JSON.stringify(receivedObj);
         
     }
 

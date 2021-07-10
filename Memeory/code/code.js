@@ -181,8 +181,15 @@ var mememory;
         let query = new URLSearchParams(formData);
         url = "https://beinagrinddrekifurtwangen.herokuapp.com/readData" + "?" + query.toString();
         const response = await fetch(url);
-        const receivedObj = await response.text();
-        serverResponse.innerHTML = receivedObj;
+        const receivedObj = await response.json();
+        console.log(receivedObj);
+        for (let key in receivedObj) {
+            //let spielerName = receivedObj[key];
+            //let spielerZeit = _url.query[key];
+            //console.log(spielerName);
+            //console.log(spielerZeit);
+        }
+        //serverResponse.innerHTML = JSON.stringify(receivedObj);
     }
     async function adminSeite() {
         async function deleteHighscores() {
