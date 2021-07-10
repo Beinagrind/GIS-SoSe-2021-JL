@@ -259,7 +259,7 @@ namespace mememory {
                 //timer Beenden und Messen
                 let timerEnd: any = new Date();
                 let timePassed = timerEnd - timerStart;
-                let secondsPassed: any = timePassed / 1000;;
+                let secondsPassed: any = timePassed / 1000;
 
                 localStorage.setItem("lastPlayTime", secondsPassed.toString());
                 sendDataToServer(timePassed);

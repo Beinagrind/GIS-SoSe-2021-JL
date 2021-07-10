@@ -44,6 +44,16 @@ export namespace mememory {
          
             if (_url.pathname == "/playerTime") {
 
+                let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+
+                for (let key in url.query) {
+
+                    _response.write(key + ":" + url.query[key]);
+                    console.log(key + ":" + url.query[key]);
+                }
+
+                console.log("Data inserted");
+
                 //send data to MongoDB
                 
                 let userData: string = JSON.stringify(_url.query);

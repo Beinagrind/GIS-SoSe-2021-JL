@@ -31,6 +31,12 @@ var mememory;
             let orders = mongoClient.db("Memeory").collection("memeoryCollection");
             let ordersCostum = mongoClient.db("Memeory").collection("costum");
             if (_url.pathname == "/playerTime") {
+                let url = Url.parse(_request.url, true);
+                for (let key in url.query) {
+                    _response.write(key + ":" + url.query[key]);
+                    console.log(key + ":" + url.query[key]);
+                }
+                console.log("Data inserted");
                 //send data to MongoDB
                 let userData = JSON.stringify(_url.query);
                 for (let key in _url.query) {

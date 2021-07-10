@@ -153,7 +153,6 @@ var mememory;
                 let timerEnd = new Date();
                 let timePassed = timerEnd - timerStart;
                 let secondsPassed = timePassed / 1000;
-                ;
                 localStorage.setItem("lastPlayTime", secondsPassed.toString());
                 sendDataToServer(timePassed);
                 setTimeout(() => {
