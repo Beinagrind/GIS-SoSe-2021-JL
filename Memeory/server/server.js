@@ -49,7 +49,7 @@ var mememory;
                 console.log("data recieved");
             }
             if (_url.pathname == "/costum") {
-                let url = Url.parse(_request.url, true);
+                let _url = Url.parse(_request.url, true);
                 console.log("Cards inserted");
                 ordersCostum.insertOne(_url.query);
                 console.log(_url.query.body);

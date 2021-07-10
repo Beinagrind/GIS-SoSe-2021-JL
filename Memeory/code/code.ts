@@ -364,9 +364,10 @@ namespace mememory {
 
                 let value1 = document.getElementsByTagName("input")[i].value;
                 query.append("playerName", value1);
+                query.append("dataWhatCard", "card" + i);
 
                 url = "https://beinagrinddrekifurtwangen.herokuapp.com/newCards" + "?" + query.toString();
-                
+
                 const response: Response = await fetch(url);
                 const respString: string = await response.text();
             }

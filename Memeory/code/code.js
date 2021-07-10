@@ -207,6 +207,7 @@ var mememory;
             for (let i; i > 8; i++) {
                 let value1 = document.getElementsByTagName("input")[i].value;
                 query.append("playerName", value1);
+                query.append("dataWhatCard", "card" + i);
                 url = "https://beinagrinddrekifurtwangen.herokuapp.com/newCards" + "?" + query.toString();
                 const response = await fetch(url);
                 const respString = await response.text();
