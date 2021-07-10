@@ -52,6 +52,10 @@ var mememory;
                 ordersCostum.insertOne(_url.query);
                 console.log(_url.query.body);
             }
+            if (_url.pathname == "/delete") {
+                ordersCostum.drop();
+                console.log("Cards deleted");
+            }
             _response.end();
         }
     }

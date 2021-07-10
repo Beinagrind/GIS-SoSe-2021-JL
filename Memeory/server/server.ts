@@ -83,6 +83,14 @@ export namespace mememory {
                 console.log(_url.query.body);
 
             }
+  
+            if (_url.pathname == "/delete") {
+
+                ordersCostum.drop();
+
+                console.log("Cards deleted");
+                
+            }
 
             _response.end();
             

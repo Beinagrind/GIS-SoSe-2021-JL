@@ -358,7 +358,9 @@ namespace mememory {
             let query: URLSearchParams = new URLSearchParams();
             let url: string = "";
 
-            for (let i: number; i > 8; i++) {
+            console.log("test");
+
+            for (let i: number = 0; i < 8; i++) {
 
                 let value1 = document.getElementsByTagName("input")[i].value;
                 query.append("playerName", value1);
@@ -397,11 +399,22 @@ namespace mememory {
 
         }
 
+        async function deleteNewCards(): Promise<void> {
+
+            let url = "https://beinagrinddrekifurtwangen.herokuapp.com/delete";
+
+            const response: Response = await fetch(url); 
+             
+        }
+
         let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("deleteHighscores");
         submit.addEventListener("click", deleteHighscores);
 
         let submitNewCards: HTMLButtonElement = <HTMLButtonElement>document.getElementById("addCards");
         submitNewCards.addEventListener("click", newCards);
+                
+        let deleteCards: HTMLButtonElement = <HTMLButtonElement>document.getElementById("deleteCards");
+        deleteCards.addEventListener("click", deleteNewCards);
 
     }
  

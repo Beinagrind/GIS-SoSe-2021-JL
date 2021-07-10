@@ -204,7 +204,8 @@ var mememory;
         async function newCards() {
             let query = new URLSearchParams();
             let url = "";
-            for (let i; i > 8; i++) {
+            console.log("test");
+            for (let i = 0; i < 8; i++) {
                 let value1 = document.getElementsByTagName("input")[i].value;
                 query.append("playerName", value1);
                 query.append("dataWhatCard", "card" + i);
@@ -236,10 +237,16 @@ var mememory;
             query.append("playerName", value8);
             */
         }
+        async function deleteNewCards() {
+            let url = "https://beinagrinddrekifurtwangen.herokuapp.com/delete";
+            const response = await fetch(url);
+        }
         let submit = document.getElementById("deleteHighscores");
         submit.addEventListener("click", deleteHighscores);
         let submitNewCards = document.getElementById("addCards");
         submitNewCards.addEventListener("click", newCards);
+        let deleteCards = document.getElementById("deleteCards");
+        deleteCards.addEventListener("click", deleteNewCards);
     }
 })(mememory || (mememory = {}));
 //# sourceMappingURL=code.js.map
