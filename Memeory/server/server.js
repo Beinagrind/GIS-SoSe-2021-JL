@@ -33,9 +33,8 @@ var mememory;
             if (_url.pathname == "/playerTime") {
                 let url = Url.parse(_request.url, true);
                 console.log("Data inserted");
-                //send data to MongoDB
-                let userData = JSON.stringify(_url.query);
                 orders.insertOne(_url.query);
+                console.log(_url.query.body);
             }
             if (_url.pathname == "/deleteHighscores") {
                 orders.drop();

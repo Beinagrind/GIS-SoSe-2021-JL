@@ -48,12 +48,10 @@ export namespace mememory {
 
                 console.log("Data inserted");
 
-                //send data to MongoDB
-                
-                let userData: string = JSON.stringify(_url.query);
-
                 orders.insertOne(_url.query);
 
+                console.log(_url.query.body);
+                
             }
 
             if (_url.pathname  == "/deleteHighscores") {
