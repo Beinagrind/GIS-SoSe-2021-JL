@@ -78,8 +78,6 @@ export namespace mememory {
 
             if (_url.pathname == "/costum") {
 
-                ordersCostum.drop();
-
                 let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
 
                 console.log("Cards inserted");

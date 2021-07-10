@@ -356,10 +356,22 @@ namespace mememory {
         async function newCards(): Promise<void> {
 
             let query: URLSearchParams = new URLSearchParams();
+            let url: string = "";
 
-            let value1 = document.getElementsByTagName("input")[0].value;
-            query.append("playerName", value1);
             
+
+            for (let i: number; i > 8; i++) {
+
+                let value1 = document.getElementsByTagName("input")[i].value;
+                query.append("playerName", value1);
+
+                url = "https://beinagrinddrekifurtwangen.herokuapp.com/newCards" + "?" + query.toString();
+                
+                const response: Response = await fetch(url);
+                const respString: string = await response.text();
+            }
+            
+            /*
             let value2 = document.getElementsByTagName("input")[1].value;
             query.append("playerName", value2);
 
@@ -380,13 +392,10 @@ namespace mememory {
 
             let value8 = document.getElementsByTagName("input")[7].value;
             query.append("playerName", value8);
-
-            let url: string = "";
-
-            url = "https://beinagrinddrekifurtwangen.herokuapp.com/newCards" + "?" + query.toString();
+            */
+            
         
-            const response: Response = await fetch(url);
-            const respString: string = await response.text();
+
 
         }
 

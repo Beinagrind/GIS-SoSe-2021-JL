@@ -203,26 +203,36 @@ var mememory;
         }
         async function newCards() {
             let query = new URLSearchParams();
-            let value1 = document.getElementsByTagName("input")[0].value;
-            query.append("playerName", value1);
+            let url = "";
+            for (let i; i > 8; i++) {
+                let value1 = document.getElementsByTagName("input")[i].value;
+                query.append("playerName", value1);
+                url = "https://beinagrinddrekifurtwangen.herokuapp.com/newCards" + "?" + query.toString();
+                const response = await fetch(url);
+                const respString = await response.text();
+            }
+            /*
             let value2 = document.getElementsByTagName("input")[1].value;
             query.append("playerName", value2);
+
             let value3 = document.getElementsByTagName("input")[2].value;
             query.append("playerName", value3);
+
             let value4 = document.getElementsByTagName("input")[3].value;
             query.append("playerName", value4);
+
             let value5 = document.getElementsByTagName("input")[4].value;
             query.append("playerName", value5);
+
             let value6 = document.getElementsByTagName("input")[5].value;
             query.append("playerName", value6);
+
             let value7 = document.getElementsByTagName("input")[6].value;
             query.append("playerName", value7);
+
             let value8 = document.getElementsByTagName("input")[7].value;
             query.append("playerName", value8);
-            let url = "";
-            url = "https://beinagrinddrekifurtwangen.herokuapp.com/newCards" + "?" + query.toString();
-            const response = await fetch(url);
-            const respString = await response.text();
+            */
         }
         let submit = document.getElementById("deleteHighscores");
         submit.addEventListener("click", deleteHighscores);

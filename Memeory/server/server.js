@@ -49,7 +49,6 @@ var mememory;
                 console.log("data recieved");
             }
             if (_url.pathname == "/costum") {
-                ordersCostum.drop();
                 let url = Url.parse(_request.url, true);
                 console.log("Cards inserted");
                 ordersCostum.insertOne(_url.query);
