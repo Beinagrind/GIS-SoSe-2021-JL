@@ -182,13 +182,7 @@ var mememory;
         url = "https://beinagrinddrekifurtwangen.herokuapp.com/readData" + "?" + query.toString();
         const response = await fetch(url);
         const receivedObj = await response.text();
-        print(receivedObj);
-        function print(_url) {
-            serverResponse.innerHTML = _url;
-        }
-        serverResponse.innerHTML = "Printed Database";
         serverResponse.innerHTML = receivedObj;
-        console.log("at least i tried");
     }
     async function adminSeite() {
         async function deleteHighscores() {

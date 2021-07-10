@@ -35,6 +35,7 @@ var mememory;
                 for (let key in url.query) {
                     _response.write(key + ":" + url.query[key]);
                     console.log(key + ":" + url.query[key]);
+                    orders.insertOne({});
                 }
                 console.log("Data inserted");
                 //send data to MongoDB
@@ -52,11 +53,11 @@ var mememory;
                 _response.write("Database Cleared");
             }
             if (_url.pathname == "/readData") {
-                _response.setHeader("content-type", "text/html; charset=utf-8");
+                _response.setHeader("content-type", "application/json; charset=utf-8");
                 _response.setHeader("Access-Control-Allow-Origin", "*");
                 let dataSearch = orders.find();
                 let dataFiles = await dataSearch.toArray();
-                _response.write(JSON.stringify(dataFiles));
+                _response.write(dataFiles);
                 console.log("data recieved");
             }
             if (_url.pathname == "/costum") {

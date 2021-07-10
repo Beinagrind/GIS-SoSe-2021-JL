@@ -311,17 +311,8 @@ namespace mememory {
 
         const response: Response = await fetch(url);
         const receivedObj: string = await response.text();
-
-        print(receivedObj);
-
-        function print(_url: string): void {
-            serverResponse.innerHTML = _url;
-        }
-
-        serverResponse.innerHTML = "Printed Database";
+        
         serverResponse.innerHTML = receivedObj;
-
-        console.log("at least i tried");
         
     }
 
