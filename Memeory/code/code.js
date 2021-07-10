@@ -165,6 +165,8 @@ var mememory;
                 let userData = { spielerName, spielerZeit };
                 let userDataJson = JSON.stringify(userData);
                 let query = new URLSearchParams(userDataJson);
+                query.append("playerName", spielerName);
+                //query.append("playerTime", (spielerZeit));
                 url = "https://beinagrinddrekifurtwangen.herokuapp.com/playerTime" + "?" + query.toString();
                 const response = await fetch(url);
                 const respString = await response.text();
@@ -184,12 +186,14 @@ var mememory;
         const receivedObj = await response.json();
         console.log(receivedObj);
         for (let key in receivedObj) {
-            //let spielerName = receivedObj[key];
-            //let spielerZeit = _url.query[key];
-            //console.log(spielerName);
-            //console.log(spielerZeit);
+            for (let i = 0; i < 11; i++) {
+                let spielerName = receivedObj[key];
+                let spielerZeit = receivedObj[key];
+                console.log(spielerName);
+                console.log(spielerZeit);
+                serverResponse.innerHTML = JSON.stringify(spielerName + " " + spielerZeit);
+            }
         }
-        //serverResponse.innerHTML = JSON.stringify(receivedObj);
     }
     async function adminSeite() {
         async function deleteHighscores() {

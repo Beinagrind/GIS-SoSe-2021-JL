@@ -282,6 +282,9 @@ namespace mememory {
 
                 let query: URLSearchParams = new URLSearchParams(userDataJson);
 
+                query.append("playerName", spielerName);
+                //query.append("playerTime", (spielerZeit));
+
                 url = "https://beinagrinddrekifurtwangen.herokuapp.com/playerTime" + "?" + query.toString();
         
                 const response: Response = await fetch(url);
@@ -310,20 +313,26 @@ namespace mememory {
         url = "https://beinagrinddrekifurtwangen.herokuapp.com/readData" + "?" + query.toString();
 
         const response: Response = await fetch(url);
-        const receivedObj: JSON = await response.json();
+        const receivedObj: JSON[] = await response.json();
         
         console.log(receivedObj);
 
         for (let key in receivedObj) {
 
-            //let spielerName = receivedObj[key];
-            //let spielerZeit = _url.query[key];
-        
-            //console.log(spielerName);
-            //console.log(spielerZeit);
+            for (let i: number = 0; i < 11; i++) {
 
+                let spielerName = receivedObj[key];
+                let spielerZeit = receivedObj[key];
+        
+                console.log(spielerName);
+                console.log(spielerZeit);
+
+                serverResponse.innerHTML = JSON.stringify(spielerName + " " + spielerZeit);
+
+            }
+            
         }
-        //serverResponse.innerHTML = JSON.stringify(receivedObj);
+       
         
     }
 

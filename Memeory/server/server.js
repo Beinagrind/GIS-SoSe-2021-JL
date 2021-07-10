@@ -32,20 +32,9 @@ var mememory;
             let ordersCostum = mongoClient.db("Memeory").collection("costum");
             if (_url.pathname == "/playerTime") {
                 let url = Url.parse(_request.url, true);
-                for (let key in url.query) {
-                    _response.write(key + ":" + url.query[key]);
-                    console.log(key + ":" + url.query[key]);
-                    orders.insertOne({});
-                }
                 console.log("Data inserted");
                 //send data to MongoDB
                 let userData = JSON.stringify(_url.query);
-                for (let key in _url.query) {
-                    let spielerName = "spielerName" + _url.query[key];
-                    let spielerZeit = "spielerZeit" + _url.query[key];
-                }
-                //console.log(spielerName);
-                //console.log(spielerZeit);
                 orders.insertOne(_url.query);
             }
             if (_url.pathname == "/deleteHighscores") {

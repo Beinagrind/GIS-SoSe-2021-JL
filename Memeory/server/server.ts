@@ -46,29 +46,11 @@ export namespace mememory {
 
                 let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
 
-                for (let key in url.query) {
-
-                    _response.write(key + ":" + url.query[key]);
-                    console.log(key + ":" + url.query[key]);
-                    orders.insertOne({});
-                }
-
                 console.log("Data inserted");
 
                 //send data to MongoDB
                 
                 let userData: string = JSON.stringify(_url.query);
-
-                for (let key in _url.query) {
-
-                    let spielerName = "spielerName" + _url.query[key];
-                    let spielerZeit = "spielerZeit" + _url.query[key];
-                    
-                }
-
-
-                //console.log(spielerName);
-                //console.log(spielerZeit);
 
                 orders.insertOne(_url.query);
 
