@@ -358,18 +358,18 @@ namespace mememory {
             let query: URLSearchParams = new URLSearchParams();
             let url: string = "";
 
-            
-
             for (let i: number; i > 8; i++) {
 
                 let value1 = document.getElementsByTagName("input")[i].value;
                 query.append("playerName", value1);
                 query.append("dataWhatCard", "card" + i);
 
-                url = "https://beinagrinddrekifurtwangen.herokuapp.com/newCards" + "?" + query.toString();
+                url = "https://beinagrinddrekifurtwangen.herokuapp.com/costum" + "?" + query.toString();
 
-                const response: Response = await fetch(url);
+                const response: Response = await fetch(url); 
                 const respString: string = await response.text();
+
+                console.log(value1);
             }
             
             /*
@@ -394,9 +394,6 @@ namespace mememory {
             let value8 = document.getElementsByTagName("input")[7].value;
             query.append("playerName", value8);
             */
-            
-        
-
 
         }
 

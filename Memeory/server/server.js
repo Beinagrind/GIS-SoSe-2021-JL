@@ -31,7 +31,6 @@ var mememory;
             let orders = mongoClient.db("Memeory").collection("memeoryCollection");
             let ordersCostum = mongoClient.db("Memeory").collection("costum");
             if (_url.pathname == "/playerTime") {
-                let url = Url.parse(_request.url, true);
                 console.log("Data inserted");
                 orders.insertOne(_url.query);
                 console.log(_url.query.body);
@@ -49,7 +48,6 @@ var mememory;
                 console.log("data recieved");
             }
             if (_url.pathname == "/costum") {
-                let _url = Url.parse(_request.url, true);
                 console.log("Cards inserted");
                 ordersCostum.insertOne(_url.query);
                 console.log(_url.query.body);

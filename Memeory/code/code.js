@@ -208,9 +208,10 @@ var mememory;
                 let value1 = document.getElementsByTagName("input")[i].value;
                 query.append("playerName", value1);
                 query.append("dataWhatCard", "card" + i);
-                url = "https://beinagrinddrekifurtwangen.herokuapp.com/newCards" + "?" + query.toString();
+                url = "https://beinagrinddrekifurtwangen.herokuapp.com/costum" + "?" + query.toString();
                 const response = await fetch(url);
                 const respString = await response.text();
+                console.log(value1);
             }
             /*
             let value2 = document.getElementsByTagName("input")[1].value;

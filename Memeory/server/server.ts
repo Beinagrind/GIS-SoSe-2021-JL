@@ -44,8 +44,6 @@ export namespace mememory {
          
             if (_url.pathname == "/playerTime") {
 
-                let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-
                 console.log("Data inserted");
 
                 orders.insertOne(_url.query);
@@ -77,8 +75,6 @@ export namespace mememory {
             }
 
             if (_url.pathname == "/costum") {
-
-                let _url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
 
                 console.log("Cards inserted");
 
