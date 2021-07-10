@@ -355,51 +355,39 @@ namespace mememory {
 
         async function newCards(): Promise<void> {
 
-            let url: string = "";
             let query: URLSearchParams = new URLSearchParams();
-            url = "https://beinagrinddrekifurtwangen.herokuapp.com/costum" + "?" + query.toString();
 
             let value1 = document.getElementsByTagName("input")[0].value;
-            query.append("image", value1);
-            query.append("dataWhatCard", "card1");
-            const response1: Response = await fetch(url);
-
+            query.append("playerName", value1);
+            
             let value2 = document.getElementsByTagName("input")[1].value;
-            query.append("image", value1);
-            query.append("dataWhatCard", "card2");
-            const response2: Response = await fetch(url);
+            query.append("playerName", value2);
 
             let value3 = document.getElementsByTagName("input")[2].value;
-            query.append("image", value1);
-            query.append("dataWhatCard", "card3");
-            const response3: Response = await fetch(url);
-            
+            query.append("playerName", value3);
+
             let value4 = document.getElementsByTagName("input")[3].value;
-            query.append("image", value1);
-            query.append("dataWhatCard", "card4");
-            const response4: Response = await fetch(url);
+            query.append("playerName", value4);
 
             let value5 = document.getElementsByTagName("input")[4].value;
-            query.append("image", value1);
-            query.append("dataWhatCard", "card5");
-            const response5: Response = await fetch(url);
+            query.append("playerName", value5);
 
             let value6 = document.getElementsByTagName("input")[5].value;
-            query.append("image", value1);
-            query.append("dataWhatCard", "card6");
-            const response6: Response = await fetch(url);
+            query.append("playerName", value6);
 
             let value7 = document.getElementsByTagName("input")[6].value;
-            query.append("image", value1);
-            query.append("dataWhatCard", "card7");
-            const response7: Response = await fetch(url);
+            query.append("playerName", value7);
 
             let value8 = document.getElementsByTagName("input")[7].value;
-            query.append("image", value1);
-            query.append("dataWhatCard", "card8");
-            const response8: Response = await fetch(url);
+            query.append("playerName", value8);
 
-            console.log("CardSetEdited");
+            let url: string = "";
+
+            url = "https://beinagrinddrekifurtwangen.herokuapp.com/newCards" + "?" + query.toString();
+        
+            const response: Response = await fetch(url);
+            const respString: string = await response.text();
+
         }
 
         let submit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("deleteHighscores");
