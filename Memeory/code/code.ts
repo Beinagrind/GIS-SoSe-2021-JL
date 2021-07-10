@@ -355,46 +355,49 @@ namespace mememory {
 
         async function newCards(): Promise<void> {
 
+            let url: string = "";
             let query: URLSearchParams = new URLSearchParams();
+            url = "https://beinagrinddrekifurtwangen.herokuapp.com/costum" + "?" + query.toString();
 
             let value1 = document.getElementsByTagName("input")[0].value;
             query.append("image", value1);
             query.append("dataWhatCard", "card1");
+            const response1: Response = await fetch(url);
 
             let value2 = document.getElementsByTagName("input")[1].value;
             query.append("image", value1);
             query.append("dataWhatCard", "card2");
+            const response2: Response = await fetch(url);
 
             let value3 = document.getElementsByTagName("input")[2].value;
             query.append("image", value1);
             query.append("dataWhatCard", "card3");
+            const response3: Response = await fetch(url);
             
             let value4 = document.getElementsByTagName("input")[3].value;
             query.append("image", value1);
             query.append("dataWhatCard", "card4");
+            const response4: Response = await fetch(url);
 
             let value5 = document.getElementsByTagName("input")[4].value;
             query.append("image", value1);
             query.append("dataWhatCard", "card5");
+            const response5: Response = await fetch(url);
 
             let value6 = document.getElementsByTagName("input")[5].value;
             query.append("image", value1);
             query.append("dataWhatCard", "card6");
+            const response6: Response = await fetch(url);
 
             let value7 = document.getElementsByTagName("input")[6].value;
             query.append("image", value1);
             query.append("dataWhatCard", "card7");
+            const response7: Response = await fetch(url);
 
             let value8 = document.getElementsByTagName("input")[7].value;
             query.append("image", value1);
             query.append("dataWhatCard", "card8");
-
-            let url: string = "";
-
-            url = "https://beinagrinddrekifurtwangen.herokuapp.com/costum" + "?" + query.toString();
-        
-            const response: Response = await fetch(url);
-            const respString: string = await response.text();
+            const response8: Response = await fetch(url);
 
             console.log("CardSetEdited");
         }
