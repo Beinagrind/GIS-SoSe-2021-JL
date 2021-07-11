@@ -123,14 +123,18 @@ namespace mememory {
 
         let timerStart: any = new Date();
 
-        let cardSet: string = "";
+
 
         if (formular == "oldschoolMemesCards")  {
-            cardSet = "set1data.json";
+
+            presetCards("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Memeory/data/set1data.json");
+
         }
 
         if (formular == "ahegaoCards")  {
-            cardSet = "set2data.json";
+
+            presetCards("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Memeory/data/set2data.json");
+
         }
 
         if (formular == "programmersArtCards")  {
@@ -141,15 +145,6 @@ namespace mememory {
             const receivedObj = await response.json();
 
             console.log(receivedObj);
-/*    
-    
-            for (let item of receivedObj) {
-    
-                let highscoreP: HTMLParagraphElement = document.createElement("p");
-                let highscoreDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("highscoreList");
-                let rule = document.createElement("hr");
-    
-            }
 
             for (let arrayI in receivedObj) {
 
@@ -174,7 +169,7 @@ namespace mememory {
                     console.log(pathString);
 
                     let value: any = Math.floor(Math.random() * 16);
-                    //cardDiv.style.order = value;
+                    cardDiv.style.order = value;
                 
                     cardFront.src = "../Bilder/front.png";
                     cardBack.src = pathString;  
@@ -188,11 +183,14 @@ namespace mememory {
 
                 }     
                 
-            }*/
+            }
+
+            createPlayspace();
+
         }
 
-        async function createPlayspace(_url: RequestInfo): Promise<void> {
-            
+        async function presetCards(_url:RequestInfo): Promise<void> {
+
             let antwort: Response = await fetch(_url);
             let cards = await antwort.json();
 
@@ -221,7 +219,7 @@ namespace mememory {
                     console.log(pathString);
 
                     let value: any = Math.floor(Math.random() * 16);
-                    //cardDiv.style.order = value;
+                    cardDiv.style.order = value;
                 
                     cardFront.src = "../Bilder/front.png";
                     cardBack.src = pathString;  
@@ -236,6 +234,12 @@ namespace mememory {
                 }     
                 
             }
+
+            createPlayspace();
+
+        }
+
+        async function createPlayspace(): Promise<void> {
 
             const allCards = document.querySelectorAll(".gameCards");
 
@@ -350,7 +354,6 @@ namespace mememory {
 
         }   
         
-        createPlayspace("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Memeory/data/" + cardSet);
     }
 
     async function ranglisteSeite(): Promise<void> {

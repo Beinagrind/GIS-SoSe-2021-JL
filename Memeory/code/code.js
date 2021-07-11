@@ -66,68 +66,45 @@ var mememory;
         spielerName.innerHTML = localStorage.getItem("spielerName");
         console.log("Game Starting");
         let timerStart = new Date();
-        let cardSet = "";
         if (formular == "oldschoolMemesCards") {
-            cardSet = "set1data.json";
+            presetCards("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Memeory/data/set1data.json");
         }
         if (formular == "ahegaoCards") {
-            cardSet = "set2data.json";
+            presetCards("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Memeory/data/set2data.json");
         }
         if (formular == "programmersArtCards") {
             let url = "https://beinagrinddrekifurtwangen.herokuapp.com/readCardSet";
             const response = await fetch(url);
             const receivedObj = await response.json();
             console.log(receivedObj);
-            /*
-                
-                        for (let item of receivedObj) {
-                
-                            let highscoreP: HTMLParagraphElement = document.createElement("p");
-                            let highscoreDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("highscoreList");
-                            let rule = document.createElement("hr");
-                
-                        }
-            
-                        for (let arrayI in receivedObj) {
-            
-                            let playspace = document.getElementById("playspace");
-            
-                            for (let i: number = 0; i < 3; i++) {
-                                
-                                let cardDiv: HTMLDivElement = document.createElement("div");
-                                let cardBack: HTMLImageElement = document.createElement("img");
-                                let cardFront: HTMLImageElement = document.createElement("img");
-                            
-                                cardDiv.classList.add("gameCards");
-                                cardBack.classList.add("cardBack");
-                                cardFront.classList.add("cardFront");
-            
-                                cardDiv.dataset.whatCard = receivedObj[arrayI].dataWhatCard;
-                                let whatCard: string = (receivedObj[arrayI].dataWhatCard);
-                                console.log(whatCard);
-            
-                                let pathString: string = (receivedObj[arrayI].image);
-            
-                                console.log(pathString);
-            
-                                let value: any = Math.floor(Math.random() * 16);
-                                //cardDiv.style.order = value;
-                            
-                                cardFront.src = "../Bilder/front.png";
-                                cardBack.src = pathString;
-                                console.log(cardBack);
-                                cardDiv.appendChild(cardBack);
-                                cardDiv.appendChild(cardFront);
-                                                        
-                                playspace.appendChild(cardDiv);
-            
-                                i++;
-            
-                            }
-                            
-                        }*/
+            for (let arrayI in receivedObj) {
+                let playspace = document.getElementById("playspace");
+                for (let i = 0; i < 3; i++) {
+                    let cardDiv = document.createElement("div");
+                    let cardBack = document.createElement("img");
+                    let cardFront = document.createElement("img");
+                    cardDiv.classList.add("gameCards");
+                    cardBack.classList.add("cardBack");
+                    cardFront.classList.add("cardFront");
+                    cardDiv.dataset.whatCard = receivedObj[arrayI].dataWhatCard;
+                    let whatCard = (receivedObj[arrayI].dataWhatCard);
+                    console.log(whatCard);
+                    let pathString = (receivedObj[arrayI].image);
+                    console.log(pathString);
+                    let value = Math.floor(Math.random() * 16);
+                    cardDiv.style.order = value;
+                    cardFront.src = "../Bilder/front.png";
+                    cardBack.src = pathString;
+                    console.log(cardBack);
+                    cardDiv.appendChild(cardBack);
+                    cardDiv.appendChild(cardFront);
+                    playspace.appendChild(cardDiv);
+                    i++;
+                }
+            }
+            createPlayspace();
         }
-        async function createPlayspace(_url) {
+        async function presetCards(_url) {
             let antwort = await fetch(_url);
             let cards = await antwort.json();
             console.log(cards);
@@ -146,7 +123,7 @@ var mememory;
                     let pathString = (cards.cards1[arrayI].image);
                     console.log(pathString);
                     let value = Math.floor(Math.random() * 16);
-                    //cardDiv.style.order = value;
+                    cardDiv.style.order = value;
                     cardFront.src = "../Bilder/front.png";
                     cardBack.src = pathString;
                     console.log(cardBack);
@@ -156,6 +133,9 @@ var mememory;
                     i++;
                 }
             }
+            createPlayspace();
+        }
+        async function createPlayspace() {
             const allCards = document.querySelectorAll(".gameCards");
             let hasFlippedCard = false;
             let firstCard;
@@ -224,7 +204,6 @@ var mememory;
             }
             allCards.forEach(card => card.addEventListener("click", cardFlip));
         }
-        createPlayspace("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Memeory/data/" + cardSet);
     }
     async function ranglisteSeite() {
         let returnMain = document.getElementById("return");
