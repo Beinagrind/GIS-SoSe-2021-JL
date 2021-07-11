@@ -212,7 +212,10 @@ var mememory;
         for (let item of receivedObj) {
             let highscoreP = document.createElement("p");
             let highscoreDiv = document.getElementById("highscoreList");
+            let rule = document.createElement("hr");
+            highscoreP.classList.add("score");
             highscoreP.innerHTML = "User: " + item.playerName + " had the time " + item.playerTime / 1000 + " seconds";
+            highscoreP.append(rule);
             highscoreDiv.append(highscoreP);
             maxPlayersShow = maxPlayersShow + 1;
             if (maxPlayersShow == 10)

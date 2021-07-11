@@ -204,3 +204,39 @@ footer {
     text-align: center;
 
 }
+
+.score {
+
+    color: black;
+    background: lightgray;
+
+}
+
+hr {
+
+    height: 3px;
+    color: black;
+    background: black;
+
+}
+
+form input {
+
+    margin: 10pt;
+    margin-bottom: 5pt;
+    padding-left: 10pt;
+    padding-right: 10pt;
+    padding-top: 5pt;
+    padding-bottom: 5pt;
+    border-radius: 25pt;
+    border: none;
+    background: lightgray;
+    font-size: 25pt;
+
+}
+
+#adminForm {
+
+    margin-bottom: 25pt;
+
+}

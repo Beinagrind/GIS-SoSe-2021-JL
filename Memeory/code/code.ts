@@ -356,8 +356,11 @@ namespace mememory {
 
             let highscoreP: HTMLParagraphElement = document.createElement("p");
             let highscoreDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("highscoreList");
+            let rule = document.createElement("hr");
 
+            highscoreP.classList.add("score");
             highscoreP.innerHTML = "User: " + item.playerName + " had the time " + item.playerTime / 1000 + " seconds";
+            highscoreP.append(rule);
 
             highscoreDiv.append(highscoreP);
 
