@@ -48,7 +48,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    padding:25px;
+    padding: 15px;
 
 }
 
@@ -237,6 +237,488 @@ form input {
 
 #adminForm {
 
-    margin-bottom: 25pt;
+    margin-top: 25pt;
 
 }
+
+#adminFormTop {
+
+    margin-top: 25pt;
+
+}
+
+@media only screen and (max-width: 1024px) {
+
+    .memeory {
+
+        width: 550px;
+        height: 550px;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+    
+    }
+    
+    .gameCards {
+    
+        width: calc(25% - 10px);
+        height: calc(18.75 - 10px);
+        margin: 5px;
+        position: relative;
+        box-shadow: 2px 2px 2px rgba(0,0,0,.3);
+        transform: scale(1);
+        transform-style: preserve-3d;
+        transition: transform .4s;
+    
+    }
+    
+    .gameCards:active {
+    
+        transform: scale(0.95);
+        transition: transform .1s;
+    
+    }
+    
+    .cardBack {
+    
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        padding:25px;
+    
+    }
+    
+    .cardFront {
+    
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border-radius: 5px;
+        backface-visibility: hidden;
+    
+    }
+    
+    .gameCards.flipped {
+    
+        transform: rotateY(180deg);
+    
+    }
+
+    h1, h2 {
+
+        font-size:30pt;
+        text-align: center;
+        margin-top: 20pt;
+        font-family: Arial, Helvetica, sans-serif;
+        color: lightgray;
+    
+    }
+    
+    p {
+    
+        font-size: 25pt;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        color:lightgray;
+    
+    }
+    
+    form {
+    
+        text-align: center;
+        color: lightgray;
+        font-size: 25pt;
+        margin-top: 10pt;
+    
+    }
+    
+    button {
+    
+        margin: 10pt;
+        padding-left: 10pt;
+        padding-right: 10pt;
+        padding-top: 5pt;
+        padding-bottom: 5pt;
+        font-size: 25pt;
+    
+        background: aqua;
+        color:rgb(15, 15, 15);
+        border-radius: 25pt;
+        border: none;
+        transition: 0.3s;
+    
+    }
+    
+    button:hover{
+    
+        background: rgb(0, 211, 211);
+        color:rgb(15, 15, 15);
+        border-radius: 25pt;
+        transition: 0.3s;
+    
+    }
+    
+    button:active {
+    
+        background: rgb(0, 87, 87);
+        color:rgb(15, 15, 15);
+        border-radius: 25pt;
+        color: lightgray;
+    
+    }
+    
+    #nameInputID {
+    
+        margin: 10pt;
+        margin-bottom: 15pt;
+        padding-left: 10pt;
+        padding-right: 10pt;
+        padding-top: 5pt;
+        padding-bottom: 5pt;
+        border-radius: 25pt;
+        border: none;
+        background: lightgray;
+        font-size: 25pt;
+    
+    }
+    
+    label {
+    
+        padding-left: 10pt;
+        padding-right: 10pt;
+        padding-top: 5pt;
+        padding-bottom: 5pt;
+        color:rgb(15, 15, 15);
+        font-size: 25pt;
+        background: lightgray;
+        border-radius: 25pt;
+        border: none;
+        font-family: Arial, Helvetica, sans-serif;
+        
+    }
+    
+    div {
+    
+        color: white;
+    
+    }
+    
+    #adminPwInput {
+    
+        margin: 10pt;
+        padding-left: 10pt;
+        padding-right: 10pt;
+        padding-top: 5pt;
+        padding-bottom: 5pt;
+        border-radius: 25pt;
+        border: none;
+        background: lightgray;
+        font-size: 25pt;
+    
+    }
+    
+    .radio {
+    
+        margin-top: 17pt;
+        margin-bottom: 17pt;
+    
+        display: inline-block;
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        transition: 0.2s;
+        box-shadow: inset 0 0 0 8px #fff;
+        border: 0.5px solid gray;
+    
+    }
+    
+    footer {
+    
+        position: sticky;
+        margin-top: 25%;
+        text-align: center;
+    
+    }
+    
+    .score {
+    
+        color: black;
+        background: lightgray;
+    
+    }
+    
+    hr {
+    
+        height: 3px;
+        color: black;
+        background: black;
+    
+    }
+    
+    form input {
+    
+        margin: 10pt;
+        margin-bottom: 5pt;
+        padding-left: 10pt;
+        padding-right: 10pt;
+        padding-top: 5pt;
+        padding-bottom: 5pt;
+        border-radius: 25pt;
+        border: none;
+        background: lightgray;
+        font-size: 25pt;
+    
+    }
+    
+    #adminForm {
+    
+        margin-top: 25pt;
+    
+    }
+    
+    #adminFormTop {
+    
+        margin-top: 25pt;
+    
+    }
+
+}
+
+@media only screen and (max-width: 599px) {
+
+    .memeory {
+
+        width: 300px;
+        height: 300px;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+    
+    }
+    
+    .gameCards {
+    
+        width: calc(25% - 10px);
+        height: calc(18.75 - 10px);
+        margin: 5px;
+        position: relative;
+        box-shadow: 2px 2px 2px rgba(0,0,0,.3);
+        transform: scale(1);
+        transform-style: preserve-3d;
+        transition: transform .4s;
+    
+    }
+    
+    .gameCards:active {
+    
+        transform: scale(0.95);
+        transition: transform .1s;
+    
+    }
+    
+    .cardBack {
+    
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+    
+    }
+    
+    .cardFront {
+    
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border-radius: 5px;
+        backface-visibility: hidden;
+    
+    }
+    
+    .gameCards.flipped {
+    
+        transform: rotateY(180deg);
+    
+    }
+
+    h1, h2 {
+
+        font-size:20pt;
+        text-align: center;
+        margin-top: 20pt;
+        font-family: Arial, Helvetica, sans-serif;
+        color: lightgray;
+    
+    }
+    
+    p {
+    
+        font-size: 15pt;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        color:lightgray;
+    
+    }
+    
+    form {
+    
+        text-align: center;
+        color: lightgray;
+        font-size: 15pt;
+        margin-top: 10pt;
+    
+    }
+    
+    button {
+    
+        margin: 10pt;
+        padding-left: 10pt;
+        padding-right: 10pt;
+        padding-top: 5pt;
+        padding-bottom: 5pt;
+        font-size: 20pt;
+    
+        background: aqua;
+        color:rgb(15, 15, 15);
+        border-radius: 25pt;
+        border: none;
+        transition: 0.3s;
+    
+    }
+    
+    button:hover{
+    
+        background: rgb(0, 211, 211);
+        color:rgb(15, 15, 15);
+        border-radius: 25pt;
+        transition: 0.3s;
+    
+    }
+    
+    button:active {
+    
+        background: rgb(0, 87, 87);
+        color:rgb(15, 15, 15);
+        border-radius: 25pt;
+        color: lightgray;
+    
+    }
+    
+    #nameInputID {
+    
+        margin: 10pt;
+        margin-bottom: 15pt;
+        padding-left: 10pt;
+        padding-right: 10pt;
+        padding-top: 5pt;
+        padding-bottom: 5pt;
+        border-radius: 25pt;
+        border: none;
+        background: lightgray;
+        font-size: 20pt;
+    
+    }
+    
+    label {
+    
+        padding-left: 10pt;
+        padding-right: 10pt;
+        padding-top: 5pt;
+        padding-bottom: 5pt;
+        color:rgb(15, 15, 15);
+        font-size: 18pt;
+        background: lightgray;
+        border-radius: 25pt;
+        border: none;
+        font-family: Arial, Helvetica, sans-serif;
+        
+    }
+    
+    div {
+    
+        color: white;
+    
+    }
+    
+    #adminPwInput {
+    
+        margin: 10pt;
+        padding-left: 10pt;
+        padding-right: 10pt;
+        padding-top: 5pt;
+        padding-bottom: 5pt;
+        border-radius: 25pt;
+        border: none;
+        background: lightgray;
+        font-size: 15pt;
+    
+    }
+    
+    .radio {
+    
+        margin-top: 10pt;
+        margin-bottom: 10pt;
+    
+        display: inline-block;
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        transition: 0.2s;
+        box-shadow: inset 0 0 0 8px #fff;
+        border: 0.5px solid gray;
+    
+    }
+    
+    footer {
+    
+        position: sticky;
+        margin-top: 6%;
+        text-align: center;
+    
+    }
+    
+    .score {
+    
+        color: black;
+        background: lightgray;
+    
+    }
+    
+    hr {
+    
+        height: 3px;
+        color: black;
+        background: black;
+    
+    }
+    
+    form input {
+    
+        margin: 10pt;
+        margin-bottom: 5pt;
+        padding-left: 10pt;
+        padding-right: 10pt;
+        padding-top: 5pt;
+        padding-bottom: 5pt;
+        border-radius: 25pt;
+        border: none;
+        background: lightgray;
+        font-size: 15pt;
+    
+    }
+    
+    #adminForm {
+    
+        margin-top: 25pt;
+    
+    }
+    
+    #adminFormTop {
+    
+        margin-top: 25pt;
+    
+    }
+
+}  
