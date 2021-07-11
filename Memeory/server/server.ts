@@ -85,7 +85,7 @@ export namespace mememory {
             }
   
             if (_url.pathname == "/delete") {
-6
+
                 ordersCostum.drop();
 
                 console.log("Cards deleted");

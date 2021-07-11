@@ -53,7 +53,6 @@ var mememory;
                 console.log(_url.query.body);
             }
             if (_url.pathname == "/delete") {
-                6;
                 ordersCostum.drop();
                 console.log("Cards deleted");
             }
