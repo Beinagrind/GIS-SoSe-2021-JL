@@ -21,15 +21,9 @@ var mememory;
         let admin = document.getElementById("adminPage");
         admin.addEventListener("click", adminPage);
         async function sendAuswahl() {
-            let url = "https://beinagrinddrekifurtwangen.herokuapp.com/startGame";
-            //let formData: FormData = new FormData(document.forms[0]);
-            //let query: URLSearchParams = new URLSearchParams(<any>formData);
-            //const response: Response = await fetch(url);
-            //const responseString: string = await response.text();
             localStorage.clear();
             localStorage.setItem("spielerName", JSON.stringify(document.getElementsByTagName("input")[0].value));
             console.log("Starting Game");
-            //window.location.assign("../html/spielfeld.html");
             let radio1 = document.getElementById("memesTemplate");
             let radio2 = document.getElementById("ahegaoTemplate");
             let radio3 = document.getElementById("programmersArtTemplate");
@@ -163,6 +157,7 @@ var mememory;
                         numberOfTurned = parseInt(numberOfTurned) + 2;
                         localStorage.setItem("turnedCards", numberOfTurned);
                     }
+                    // die zeilen 256 bis 281 sind nicht direkt von mir sondern aus diesem tutorial: https://www.youtube.com/watch?v=ZniVgo8U7ek&list=WL&index=13
                     else {
                         noMoreFlips = true;
                         setTimeout(() => {
@@ -194,7 +189,6 @@ var mememory;
                 let url = "";
                 let spielerName = localStorage.getItem("spielerName");
                 let userData = { spielerName, spielerZeit };
-                let userDataJson = JSON.stringify(userData);
                 let query = new URLSearchParams();
                 query.append("playerName", spielerName);
                 query.append("playerTime", spielerZeit.toString());

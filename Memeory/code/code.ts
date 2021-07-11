@@ -37,22 +37,10 @@ namespace mememory {
 
         async function sendAuswahl(): Promise<void> {
 
-            let url: string = "https://beinagrinddrekifurtwangen.herokuapp.com/startGame";
-
-            //let formData: FormData = new FormData(document.forms[0]);
-            //let query: URLSearchParams = new URLSearchParams(<any>formData);
-
-            //const response: Response = await fetch(url);
-            //const responseString: string = await response.text();
-
-
-
             localStorage.clear();
             localStorage.setItem("spielerName", JSON.stringify(document.getElementsByTagName("input")[0].value));
 
             console.log("Starting Game");
-            
-            //window.location.assign("../html/spielfeld.html");
             
             let radio1: HTMLInputElement = <HTMLInputElement>document.getElementById("memesTemplate");
             let radio2: HTMLInputElement = <HTMLInputElement>document.getElementById("ahegaoTemplate");
@@ -148,7 +136,7 @@ namespace mememory {
 
             for (let arrayI in receivedObj) {
 
-                let playspace = document.getElementById("playspace");
+                let playspace: HTMLElement = document.getElementById("playspace");
 
                 for (let i: number = 0; i < 3; i++) {
                     
@@ -189,7 +177,7 @@ namespace mememory {
 
         }
 
-        async function presetCards(_url:RequestInfo): Promise<void> {
+        async function presetCards(_url: RequestInfo): Promise<void> {
 
             let antwort: Response = await fetch(_url);
             let cards = await antwort.json();
@@ -198,7 +186,7 @@ namespace mememory {
 
             for (let arrayI in cards.cards1) {
 
-                let playspace = document.getElementById("playspace");
+                let playspace: HTMLElement = document.getElementById("playspace");
 
                 for (let i: number = 0; i < 3; i++) {
                     
@@ -282,6 +270,8 @@ namespace mememory {
 
                     }
 
+                    // die zeilen 256 bis 281 sind nicht direkt von mir sondern aus diesem tutorial: https://www.youtube.com/watch?v=ZniVgo8U7ek&list=WL&index=13
+
                     else {
                         
                         noMoreFlips = true;
@@ -316,7 +306,7 @@ namespace mememory {
 
                 //timer Beenden und Messen
                 let timerEnd: any = new Date();
-                let timePassed = timerEnd - timerStart;
+                let timePassed: number = timerEnd - timerStart;
                 let secondsPassed: any = timePassed / 1000;
 
                 localStorage.setItem("lastPlayTime", secondsPassed.toString());
@@ -336,7 +326,6 @@ namespace mememory {
         
                 let spielerName: string = localStorage.getItem("spielerName");
                 let userData = {spielerName, spielerZeit};
-                let userDataJson = JSON.stringify(userData);
 
                 let query: URLSearchParams = new URLSearchParams();
 
@@ -410,14 +399,6 @@ namespace mememory {
 
     }
 
-    interface HighscoreData {
-
-        spielerID: string;
-        spielerName: string;
-        spielerZeit: number;
-
-    }
-
     async function adminSeite(): Promise<void> {
 
         async function deleteHighscores(): Promise<void> {
@@ -459,7 +440,7 @@ namespace mememory {
 
         async function deleteNewCards(): Promise<void> {
 
-            let url = "https://beinagrinddrekifurtwangen.herokuapp.com/delete";
+            let url: string = "https://beinagrinddrekifurtwangen.herokuapp.com/delete";
 
             const response: Response = await fetch(url); 
              
