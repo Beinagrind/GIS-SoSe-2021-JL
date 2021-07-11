@@ -190,6 +190,11 @@ var mememory;
         createPlayspace("https://Beinagrind.github.io/GIS-SoSe-2021-JL/Memeory/data/" + cardSet);
     }
     async function ranglisteSeite() {
+        let returnMain = document.getElementById("return");
+        returnMain.addEventListener("click", returnFunction);
+        async function returnFunction() {
+            window.location.assign("../html/auswahl.html");
+        }
         const serverResponse = document.getElementById("highscoreList");
         let url = "";
         console.log("Server wird angefragt");

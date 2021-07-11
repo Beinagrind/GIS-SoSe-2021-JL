@@ -9,7 +9,7 @@
 body {
 
     height: 100vh;
-    background: rgb(15, 15, 15); 
+    background: rgb(35, 35, 35); 
 
 }
   
@@ -22,7 +22,7 @@ body {
     flex-wrap: wrap;
 
 }
-  
+
 .gameCards {
 
     width: calc(25% - 10px);
@@ -92,6 +92,7 @@ form {
     text-align: center;
     color: lightgray;
     font-size: 25pt;
+    margin-top: 125pt;
 
 }
 
@@ -108,12 +109,32 @@ button {
     color:rgb(15, 15, 15);
     border-radius: 25pt;
     border: none;
+    transition: 0.3s;
+
+}
+
+button:hover{
+
+    background: rgb(0, 211, 211);
+    color:rgb(15, 15, 15);
+    border-radius: 25pt;
+    transition: 0.3s;
+
+}
+
+button:active {
+
+    background: rgb(0, 87, 87);
+    color:rgb(15, 15, 15);
+    border-radius: 25pt;
+    color: lightgray;
 
 }
 
 #nameInputID {
 
     margin: 10pt;
+    margin-bottom: 50pt;
     padding-left: 10pt;
     padding-right: 10pt;
     padding-top: 5pt;
@@ -136,11 +157,50 @@ label {
     background: lightgray;
     border-radius: 25pt;
     border: none;
+    font-family: Arial, Helvetica, sans-serif;
     
 }
 
 div {
 
     color: white;
+
+}
+
+#adminPwInput {
+
+    margin: 10pt;
+    padding-left: 10pt;
+    padding-right: 10pt;
+    padding-top: 5pt;
+    padding-bottom: 5pt;
+    border-radius: 25pt;
+    border: none;
+    background: lightgray;
+    font-size: 25pt;
+
+}
+
+.radio {
+
+    margin-top: 17pt;
+    margin-bottom: 17pt;
+
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transition: 0.2s;
+    box-shadow: inset 0 0 0 8px #fff;
+    border: 0.5px solid gray;
+
+}
+
+footer {
+
+    position: sticky;
+    margin-top: 6%;
+    text-align: center;
 
 }

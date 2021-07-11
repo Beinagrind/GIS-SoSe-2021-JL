@@ -318,7 +318,16 @@ namespace mememory {
     }
 
     async function ranglisteSeite(): Promise<void> {
-        
+       
+        let returnMain: HTMLButtonElement = <HTMLButtonElement>document.getElementById("return");
+        returnMain.addEventListener("click", returnFunction);
+
+        async function returnFunction(): Promise<void> {
+
+            window.location.assign("../html/auswahl.html");
+
+        }
+
         const serverResponse: HTMLElement = document.getElementById("highscoreList");
 
         let url: string = "";
