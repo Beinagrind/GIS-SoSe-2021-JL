@@ -328,6 +328,12 @@ namespace mememory {
 
         }
 
+        let playerNameP: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("playerNameShown");
+        let playerTimeP: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("playerScore");
+
+        playerNameP.innerHTML = "Last User: " + localStorage.getItem("spielerName");
+        playerTimeP.innerHTML = "Last Time: " + localStorage.getItem("lastPlayTime");
+
         const serverResponse: HTMLElement = document.getElementById("highscoreList");
 
         let url: string = "";
@@ -342,6 +348,10 @@ namespace mememory {
         const response: Response = await fetch(url);
         const receivedObj = await response.json();
 
+        receivedObj.sort() ;
+
+        let maxPlayersShow: number = 0;
+
         for (let item of receivedObj) {
 
             let highscoreP: HTMLParagraphElement = document.createElement("p");
@@ -350,6 +360,11 @@ namespace mememory {
             highscoreP.innerHTML = "User: " + item.playerName + " had the time " + item.playerTime / 1000 + " seconds";
 
             highscoreDiv.append(highscoreP);
+
+            maxPlayersShow = maxPlayersShow + 1;
+
+            if (maxPlayersShow == 10)
+                return;
 
         }
 

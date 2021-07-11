@@ -195,6 +195,10 @@ var mememory;
         async function returnFunction() {
             window.location.assign("../html/auswahl.html");
         }
+        let playerNameP = document.getElementById("playerNameShown");
+        let playerTimeP = document.getElementById("playerScore");
+        playerNameP.innerHTML = "Last User: " + localStorage.getItem("spielerName");
+        playerTimeP.innerHTML = "Last Time: " + localStorage.getItem("lastPlayTime");
         const serverResponse = document.getElementById("highscoreList");
         let url = "";
         console.log("Server wird angefragt");
@@ -203,11 +207,16 @@ var mememory;
         url = "https://beinagrinddrekifurtwangen.herokuapp.com/readData" + "?" + query.toString();
         const response = await fetch(url);
         const receivedObj = await response.json();
+        receivedObj.sort();
+        let maxPlayersShow = 0;
         for (let item of receivedObj) {
             let highscoreP = document.createElement("p");
             let highscoreDiv = document.getElementById("highscoreList");
             highscoreP.innerHTML = "User: " + item.playerName + " had the time " + item.playerTime / 1000 + " seconds";
             highscoreDiv.append(highscoreP);
+            maxPlayersShow = maxPlayersShow + 1;
+            if (maxPlayersShow == 10)
+                return;
         }
     }
     async function adminSeite() {
