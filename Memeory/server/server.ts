@@ -65,7 +65,7 @@ export namespace mememory {
                 _response.setHeader("content-type", "text/html; charset=utf-8");
                 _response.setHeader("Access-Control-Allow-Origin", "*");
 
-                let dataSearch: Mongo.Cursor = orders.find().sort( {"palyerTime": 1} );
+                let dataSearch: Mongo.Cursor = orders.find( {} ).sort( {"playerTime": -1} );
                 let dataFiles = await dataSearch.toArray();
             
                 _response.write(JSON.stringify(dataFiles));
@@ -85,7 +85,7 @@ export namespace mememory {
             }
   
             if (_url.pathname == "/delete") {
-
+6
                 ordersCostum.drop();
 
                 console.log("Cards deleted");
