@@ -77,18 +77,55 @@ var mememory;
             let url = "https://beinagrinddrekifurtwangen.herokuapp.com/readCardSet";
             const response = await fetch(url);
             const receivedObj = await response.json();
-            /*for (let item of receivedObj) {
-
-                let highscoreP: HTMLParagraphElement = document.createElement("p");
-                let highscoreDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("highscoreList");
-    
-                highscoreP.innerHTML = "User: " + item.playerName + " had the time " + item.playerTime / 1000 + " seconds";
-    
-                highscoreDiv.append(highscoreP);
-    
-          }
-         */
-            cardSet = "set3data.json";
+            console.log(receivedObj);
+            /*
+                
+                        for (let item of receivedObj) {
+                
+                            let highscoreP: HTMLParagraphElement = document.createElement("p");
+                            let highscoreDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("highscoreList");
+                            let rule = document.createElement("hr");
+                
+                        }
+            
+                        for (let arrayI in receivedObj) {
+            
+                            let playspace = document.getElementById("playspace");
+            
+                            for (let i: number = 0; i < 3; i++) {
+                                
+                                let cardDiv: HTMLDivElement = document.createElement("div");
+                                let cardBack: HTMLImageElement = document.createElement("img");
+                                let cardFront: HTMLImageElement = document.createElement("img");
+                            
+                                cardDiv.classList.add("gameCards");
+                                cardBack.classList.add("cardBack");
+                                cardFront.classList.add("cardFront");
+            
+                                cardDiv.dataset.whatCard = receivedObj[arrayI].dataWhatCard;
+                                let whatCard: string = (receivedObj[arrayI].dataWhatCard);
+                                console.log(whatCard);
+            
+                                let pathString: string = (receivedObj[arrayI].image);
+            
+                                console.log(pathString);
+            
+                                let value: any = Math.floor(Math.random() * 16);
+                                //cardDiv.style.order = value;
+                            
+                                cardFront.src = "../Bilder/front.png";
+                                cardBack.src = pathString;
+                                console.log(cardBack);
+                                cardDiv.appendChild(cardBack);
+                                cardDiv.appendChild(cardFront);
+                                                        
+                                playspace.appendChild(cardDiv);
+            
+                                i++;
+            
+                            }
+                            
+                        }*/
         }
         async function createPlayspace(_url) {
             let antwort = await fetch(_url);
@@ -207,7 +244,6 @@ var mememory;
         url = "https://beinagrinddrekifurtwangen.herokuapp.com/readData" + "?" + query.toString();
         const response = await fetch(url);
         const receivedObj = await response.json();
-        receivedObj.sort();
         let maxPlayersShow = 0;
         for (let item of receivedObj) {
             let highscoreP = document.createElement("p");

@@ -97,7 +97,7 @@ export namespace mememory {
                 _response.setHeader("content-type", "text/html; charset=utf-8");
                 _response.setHeader("Access-Control-Allow-Origin", "*");
 
-                let dataSearch: Mongo.Cursor = orders.find();
+                let dataSearch: Mongo.Cursor = ordersCostum.find();
                 let dataFiles = await dataSearch.toArray();
             
                 _response.write(JSON.stringify(dataFiles));
